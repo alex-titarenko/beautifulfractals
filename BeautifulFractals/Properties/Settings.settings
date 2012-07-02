@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TAlex.BeautifulFractals.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FractalsCollectionPath" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Fractals.xml</Value>
+    </Setting>
+    <Setting Name="RandomOrder" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ExitOnMouseMove" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Delay" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:03</Value>
+    </Setting>
+    <Setting Name="ShowFractalCaptions" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Background_FirstColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
+      <Value Profile="(Default)">#ff1e90ff</Value>
+    </Setting>
+    <Setting Name="Background_SecondColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
+      <Value Profile="(Default)">#ff000000</Value>
+    </Setting>
+    <Setting Name="Caption_FontFamily" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Arial</Value>
+    </Setting>
+    <Setting Name="Caption_FontSize" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="Caption_FontColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
+      <Value Profile="(Default)">#ff000000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

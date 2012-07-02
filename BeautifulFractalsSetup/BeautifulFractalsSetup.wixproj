@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.5</ProductVersion>
+    <ProjectGuid>{577fae73-397c-4ad8-9b93-786e42816483}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>BeautifulFractalsSetup</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Product.wxs" />
+    <Compile Include="UI\AdditionalTasksDlg.wxs" />
+    <Compile Include="UI\WixUI_InstallDirEx.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeautifulFractals\BeautifulFractals.csproj">
+      <Name>BeautifulFractals</Name>
+      <Project>{b3922781-ae85-4a30-a840-fa498e4f0332}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLLOCATION</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Images\Banner.bmp" />
+    <Content Include="Resources\Images\Dialog.bmp" />
+    <Content Include="Resources\License.rtf" />
+    <Content Include="Variables.wxi" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI" />
+    <Folder Include="Resources" />
+    <Folder Include="Resources\Images" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperFile Include="Microsoft.Net.Framework.3.5.SP1">
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+    </BootstrapperFile>
+    <BootstrapperFile Include="Microsoft.Windows.Installer.3.1">
+      <ProductName>Windows Installer 3.1</ProductName>
+    </BootstrapperFile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\WixUI_en-us.wxl" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target> -->
+  <Target Name="AfterBuild">
+    <GenerateBootstrapper ApplicationFile="$(TargetFileName)" ApplicationName="Beautiful Fractals" BootstrapperItems="@(BootstrapperFile)" ComponentsLocation="Relative" CopyComponents="False" OutputPath="$(OutputPath)" Path="C:\Program Files\Microsoft SDKs\Windows\v7.0A\Bootstrapper\" />
+  </Target>
+</Project>

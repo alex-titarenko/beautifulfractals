@@ -1,0 +1,1278 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TAlex.WPF.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:TAlex.WPF.Services.DragAndDrop.InsertionAdorner">
+            <summary>
+            Represents the adorner for the inserted element.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.InsertionAdorner.#ctor(System.Windows.UIElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Services.DragAndDrop.InsertionAdorner"/> class.
+            </summary>
+            <param name="adornedElement">The element to bind the adorner to.</param>
+            <exception cref="T:System.ArgumentNullException">Raised when adornedElement is null.</exception>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.InsertionAdorner.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Renders the contents of an <see cref="T:TAlex.WPF.Services.DragAndDrop.InsertionAdorner"/>.
+            </summary>
+            <param name="drawingContext">
+            The drawing instructions for a specific element. This context is provided to the layout system.
+            </param>
+        </member>
+        <member name="P:TAlex.WPF.Services.DragAndDrop.InsertionAdorner.Position">
+            <summary>
+            Gets or sets the insertion position for dragged element.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Services.DragAndDrop.InsertionAdorner.InsertionPosition">
+            <summary>
+            Specifies the insertion position for dragged element.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Services.DragAndDrop.InsertionAdorner.InsertionPosition.Top">
+            <summary>
+            Top insertion position.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Services.DragAndDrop.InsertionAdorner.InsertionPosition.Bottom">
+            <summary>
+            Bottom insertion position.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Services.DragAndDrop.DragAndDropService">
+            <summary>
+            Provides attached property for <see cref="T:System.Windows.Controls.ItemsControl"/> that implement drag and drop operation for items.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Services.DragAndDrop.DragAndDropService.DragAndDropManagerProperty">
+            <summary>
+            Identifies the DragAndDropService.DragAndDropManager attached property.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.DragAndDropService.GetDragAndDropManager(System.Windows.DependencyObject)">
+            <summary>
+            Gets the value of the DragAndDropService.DragAndDropManager attached property
+            from a given <see cref="T:System.Windows.DependencyObject"/>.
+            </summary>
+            <param name="element">The element from which to read the property value.</param>
+            <returns>The value of the DragAndDropService.DragAndDropManager attached property.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.DragAndDropService.SetDragAndDropManager(System.Windows.DependencyObject,TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager)">
+            <summary>
+            Sets the value of the DragAndDropService.DragAndDropManager attached property
+            to a given <see cref="T:System.Windows.UIElement"/>.
+            </summary>
+            <param name="element">The element on which to set the attached property.</param>
+            <param name="value">The property value to set.</param>
+        </member>
+        <member name="T:TAlex.WPF.Controls.NumericUpDown">
+            <summary>
+            Represents an up-down control that displays numeric values.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.NumericUpDown.Value"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.MinimumProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.NumericUpDown.Minimum"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.MaximumProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.NumericUpDown.Maximum"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.IncrementProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.NumericUpDown.Increment"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.DecimalPlacesProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.NumericUpDown.DecimalPlaces"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.InterceptArrowKeysProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.NumericUpDown.InterceptArrowKeys"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.IsReadOnlyProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.NumericUpDown.IsReadOnly"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.NumberFormatInfoProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.NumericUpDown.NumberFormatInfo"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.ValueChangedEvent">
+            <summary>
+            Identifies the <see cref="E:TAlex.WPF.Controls.NumericUpDown.ValueChanged"/> routed event.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.IncreaseCommand">
+            <summary>
+            The command that increases the value assigned to the numeric up-down control.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.NumericUpDown.DecreaseCommand">
+            <summary>
+            The command that decreases the value assigned to the numeric up-down control.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Controls.NumericUpDown"/> class.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.OnMouseLeftButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            This is a class handler for MouseLeftButtonDown event.
+            The purpose of this handle is to move input focus to NumericUpDown when user pressed
+            mouse left button on any part of slider that is not focusable.
+            </summary>
+            <param name="sender">The object where the event handler is attached.</param>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.OnApplyTemplate">
+            <summary>
+            Called when the template's tree is generated.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.OnCreateAutomationPeer">
+            <summary>
+            Creates an appropriate NumericUpDownAutomationPeer for this control as part of the WPF infrastructure.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.OnIsKeyboardFocusWithinChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Reports that the IsKeyboardFocusWithin property changed.
+            </summary>
+            <param name="e">The event data for the IsKeyboardFocusWithinChanged event.</param>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.OnMouseWheel(System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+            Handles the System.Windows.Input.Mouse.MouseWheel routed event.
+            </summary>
+            <param name="e">The System.Windows.Input.MouseWheelEventArgs that contains the event data.</param>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.OnValueChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Decimal})">
+            <summary>
+            Raises the ValueChanged event.
+            </summary>
+            <param name="args">Arguments associated with the ValueChanged event.</param>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.OnIncrease">
+            <summary>
+            IncreaseCommand event handler.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.OnDecrease">
+            <summary>
+            DecreaseCommand event handler.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.UpdateText">
+            <summary>
+            Displays the current value of the numeric up-down control in the appropriate format.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDown.UpdateValue">
+            <summary>
+            Update of the Value property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDown.Value">
+            <summary>
+            Gets or sets the value assigned to the numeric up-down control.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDown.Minimum">
+            <summary>
+            Gets or sets the minimum allowed value for the numeric up-down control.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDown.Maximum">
+            <summary>
+            Gets or sets the maximum allowed value for the numeric up-down control.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDown.Increment">
+            <summary>
+            Gets or sets the value to increment or decrement for the numeric up-down control.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDown.DecimalPlaces">
+            <summary>
+            Gets or sets the number of decimal places to display in the numeric up-down control.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDown.InterceptArrowKeys">
+            <summary>
+            Gets or sets a value that indicating whether the user can use the UP ARROW and DOWN ARROW keys to select values.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDown.IsReadOnly">
+            <summary>
+            Gets or sets a value that indicating whether the text can be changed by the use of the up or down buttons only.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDown.NumberFormatInfo">
+            <summary>
+            Gets or sets the NumberFormatInfo value.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDown.ContentText">
+            <summary>
+            Gets the current text content held by the text box.
+            </summary>
+        </member>
+        <member name="E:TAlex.WPF.Controls.NumericUpDown.ValueChanged">
+            <summary>
+            Occurs when the Value property changes.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Controls.NumericUpDownAutomationPeer">
+            <summary>
+            Exposes <see cref="T:TAlex.WPF.Controls.NumericUpDown"/> types to UI Automation.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDownAutomationPeer.#ctor(TAlex.WPF.Controls.NumericUpDown)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Controls.NumericUpDownAutomationPeer"/> class.
+            </summary>
+            <param name="owner">The <see cref="T:TAlex.WPF.Controls.NumericUpDown"/> that is associated with this <see cref="T:TAlex.WPF.Controls.NumericUpDownAutomationPeer"/>.</param>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDownAutomationPeer.GetPattern(System.Windows.Automation.Peers.PatternInterface)">
+            <summary>
+            Returns the control pattern for the <see cref="T:TAlex.WPF.Controls.NumericUpDown"/> that is associated with this <see cref="T:TAlex.WPF.Controls.NumericUpDownAutomationPeer"/>.
+            </summary>
+            <param name="patternInterface">A value in the enumeration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDownAutomationPeer.GetClassNameCore">
+            <summary>
+            Returns the name of the <see cref="T:TAlex.WPF.Controls.NumericUpDown"/> that is associated with this <see cref="T:TAlex.WPF.Controls.NumericUpDownAutomationPeer"/>.
+            </summary>
+            <returns>A string that contains "NumericUpDown".</returns>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDownAutomationPeer.GetAutomationControlTypeCore">
+            <summary>
+            Returns the control type for the <see cref="T:TAlex.WPF.Controls.NumericUpDown"/> that is associated with this <see cref="T:TAlex.WPF.Controls.NumericUpDownAutomationPeer"/>.
+            </summary>
+            <returns>Spinner.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDownAutomationPeer.GetOwner">
+            <summary>
+            Returns the <see cref="T:TAlex.WPF.Controls.NumericUpDown"/> that is associated with this <see cref="T:TAlex.WPF.Controls.NumericUpDownAutomationPeer"/>.
+            </summary>
+            <returns>The <see cref="T:TAlex.WPF.Controls.NumericUpDown"/> that is associated with this <see cref="T:TAlex.WPF.Controls.NumericUpDownAutomationPeer"/>.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Controls.NumericUpDownAutomationPeer.System#Windows#Automation#Provider#IRangeValueProvider#SetValue(System.Double)">
+            <summary>
+            Sets the value of the control.
+            </summary>
+            <param name="value">The value to set.</param>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDownAutomationPeer.System#Windows#Automation#Provider#IRangeValueProvider#Value">
+            <summary>
+            Gets the value of the control.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDownAutomationPeer.System#Windows#Automation#Provider#IRangeValueProvider#Minimum">
+            <summary>
+            Gets the minimum range value supported by the control.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDownAutomationPeer.System#Windows#Automation#Provider#IRangeValueProvider#Maximum">
+            <summary>
+            Gets the maximum range value supported by the control.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDownAutomationPeer.System#Windows#Automation#Provider#IRangeValueProvider#SmallChange">
+            <summary>
+            Gets the value that is added to or subtracted from the <see cref="P:System.Windows.Automation.Provider.IRangeValueProvider.Value" />
+            property when a small change is made, such as with an arrow key.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDownAutomationPeer.System#Windows#Automation#Provider#IRangeValueProvider#LargeChange">
+            <summary>
+            Gets the value that is added to or subtracted from the <see cref="P:System.Windows.Automation.Provider.IRangeValueProvider.Value" />
+            property when a large change is made, such as with the PAGE DOWN key.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.NumericUpDownAutomationPeer.System#Windows#Automation#Provider#IRangeValueProvider#IsReadOnly">
+            <summary>
+            Gets a value that specifies whether the value of a control is read-only.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.CommonDialogs.FolderBrowserDialog">
+            <summary>
+            Prompts the user to select a folder.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.FolderBrowserDialog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.CommonDialogs.FolderBrowserDialog"/> class. 
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.FolderBrowserDialog.Reset">
+            <summary>
+            Resets properties to their default values.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.FolderBrowserDialog.RunDialog(System.IntPtr)">
+            <summary>
+            When overridden in a derived class, specifies a common dialog box.
+            </summary>
+            <param name="hwndOwner">A value that represents the window handle of the owner window for the common dialog box.</param>
+            <returns>true if the dialog box was successfully run; otherwise, false.</returns>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FolderBrowserDialog.Description">
+            <summary>
+            Gets or sets the descriptive text displayed above the tree view control in the dialog box.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FolderBrowserDialog.SelectedPath">
+            <summary>
+            Gets or sets the path selected by the user.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FolderBrowserDialog.ShowNewFolderButton">
+            <summary>
+            Gets or sets a value indicating whether the New Folder button appears in the folder browser dialog box.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Media.ColorUtilities">
+            <summary>
+            Represents frequently used tools for working with color.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.GetHexCode(System.Windows.Media.Color)">
+            <summary>
+            Returns a string representing a <see cref="T:System.Windows.Media.Color"/> written as hex code.
+            </summary>
+            <param name="c">A <see cref="T:System.Windows.Media.Color"/> value.</param>
+            <returns><see cref="T:System.String"/> representing <paramref name="c"/> written as hex code.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.ParseColor(System.String)">
+            <summary>
+            Converts the string representation of a color to its <see cref="T:System.Windows.Media.Color"/> equivalent.
+            </summary>
+            <param name="s">A string containing a color to convert.</param>
+            <returns>A <see cref="T:System.Windows.Media.Color"/> equivalent to the color contained in s.</returns>
+            <exception cref="T:System.NullReferenceException">s is null value.</exception>
+            <exception cref="T:System.FormatException">s is empty string or written in incorrect format.</exception>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.TryParseColor(System.String,System.Windows.Media.Color@)">
+            <summary>
+            Converts the string representation of a color to its <see cref="T:System.Windows.Media.Color"/> equivalent.
+            A return value indicates whether the conversion succeeded or failed.
+            </summary>
+            <param name="s">The string representation of the color to convert.</param>
+            <param name="result">
+            When this method returns, contains the <see cref="T:System.Windows.Media.Color"/> that is equivalent
+            to the color value contained in s, if the conversion succeeded, or transporent color
+            if the conversion failed. The conversion fails if the s parameter is null,
+            is an empty string, or does not contain a valid string representation of
+            a color. This parameter is passed uninitialized.
+            </param>
+            <returns>true if <paramref name="s"/> was converted successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.ColorToBgra32(System.Windows.Media.Color)">
+            <summary>
+            Converts a <see cref="T:System.Windows.Media.Color"/> value to Int32.
+            </summary>
+            <param name="color">A <see cref="T:System.Windows.Media.Color"/> value.</param>
+            <returns>Int32 value converted from <paramref name="color"/>.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.ColorToBgra32(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Converts a color channels to a Int32 color value.
+            </summary>
+            <param name="r">An integer value representing a red channel of color.</param>
+            <param name="g">An integer value representing a green channel of color.</param>
+            <param name="b">An integer value representing a blue channel of color.</param>
+            <returns>Int32 color value converted from color channels.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.RgbToHsv(System.Windows.Media.Color)">
+            <summary>
+            Converts rgb color to hsv color.
+            </summary>
+            <param name="rgbColor">A <see cref="T:System.Windows.Media.Color"/> value.</param>
+            <returns><see cref="T:TAlex.WPF.Media.HsvColor"/> value converted from <paramref name="rgbColor"/>.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.HsvToRgb(TAlex.WPF.Media.HsvColor)">
+            <summary>
+            Converts hsv color to rgb color.
+            </summary>
+            <param name="hsvColor">A <see cref="T:TAlex.WPF.Media.HsvColor"/> value</param>
+            <returns>A <see cref="T:System.Windows.Media.Color"/> value converted from <paramref name="hsvColor"/>.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.GetHueBrash(System.Double,System.Double)">
+            <summary>
+            Returns a hue brush with specified saturation and brightness values.
+            </summary>
+            <param name="s">A floating-point number representing a saturation for the hue brush.</param>
+            <param name="v">A floating-point number representing a value (brightness) for the hue brush.</param>
+            <returns><see cref="T:System.Windows.Media.Brush"/> representing of hue colors.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.FuzzyColorEquals(System.Windows.Media.Color,System.Windows.Media.Color)">
+            <summary>
+            Tests whether two <see cref="T:System.Windows.Media.Color"/> structures are identical by integer values of color channels.
+            </summary>
+            <param name="c1">The first <see cref="T:System.Windows.Media.Color"/> structure to compare.</param>
+            <param name="c2">The second <see cref="T:System.Windows.Media.Color"/> structure to compare.</param>
+            <returns>true if <paramref name="c1"/> and <paramref name="c2"/> are fuzzy identical; otherwise, false.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.FuzzyColorEquals(TAlex.WPF.Media.HsvColor,TAlex.WPF.Media.HsvColor)">
+            <summary>
+            Tests whether two <see cref="T:TAlex.WPF.Media.HsvColor"/> structures are identical by integer values of color components.
+            </summary>
+            <param name="c1">The first <see cref="T:TAlex.WPF.Media.HsvColor"/> structure to compare.</param>
+            <param name="c2">The second <see cref="T:TAlex.WPF.Media.HsvColor"/> structure to compare.</param>
+            <returns>true if <paramref name="c1"/> and <paramref name="c2"/> are fuzzy identical; otherwise, false.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.ColorUtilities.IsKnownColor(System.Windows.Media.Color,System.String@)">
+            <summary>
+            Returns a value indicating whether the specified color is a predefined and when true sets the name of the color.
+            </summary>
+            <param name="color">A <see cref="T:System.Windows.Media.Color"/> value to inspecting.</param>
+            <param name="name">The name of the predefined color.</param>
+            <returns>true if <paramref name="color"/> is predefined color; otherwise, false.</returns>
+        </member>
+        <member name="T:TAlex.WPF.Converters.BooleanToVisibilityConverter">
+            <summary>
+            Represents the converter that converts Boolean values to and from <see cref="T:System.Windows.Visibility"/> enumeration values.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Converters.ConverterBase`1">
+            <summary>
+            Represents the base class for all classes that implement custom logic to a value converting.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:TAlex.WPF.Converters.ConverterBase`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value. Must be implemented in inheritor.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Converters.ConverterBase`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts back a value. Override if needed.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Converters.ConverterBase`1.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Returns an object that is provided as the value of the target property for this markup extension.
+            </summary>
+            <param name="serviceProvider">A service provider helper that can provide services for the markup extension.</param>
+            <returns>The object value to set on the property where the extension is applied.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Converters.BooleanToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a boolean value to a <see cref="T:System.Windows.Visibility"/> enumeration value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter. This parameter is not used.</param>
+            <returns><see cref="F:System.Windows.Visibility.Visible"/> if <paramref name="value"/> is true; otherwise, <see cref="F:System.Windows.Visibility.Collapsed"/> or <see cref="F:System.Windows.Visibility.Hidden"/>.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Converters.BooleanToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a <see cref="T:System.Windows.Visibility"/> enumeration value to a boolean value.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter. This parameter is not used.</param>
+            <returns>true if <paramref name="value"/> is <see cref="F:System.Windows.Visibility.Visible"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Converters.BooleanToVisibilityConverter.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Returns an object that is provided as the value of the target property for this markup extension.
+            </summary>
+            <param name="serviceProvider">A service provider helper that can provide services for the markup extension.</param>
+            <returns>The object value to set on the property where the extension is applied.</returns>
+        </member>
+        <member name="P:TAlex.WPF.Converters.BooleanToVisibilityConverter.UseHidden">
+            <summary>
+            Gets or sets a value that indicates whether to hide the element instead of the collapse.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager">
+            <summary>
+            Provides the ability to drag items for target items control.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager"/> class.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager.#ctor(System.Windows.Controls.ItemsControl)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager"/> class.
+            </summary>
+            <param name="targetElement">The target items control for which the drag operation is implemented.</param>
+        </member>
+        <member name="P:TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager.IsDragInProgress">
+            <summary>
+            Gets a value that indicates whether a drag operation is currently.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager.TargetElement">
+            <summary>
+            Gets or sets the target items control for which realized the possibility of dragging items.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager.DragAdornerOpacity">
+            <summary>
+            Gets or sets opacity value for dragging element.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Services.DragAndDrop.ItemsControlDragDropManager.DataFormat">
+            <summary>
+            Gets or sets a string representing data format for target items control.
+            Initial value is randomly, presenting a guid identifier.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Converters.ColorToBrushConverter">
+            <summary>
+            Represents the converter that converts <see cref="T:System.Windows.Media.Color"/> values to <see cref="T:System.Windows.Media.Brush"/> values.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Converters.ColorToBrushConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a <see cref="T:System.Windows.Media.Color"/> value to a <see cref="T:System.Windows.Media.Brush"/> value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter. This parameter is not used.</param>
+            <returns><see cref="T:System.Windows.Media.Brush"/> converted from <paramref name="value"/>.</returns>
+        </member>
+        <member name="T:TAlex.WPF.Converters.Int32ToDecimalConverter">
+            <summary>
+            Represents the converter that converts a 32-bit signed integer numbers to and from decimal numbers.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Converters.Int32ToDecimalConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a 32-bit signed integer number to a decimal number.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter. This parameter is not used.</param>
+            <returns>decimal number that converted from <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Converters.Int32ToDecimalConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a decimal number to a 32-bit signed integer number.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter. This parameter is not used.</param>
+            <returns>32-bit signed integer number that converted from <paramref name="value"/>.</returns>
+        </member>
+        <member name="T:TAlex.WPF.Media.HsvColor">
+            <summary>
+            Describes a color in terms of alpha, hue, saturation, and value (brightness).
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Media.HsvColor.MaxHueValue">
+            <summary>
+            Represents the maximum value of the hue of the color. This field is constant.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Media.HsvColor.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Media.HsvColor"/> structure.
+            </summary>
+            <param name="hue">A System.Double representing the hue of the new color.</param>
+            <param name="saturation">A System.Double representing the saturation of the new color.</param>
+            <param name="value">A System.Double representing the value (brightness) of the new color.</param>
+        </member>
+        <member name="M:TAlex.WPF.Media.HsvColor.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Media.HsvColor"/> structure.
+            </summary>
+            <param name="alpha">A System.Double representing the alpha channel of the new color.</param>
+            <param name="hue">A System.Double representing the hue of the new color.</param>
+            <param name="saturation">A System.Double representing the saturation of the new color.</param>
+            <param name="value">A System.Double representing the value (brightness) of the new color.</param>
+        </member>
+        <member name="M:TAlex.WPF.Media.HsvColor.ToRgb">
+            <summary>
+            Gets the scRGB of this HsvColor structure.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Media.Color"/> converted from this instance.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.HsvColor.ToString">
+            <summary>
+            Creates a string representation of the color using the HSV channels.
+            </summary>
+            <returns>The string representation of the color.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.HsvColor.Equals(System.Object)">
+            <summary>
+            Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>true if obj is an instance of HsvColor and equals the value of this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.HsvColor.GetHashCode">
+            <summary>
+            Gets a hash code for the current HsvColor structure.
+            </summary>
+            <returns>A hash code for the current HsvColor structure.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.HsvColor.FromRgb(System.Windows.Media.Color)">
+            <summary>
+            Creates a new HsvColor structure by using the ScRGB alpha channel and color channel values.
+            </summary>
+            <param name="rgbColor">A <see cref="T:System.Windows.Media.Color"/> to be converted.</param>
+            <returns>A HsvColor structure with the specified values.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.HsvColor.op_Equality(TAlex.WPF.Media.HsvColor,TAlex.WPF.Media.HsvColor)">
+            <summary>
+            Tests whether two HsvColor structures are identical. 
+            </summary>
+            <param name="c1">The first HsvColor structure to compare.</param>
+            <param name="c2">The second HsvColor structure to compare.</param>
+            <returns>true if c1 and c2 are exactly identical; otherwise, false.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Media.HsvColor.op_Inequality(TAlex.WPF.Media.HsvColor,TAlex.WPF.Media.HsvColor)">
+            <summary>
+            Tests whether two HsvColor structures are not identical.
+            </summary>
+            <param name="c1">The first HsvColor structure to compare.</param>
+            <param name="c2">The second HsvColor structure to compare.</param>
+            <returns>true if c1 and c2 are not equal; otherwise, false.</returns>
+        </member>
+        <member name="P:TAlex.WPF.Media.HsvColor.A">
+            <summary>
+            Gets or sets the alpha channel of the color. Value ranges from 0 to 1.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Media.HsvColor.H">
+            <summary>
+            Gets or sets the hue of the color. Value ranges from 0 to 360.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Media.HsvColor.S">
+            <summary>
+            Gets or sets the saturation of the color. Value ranges from 0 to 1.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Media.HsvColor.V">
+            <summary>
+            Gets or sets the value (brightness) of the color. Value ranges from 0 to 1.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Media.HsvColor.IntA">
+            <summary>
+            Gets or sets integer value of the alpha channel of the color. Value ranges from 0 to 100.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Media.HsvColor.IntH">
+            <summary>
+            Gets or sets integer value of the hue of the color. Value ranges from 0 to 360.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Media.HsvColor.IntS">
+            <summary>
+            Gets or sets integer value of the saturation of the color. Value ranges from 0 to 100.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Media.HsvColor.IntV">
+            <summary>
+            Gets or sets integer value of the value (brightness) of the color. Value ranges from 0 to 100.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Media.ColorItem">
+            <summary>
+            Represents the data for color item.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Converters.NotEmptyStringToBooleanConverter">
+            <summary>
+            Represents the converter that converts not empty <see cref="T:System.String"/> values to boolean values.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Converters.NotEmptyStringToBooleanConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts not empty string to boolean value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter. This parameter is not used.</param>
+            <returns>true if <paramref name="value"/> is not null or empty string; otherwise, false.</returns>
+        </member>
+        <member name="P:TAlex.WPF.Converters.NotEmptyStringToBooleanConverter.IsReversed">
+            <summary>
+            Gets or sets a value that indicates that the result of converting must be take the inverse value.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Controls.ColorChip">
+            <summary>
+            Represents one element of the color palette with the ability
+            to assign custom color or choose one of the predefined colors.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorChip.SelectedColorProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.ColorChip.SelectedColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorChip.PreviewAreaWidthProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.ColorChip.PreviewAreaWidth"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorChip.PreviewAreaHeightProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.ColorChip.PreviewAreaHeight"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorChip.ShowStandardToolTipProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.ColorChip.ShowStandardToolTip"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorChip.ShowColorPalettesPopupProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.ColorChip.ShowColorPalettesPopup"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorChip.ShowKnownColorsProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.ColorChip.ShowKnownColors"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorChip.ShowStandardColorsProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.ColorChip.ShowStandardColors"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorChip.SelectedColorChangedEvent">
+            <summary>
+            Identifies the <see cref="E:TAlex.WPF.Controls.ColorChip.SelectedColorChanged"/> routed event.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.ColorChip.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Controls.ColorChip"/> class.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.ColorChip.OnApplyTemplate">
+            <summary>
+            Called when the template's tree is generated.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.ColorChip.OnSelectedColorChanged(System.Windows.Media.Color,System.Windows.Media.Color)">
+            <summary>
+            Raises the <see cref="E:TAlex.WPF.Controls.ColorChip.SelectedColorChanged"/> event.
+            </summary>
+            <param name="oldValue">Old value of the color.</param>
+            <param name="newValue">New value of the color.</param>
+        </member>
+        <member name="M:TAlex.WPF.Controls.ColorChip.OnMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Responds to the <see cref="E:System.Windows.UIElement.MouseLeftButtonUp"/> event.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="M:TAlex.WPF.Controls.ColorChip.OnMouseRightButtonUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Responds to the <see cref="M:System.Windows.UIElement.OnMouseRightButtonUp(System.Windows.Input.MouseButtonEventArgs)"/> event.
+            </summary>
+            <param name="e">The event data.</param>
+        </member>
+        <member name="P:TAlex.WPF.Controls.ColorChip.SelectedColor">
+            <summary>
+            Gets or sets the color selected by the user.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.ColorChip.PreviewAreaWidth">
+            <summary>
+            Gets or sets the width of the preview area.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.ColorChip.PreviewAreaHeight">
+            <summary>
+            Gets or sets the height of the preview area.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.ColorChip.ShowStandardToolTip">
+            <summary>
+            Gets or sets the visibility of the standard tooltip.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.ColorChip.ShowColorPalettesPopup">
+            <summary>
+            Gets or sets the visibility of the color palettes popup.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.ColorChip.ShowKnownColors">
+            <summary>
+            Gets or sets the visibility of the known colors.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.ColorChip.ShowStandardColors">
+            <summary>
+            Gets or sets the visibility of the standard colors.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="E:TAlex.WPF.Controls.ColorChip.SelectedColorChanged">
+            <summary>
+            Occurs after the selected color has been changed.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.CommonDialogs.ColorPickerDialog">
+            <summary>
+            Prompts the user to choose a custom color.
+            </summary>
+            <summary>
+            ColorPickerDialog
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.ColorPickerDialog.SelectedColorProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.ColorPickerDialog.SelectedColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.ColorPickerDialog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.CommonDialogs.ColorPickerDialog"/> class.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.ColorPickerDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.ColorPickerDialog.SelectedColor">
+            <summary>
+            Gets or sets the color selected by the user.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Converters.IsNotNullToBooleanConverter">
+            <summary>
+            Represents the converter that converts not null values to boolean values.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Converters.IsNotNullToBooleanConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts not null value to boolean value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter. This parameter is not used.</param>
+            <returns>true if <paramref name="value"/> is not null; otherwise, false.</returns>
+        </member>
+        <member name="P:TAlex.WPF.Converters.IsNotNullToBooleanConverter.IsReversed">
+            <summary>
+            Gets or sets a value that indicates that the result of converting must be take the inverse value.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.CommonDialogs.FontChooserDialog">
+            <summary>
+            Prompts the user to choose a font from among those installed on the local computer.
+            </summary>
+            <summary>
+            FontChooserDialog
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.DefaultTextPreview">
+            <summary>
+            Represents the default text preview. This field is constant.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontFamilyProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontFamily"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontWeightProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontWeight"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontStyleProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontStretchProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontStretch"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontSizeProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontSize"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedTextDecorationsProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedTextDecorations"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontColorProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.TextPreviewProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.TextPreview"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.ShowTextDecorationsProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.ShowTextDecorations"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.CommonDialogs.FontChooserDialog.ShowColorProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.CommonDialogs.FontChooserDialog.ShowColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.FontChooserDialog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.CommonDialogs.FontChooserDialog"/> class.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.FontChooserDialog.OnInitialized(System.EventArgs)">
+            <summary>
+            Called when IsInitialized is set to true.
+            </summary>
+            <param name="e">Provides data for the Initialized event.</param>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.FontChooserDialog.ApplyFontSettings(System.Windows.DependencyObject)">
+            <summary>
+            Applies all the font settings that were selected by the user to the dependent element.
+            </summary>
+            <param name="element">Dependent element which applies the font settings.</param>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectFontSettings(System.Windows.DependencyObject)">
+            <summary>
+            Selects all the font settings from the dependent element.
+            </summary>
+            <param name="element">Dependent element from the which is selected by the font settings.</param>
+        </member>
+        <member name="M:TAlex.WPF.CommonDialogs.FontChooserDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontFamily">
+            <summary>
+            Gets or sets the selected font family.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontWeight">
+            <summary>
+            Gets or sets the selected font weight.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontStyle">
+            <summary>
+            Gets or sets the selected font style (normal, italic, or oblique).
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontStretch">
+            <summary>
+            Gets or sets the selected font stretch.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontSize">
+            <summary>
+            Gets or sets the selected font size.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedTextDecorations">
+            <summary>
+            Gets or sets the selected text decorations, such as underline, strikethrough, and etc.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.SelectedFontColor">
+            <summary>
+            Gets or sets the selected font color.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.TextPreview">
+            <summary>
+            Gets or sets the text to preview the selected font options.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.ShowTextDecorations">
+            <summary>
+            Gets or sets a value indicating whether the dialog box contains controls
+            that allow the user to specify strikethrough, underline, and etc.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.CommonDialogs.FontChooserDialog.ShowColor">
+            <summary>
+            Gets or sets a value indicating whether the dialog box displays the color choice.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Services.DragAndDrop.DragAdorner">
+            <summary>
+            Represents the adorner for the dragged element.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.DragAdorner.#ctor(System.Windows.UIElement,System.Windows.UIElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Services.DragAndDrop.DragAdorner"/> class.
+            </summary>
+            <param name="adornedElement">The element to bind the adorner to.</param>
+            <param name="dragedElement">The element that should be dragged.</param>
+            <exception cref="T:System.ArgumentNullException">Raised when adornedElement is null.</exception>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.DragAdorner.GetDesiredTransform(System.Windows.Media.GeneralTransform)">
+            <summary>
+            Returns a <see cref="T:System.Windows.Media.Transform"/> for the adorner, based on the transform
+            that is currently applied to the adorned element.
+            </summary>
+            <param name="transform">The transform that is currently applied to the adorned element.</param>
+            <returns>A transform to apply to the adorner.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.DragAdorner.MeasureOverride(System.Windows.Size)">
+            <summary>
+            Called to remeasure a control.
+            </summary>
+            <param name="availableSize">
+            The available size that this element can give to child elements. Infinity
+            can be specified as a value to indicate that the element will size to whatever
+            content is available.
+            </param>
+            <returns>
+            The size that this element determines it needs during layout, based on its
+            calculations of child element sizes.
+            </returns>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.DragAdorner.ArrangeOverride(System.Windows.Size)">
+            <summary>
+            Called to arrange and size the content of a <see cref="T:TAlex.WPF.Services.DragAndDrop.DragAdorner"/> object.
+            </summary>
+            <param name="finalSize">
+            The final area within the parent that this element should use to arrange
+            itself and its children.
+            </param>
+            <returns>The actual size used.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.DragAdorner.GetVisualChild(System.Int32)">
+            <summary>
+            Overrides System.Windows.Media.Visual.GetVisualChild(System.Int32), and returns
+            a child at the specified index from a collection of child elements.
+            </summary>
+            <param name="index">
+            The zero-based index of the requested child element in the collection.
+            This parameter is not used.
+            </param>
+            <returns>The requested child element.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Services.DragAndDrop.DragAdorner.SetPosition(System.Double,System.Double)">
+            <summary>
+            Sets the specified position for the dragged element.
+            </summary>
+            <param name="left">Left offset for the dragged element.</param>
+            <param name="top">Top offset for the dragged element.</param>
+        </member>
+        <member name="P:TAlex.WPF.Services.DragAndDrop.DragAdorner.VisualChildrenCount">
+            <summary>
+            Gets the number of visual child elements within this element.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Converters.CamelTextToRegularTextConverter">
+            <summary>
+            Represents the converter that converts texts in camel notation to texts in regular notation.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Converters.CamelTextToRegularTextConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts text in camel notation to text in regular notation.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter. This parameter is not used.</param>
+            <returns><see cref="T:System.String"/> in regular notation.</returns>
+        </member>
+        <member name="T:TAlex.WPF.Controls.ColorComboBox">
+            <summary>
+            Represents a color selection control with a drop-down list of predefined colors
+            that can be shown or hidden by clicking the arrow on the control.
+            </summary>
+            <summary>
+            ColorComboBox
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorComboBox.SelectedColorProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.ColorComboBox.SelectedColor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorComboBox.SelectedBrushProperty">
+            <summary>
+            Identifies the <see cref="P:TAlex.WPF.Controls.ColorComboBox.SelectedBrush"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:TAlex.WPF.Controls.ColorComboBox.SelectedColorChangedEvent">
+            <summary>
+            Identifies the <see cref="E:TAlex.WPF.Controls.ColorComboBox.SelectedColorChanged"/> routed event.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.ColorComboBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:TAlex.WPF.Controls.ColorComboBox"/> class.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Controls.ColorComboBox.OnSelectedColorChanged(System.Windows.Media.Color,System.Windows.Media.Color)">
+            <summary>
+            Raises the <see cref="E:TAlex.WPF.Controls.ColorComboBox.SelectedColorChanged"/> event.
+            </summary>
+            <param name="oldValue">Old value of the color.</param>
+            <param name="newValue">New value of the color.</param>
+        </member>
+        <member name="M:TAlex.WPF.Controls.ColorComboBox.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.ColorComboBox.SelectedColor">
+            <summary>
+            Gets or sets the color selected by the user.
+            </summary>
+        </member>
+        <member name="P:TAlex.WPF.Controls.ColorComboBox.SelectedBrush">
+            <summary>
+            Gets or sets the solid brush selected by the user.
+            </summary>
+        </member>
+        <member name="E:TAlex.WPF.Controls.ColorComboBox.SelectedColorChanged">
+            <summary>
+            Occurs after the selected color has been changed.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Helpers.WPFVisualHelper">
+            <summary>
+            Provides helper methods that perform common tasks involving visual elements.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Helpers.WPFVisualHelper.FindAncestor``1(System.Windows.DependencyObject)">
+            <summary>
+            Helper to search up the VisualTree.
+            </summary>
+        </member>
+        <member name="T:TAlex.WPF.Converters.DoubleToStringConverter">
+            <summary>
+            Represents the converter that converts a double-precision floating-point numbers to and from string values.
+            </summary>
+        </member>
+        <member name="M:TAlex.WPF.Converters.DoubleToStringConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a double-precision floating-point number to equivalent string representation.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns><see cref="T:System.String"/> that represented a double-precision floating-point number <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TAlex.WPF.Converters.DoubleToStringConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a string value to a double-precision floating-point number.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to. This parameter is not used.</param>
+            <param name="parameter">The converter parameter to use. This parameter is not used.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>double-precision floating-point number that converted from <paramref name="value"/>.</returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

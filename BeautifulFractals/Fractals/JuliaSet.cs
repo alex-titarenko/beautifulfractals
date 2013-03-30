@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 using TAlex.BeautifulFractals.Rendering;
 using TAlex.BeautifulFractals.Rendering.ColorPalettes;
-using TAlex.BeautifulFractals.MathCore;
+using TAlex.MathCore;
 
 
 namespace TAlex.BeautifulFractals.Fractals
@@ -88,12 +88,12 @@ namespace TAlex.BeautifulFractals.Fractals
                 for (int x = 0; x < w; x++)
                 {
                     Complex Z = new Complex(offset_x + x * step, offset_y + y * step);
-                    double smooth_iter = Math.Exp(-Complex.Modulus(Z));
+                    double smooth_iter = Math.Exp(-Complex.Abs(Z));
 
-                    for (n = 0; (n < MaxIterations) && (Complex.Modulus(Z) < BailOut); n++)
+                    for (n = 0; (n < MaxIterations) && (Complex.Abs(Z) < BailOut); n++)
                     {
                         Z = Z * Z + _c;
-                        smooth_iter += Math.Exp(-Complex.Modulus(Z));
+                        smooth_iter += Math.Exp(-Complex.Abs(Z));
                     }
 
                     if (n < MaxIterations)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using TAlex.BeautifulFractals.Rendering;
-using TAlex.BeautifulFractals.MathCore;
+using TAlex.MathCore;
 
 
 namespace TAlex.BeautifulFractals.Fractals
@@ -77,7 +77,7 @@ namespace TAlex.BeautifulFractals.Fractals
                     Complex Delta = Z;
                     Complex Z1 = Z;
 
-                    for (n = 0; (n < MaxIterations) && (Complex.Modulus(Z) < BailOut) && Complex.Modulus(Delta) > 1E-15; n++)
+                    for (n = 0; (n < MaxIterations) && (Complex.Abs(Z) < BailOut) && Complex.Abs(Delta) > 1E-15; n++)
                     {
                         Z = Z - p.Evaluate(Z) / pd.Evaluate(Z);
                         Delta = Z1 - Z;
@@ -92,7 +92,7 @@ namespace TAlex.BeautifulFractals.Fractals
         private Color GetColor(Complex z, int k, int iterations)
         {
             double mag = ((double)(iterations - k)) / (double)iterations;
-            double angle = Complex.Argument(z);
+            double angle = z.IsZero ? 0 : Complex.Arg(z);
 
             int g = (int)(255 * mag * (Math.Sin(angle) / 2 + 0.5));
             int b = (int)(255 * mag * (Math.Sin(angle + 2 * Math.PI / 3) / 2 + 0.5));

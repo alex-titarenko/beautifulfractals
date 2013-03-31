@@ -83,8 +83,9 @@
     <Reference Include="TAlex.Common">
       <HintPath>..\Binaries\TAlex.Common.dll</HintPath>
     </Reference>
-    <Reference Include="TAlex.MathCore">
-      <HintPath>..\packages\TAlex.MathCore.1.0.0.0\lib\net45\TAlex.MathCore.dll</HintPath>
+    <Reference Include="TAlex.MathCore, Version=1.0.4838.28811, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\TAlex.MathCore.1.0.4838.28811\lib\net45\TAlex.MathCore.dll</HintPath>
     </Reference>
     <Reference Include="TAlex.WPF.Controls, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TAlex.WPF.Controls.1.4.1.0\lib\net35\TAlex.WPF.Controls.dll</HintPath>

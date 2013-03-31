@@ -11,8 +11,8 @@
   <?define HelpLink="http://www.talex-soft.com" ?>
   <?define UpdateInformation="http://www.talex-soft.com" ?>
 
-  <?define FrameworkVersion="NETFRAMEWORK35_SP_LEVEL" ?>
-  <?define FrameworkVersionText="3.5 SP1" ?>
+  <?define FrameworkVersion="NETFRAMEWORK45" ?>
+  <?define FrameworkVersionText="4.5" ?>
     
   <?define MainExecutableFileName="$(var.BeautifulFractals.TargetName).scr" ?>
 </Include>

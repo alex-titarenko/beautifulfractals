@@ -8,6 +8,7 @@
         Height="350" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <talex:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <talex:HyperlinkNavigateCommand x:Key="HyperlinkNavigateCommand" />
         <data:DisplayToBrushConverter x:Key="DisplayToBrushConverter" />
     </Window.Resources>
     
@@ -333,7 +334,7 @@
                         </Label>
 
                         <Label Grid.Row="0" Grid.Column="1" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="{Binding Mode=OneTime, Path=EmailAddress}">
+                            <Hyperlink CommandParameter="{Binding Mode=OneTime, Path=EmailAddress}" Command="{StaticResource HyperlinkNavigateCommand}">
                                 <TextBlock Text="{Binding Mode=OneTime, Path=EmailTitle}" />
                             </Hyperlink>
                         </Label>
@@ -344,7 +345,7 @@
                         </Label>
 
                         <Label Grid.Row="1" Grid.Column="1" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="{Binding Mode=OneTime, Path=HomepageUrl}">
+                            <Hyperlink CommandParameter="{Binding Mode=OneTime, Path=HomepageUrl}" Command="{StaticResource HyperlinkNavigateCommand}">
                                 <TextBlock Text="{Binding Mode=OneTime, Path=HomepageTitle}" />
                             </Hyperlink>
                         </Label>

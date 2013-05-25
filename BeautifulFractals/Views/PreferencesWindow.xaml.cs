@@ -164,16 +164,6 @@ namespace TAlex.BeautifulFractals
 
         #region Helpers
 
-        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
-            if (e.Uri != null && string.IsNullOrEmpty(e.Uri.OriginalString) == false)
-            {
-                string uri = e.Uri.AbsoluteUri;
-                Process.Start(new ProcessStartInfo(uri));
-                e.Handled = true;
-            }
-        }
-
         private void UpdateBackgroundType()
         {
             Point startPoint = new Point();

@@ -287,7 +287,7 @@
                     <Border Background="#22ffffff" Height="90" VerticalAlignment="Top">
                     </Border>
 
-                    <Image Source="Resources/Images/logo_bg.png" Stretch="UniformToFill" Opacity="0.06" />
+                    <Image Source="/Resources/Images/logo_bg.png" Stretch="UniformToFill" Opacity="0.06" />
 
                     <Label Margin="0,25,0,0" FontSize="36" FontWeight="600" FontFamily="Segoe UI, Arial" VerticalAlignment="Top" HorizontalContentAlignment="Center"
                         Content="{x:Static env:ApplicationInfo.Title}">
@@ -316,7 +316,6 @@
                         Unregistered evaluation copy
                     </Label>
 
-                    
                     <Grid Margin="20,145,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="130" />

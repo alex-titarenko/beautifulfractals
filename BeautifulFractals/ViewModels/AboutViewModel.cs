@@ -9,14 +9,6 @@ namespace TAlex.BeautifulFractals.ViewModels
 {
     public class AboutViewModel
     {
-        public virtual string LicenseName
-        {
-            get
-            {
-                return null;
-            }
-        }
-
         public virtual Version Version
         {
             get
@@ -78,11 +70,27 @@ namespace TAlex.BeautifulFractals.ViewModels
         }
 
 
-        public bool LicenseInfoVisibility
+        public virtual string LicenseName
+        {
+            get
+            {
+                return "Alex Titarenko";
+            }
+        }
+
+        public virtual bool LicenseInfoVisibility
         {
             get
             {
                 return true;
+            }
+        }
+
+        public bool UnregisteredTextVisibility
+        {
+            get
+            {
+                return !LicenseInfoVisibility;
             }
         }
     }

@@ -6,7 +6,8 @@
         xmlns:talex="http://schemas.talex-soft.com/2010/xaml/presentation"
         xmlns:env="clr-namespace:TAlex.Common.Environment;assembly=TAlex.Common"
         Height="350" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Window.Resources>        
+    <Window.Resources>
+        <talex:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <data:DisplayToBrushConverter x:Key="DisplayToBrushConverter" />
     </Window.Resources>
     
@@ -150,7 +151,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="23" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="30" />
+                        <!--<RowDefinition Height="30" />-->
                     </Grid.RowDefinitions>
                     
                     <Grid Height="22" VerticalAlignment="Top">
@@ -159,8 +160,8 @@
                             <ColumnDefinition Width="22" />
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel>
-                            <StackPanel.Resources>
+                        <Grid>
+                            <Grid.Resources>
                                 <Style TargetType="TextBox" x:Key="stlHintbox">
                                     <Style.Triggers>
                                         <Trigger Property="IsKeyboardFocused" Value="False">
@@ -172,7 +173,7 @@
                                         </Trigger>
                                     </Style.Triggers>
                                 </Style>
-                            </StackPanel.Resources>
+                            </Grid.Resources>
 
                             <TextBox Name="searchQueryTextBox" TabIndex="1" Tag="Search" BorderThickness="1,1,0,1" Style="{StaticResource stlHintbox}" TextChanged="searchQueryTextBox_TextChanged">
                                 <TextBox.BorderBrush>
@@ -183,9 +184,9 @@
                                 </TextBox.BorderBrush>
                             </TextBox>
                             <Border Visibility="Hidden">
-                                <TextBlock Padding="5" Name="hintText" Background="{Binding Path=Background, ElementName=searchQueryTextBox}" Text="{Binding Tag, ElementName=searchQueryTextBox}" Foreground="Gray" />
+                                <TextBlock Padding="5" Name="hintText" Background="{Binding Path=Background, ElementName=searchQueryTextBox}" Text="{Binding Tag, ElementName=searchQueryTextBox}" Foreground="Gray" VerticalAlignment="Center" />
                             </Border>
-                        </StackPanel>
+                        </Grid>
 
                         <Button SnapsToDevicePixels="True" Background="Transparent" Grid.Column="1" ToolTip="Clear Search" Click="clearQueryButton_Click">
                             <Button.Style>
@@ -225,7 +226,7 @@
                         
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Width="25">
+                                <GridViewColumn Width="30">
                                     <GridViewColumn.Header>
                                         <Grid ToolTip="Display">
                                             <Ellipse Width="12" Height="12" Stroke="Black" StrokeThickness="2" StrokeDashArray="0.5,2.1" StrokeDashCap="Round" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -240,7 +241,7 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Header="Name" Width="370">
+                                <GridViewColumn Header="Name" Width="360">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding}" Foreground="{Binding Path=Display, Converter={StaticResource DisplayToBrushConverter}}" />
@@ -251,10 +252,10 @@
                         </ListView.View>
                     </ListView>
                     
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,5,0,0">
+                    <!--<StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,5,0,0">
                         <Button Content="Add..." Width="70" />
                         <Button Content="Edit..." Width="70" Margin="5,0,0,0" />
-                    </StackPanel>
+                    </StackPanel>-->
                 </Grid>
             </TabItem>
             
@@ -263,7 +264,7 @@
                     <viewmodels:AboutViewModel />
                 </TabItem.DataContext>
                 
-                <Grid >
+                <Grid>
                     <Grid.Resources>
                         <DropShadowEffect x:Key="textEffect" ShadowDepth="1" Direction="-90" Color="White" BlurRadius="1" />
                     </Grid.Resources>
@@ -301,7 +302,7 @@
                         </Label.BitmapEffect>
                     </Label>
 
-                    <StackPanel Margin="60,115,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding Mode=OneTime, Path=LicenseInfoVisibility}">
+                    <StackPanel Margin="60,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding Mode=OneTime, Path=LicenseInfoVisibility, Converter={StaticResource BooleanToVisibilityConverter}}">
                         <Label Name="licTextLabel" Padding="0">
                             This product is licensed to:
                         </Label>
@@ -310,31 +311,44 @@
                     </StackPanel>
 
                     <Label Name="unregTextLabel" Margin="60,115,0,0" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" FontWeight="800"  Foreground="DarkRed"
-                        Visibility="{Binding Mode=OneTime, Path=UnregisteredTextVisibility}">
+                        Visibility="{Binding Mode=OneTime, Path=UnregisteredTextVisibility, Converter={StaticResource BooleanToVisibilityConverter}}">
                         Unregistered evaluation copy
                     </Label>
 
-                    <!-- E-Mail link -->
-                    <Label Margin="60,0,0,80" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                        E-Mail:
-                    </Label>
+                    
+                    <Grid Margin="20,145,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Grid.RowDefinitions>                            
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
 
-                    <Label Margin="150,0,0,80" Padding="0" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="{Binding Mode=OneTime, Path=EmailAddress}">
-                            <TextBlock Text="{Binding Mode=OneTime, Path=EmailTitle}" />
-                        </Hyperlink>
-                    </Label>
+                        <!-- E-Mail link -->
+                        <Label Grid.Row="0" Grid.Column="0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            E-Mail:
+                        </Label>
 
-                    <!-- Web link -->
-                    <Label Margin="60,0,0,60" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                        Web:
-                    </Label>
+                        <Label Grid.Row="0" Grid.Column="1" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="{Binding Mode=OneTime, Path=EmailAddress}">
+                                <TextBlock Text="{Binding Mode=OneTime, Path=EmailTitle}" />
+                            </Hyperlink>
+                        </Label>
 
-                    <Label Margin="150,0,0,60" Padding="0" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="{Binding Mode=OneTime, Path=HomepageUrl}">
-                            <TextBlock Text="{Binding Mode=OneTime, Path=HomepageTitle}" />
-                        </Hyperlink>
-                    </Label>
+                        <!-- Web link -->
+                        <Label Grid.Row="1" Grid.Column="0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            Web:
+                        </Label>
+
+                        <Label Grid.Row="1" Grid.Column="1" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="{Binding Mode=OneTime, Path=HomepageUrl}">
+                                <TextBlock Text="{Binding Mode=OneTime, Path=HomepageTitle}" />
+                            </Hyperlink>
+                        </Label>
+                    </Grid>
 
                     <!-- Copyright -->
                     <Label Margin="0,0,0,12" Padding="0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"

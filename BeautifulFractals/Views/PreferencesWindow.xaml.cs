@@ -27,54 +27,6 @@ namespace TAlex.BeautifulFractals
     /// </summary>
     public partial class PreferencesWindow : Window
     {
-        #region Properties
-
-        /// <summary>
-        /// Gets the email support title for this product.
-        /// </summary>
-        public static string EmailTitle
-        {
-            get
-            {
-                return EmailAddress.Replace("mailto:", String.Empty);
-            }
-        }
-
-        /// <summary>
-        /// Gets the email support for this product.
-        /// </summary>
-        public static string EmailAddress
-        {
-            get
-            {
-                return Properties.Resources.SupportEmail;
-            }
-        }
-
-        /// <summary>
-        /// Gets the homepage title of this product.
-        /// </summary>
-        public static string HomepageTitle
-        {
-            get
-            {
-                return HomepageUrl.Replace("http://", String.Empty);
-            }
-        }
-
-        /// <summary>
-        /// Gets the homepage url of this product.
-        /// </summary>
-        public static string HomepageUrl
-        {
-            get
-            {
-                return Properties.Resources.HomepageUrl;
-            }
-        }
-
-        #endregion
-
         #region Constructors
 
         public PreferencesWindow()

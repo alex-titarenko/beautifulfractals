@@ -106,10 +106,11 @@
     <Compile Include="Rendering\ColorPalettes\PredefinedColorPalette.cs" />
     <Compile Include="Rendering\Font.cs" />
     <Compile Include="Rendering\LinearGradientBrush.cs" />
-    <Compile Include="ErrorReportingWindow.xaml.cs">
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="Views\ErrorReportingWindow.xaml.cs">
       <DependentUpon>ErrorReportingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PreferencesWindow.xaml.cs">
+    <Compile Include="Views\PreferencesWindow.xaml.cs">
       <DependentUpon>PreferencesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rendering\Color.cs" />
@@ -129,7 +130,7 @@
     <Compile Include="Rendering\Size.cs" />
     <Compile Include="Helpers\Win32.cs" />
     <Compile Include="ScreensaverCommandLineArgs.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -155,15 +156,15 @@
     <Compile Include="Fractals\PhoenixSet.cs" />
     <Compile Include="Fractals\SierpinskiCarpet.cs" />
     <Compile Include="Fractals\SierpinskiTriangle.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PreferencesWindow.xaml">
+    <Page Include="Views\PreferencesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ErrorReportingWindow.xaml">
+    <Page Include="Views\ErrorReportingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -26,6 +26,8 @@ namespace TAlex.BeautifulFractals.Services
     {
         #region Fields
 
+        protected ApplicationInfo ApplicationInfo;
+
         public ErrorReport Report { get; set; }
 
         #endregion
@@ -37,9 +39,10 @@ namespace TAlex.BeautifulFractals.Services
             InitializeComponent();
         }
 
-        public ErrorReportingWindow(ErrorReport report)
+        public ErrorReportingWindow(ErrorReport report, ApplicationInfo applicationInfo)
             : this()
         {
+            ApplicationInfo = applicationInfo;
             Report = report;
 
             productTitleRun.Text = ApplicationInfo.Title;

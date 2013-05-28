@@ -6,10 +6,27 @@ using System.Threading.Tasks;
 using System.Windows.Markup;
 using TAlex.Common.Environment;
 
+
 namespace TAlex.BeautifulFractals.ViewModels
 {
     public class AboutViewModel
     {
+        #region Fields
+
+        protected ApplicationInfo ApplicationInfo;
+
+        #endregion
+
+        #region Properties
+
+        public virtual string AboutLogoTitle
+        {
+            get
+            {
+                return ApplicationInfo.Title;
+            }
+        }
+
         public virtual Version Version
         {
             get
@@ -83,7 +100,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return true;
+                return false;
             }
         }
 
@@ -94,5 +111,16 @@ namespace TAlex.BeautifulFractals.ViewModels
                 return !LicenseInfoVisibility;
             }
         }
+
+        #endregion
+
+        #region Constructors
+
+        public AboutViewModel(ApplicationInfo applicationInfo)
+        {
+            ApplicationInfo = applicationInfo;
+        }
+
+        #endregion
     }
 }

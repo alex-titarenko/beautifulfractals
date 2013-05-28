@@ -12,6 +12,7 @@ using System.Windows.Threading;
 
 using TAlex.Common.Diagnostics.ErrorReporting;
 using TAlex.BeautifulFractals.Helpers;
+using TAlex.Common.Environment;
 
 
 namespace TAlex.BeautifulFractals
@@ -104,7 +105,7 @@ namespace TAlex.BeautifulFractals
             Trace.TraceError(exc.ToString());
 
             Services.ErrorReportingWindow reportWindow =
-                new Services.ErrorReportingWindow(new ErrorReport(exc));
+                new Services.ErrorReportingWindow(new ErrorReport(exc), ApplicationInfo.Current);
 
             Window activeWindow = null;
             foreach (Window w in Windows)

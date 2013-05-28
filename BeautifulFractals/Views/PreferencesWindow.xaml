@@ -259,12 +259,8 @@
                     </StackPanel>-->
                 </Grid>
             </TabItem>
-            
-            <TabItem Header="About">
-                <TabItem.DataContext>
-                    <viewmodels:AboutViewModel />
-                </TabItem.DataContext>
-                
+
+            <TabItem Header="About" DataContext="{Binding Source={StaticResource viewModelLocator}, Path=AboutViewModel, Mode=OneTime}">                
                 <Grid>
                     <Grid.Resources>
                         <DropShadowEffect x:Key="textEffect" ShadowDepth="1" Direction="-90" Color="White" BlurRadius="1" />
@@ -290,7 +286,7 @@
                     <Image Source="/Resources/Images/logo_bg.png" Stretch="UniformToFill" Opacity="0.06" />
 
                     <Label Margin="0,25,0,0" FontSize="36" FontWeight="600" FontFamily="Segoe UI, Arial" VerticalAlignment="Top" HorizontalContentAlignment="Center"
-                        Content="{x:Static env:ApplicationInfo.Title}">
+                        Content="{Binding AboutLogoTitle}">
                         <Label.BitmapEffect>
                             <DropShadowBitmapEffect Color="White" Direction="270" ShadowDepth="1" Softness="0" />
                         </Label.BitmapEffect>
@@ -311,9 +307,11 @@
                         </Label>
                     </StackPanel>
 
-                    <Label Name="unregTextLabel" Margin="60,115,0,0" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" FontWeight="800"  Foreground="DarkRed"
+                    <Label Name="unregTextLabel" Margin="60,115,0,0" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" FontWeight="800"
                         Visibility="{Binding Mode=OneTime, Path=UnregisteredTextVisibility, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        Unregistered evaluation copy
+                        <Hyperlink Foreground="Red" NavigateUri="http://talex-soft.com" RequestNavigate="regHyperlink_RequestNavigate">
+                            <TextBlock>Unregistered evaluation copy</TextBlock>
+                        </Hyperlink>
                     </Label>
 
                     <Grid Margin="20,145,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
@@ -356,9 +354,9 @@
                     </Label>
 
                     <!-- Easter egg. -->
-                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden">
                         <Label Name="dedicatedLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0">
-                            This product is dedicated to the best lass in the world!
+                            This product is dedicated to the best friend!
                         </Label>
                         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Label Name="ILabel" Padding="2" Opacity="0">I</Label>

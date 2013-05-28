@@ -18,6 +18,7 @@ using TAlex.Common.Extensions;
 using TAlex.Common.Environment;
 
 using TAlex.BeautifulFractals.Helpers;
+using TAlex.BeautifulFractals.Views;
 
 
 namespace TAlex.BeautifulFractals
@@ -35,7 +36,7 @@ namespace TAlex.BeautifulFractals
             LoadFractals();
             LoadSettings();
 
-            Title = String.Format("{0} Preferences", ApplicationInfo.Title);
+            Title = String.Format("{0} Preferences", ApplicationInfo.Current.Title);
         }
 
         #endregion
@@ -128,6 +129,13 @@ namespace TAlex.BeautifulFractals
                 settings.Caption_FontSize = fontChooser.SelectedFontSize;
                 settings.Caption_FontColor = ColorHelper.FromWpfColor(fontChooser.SelectedFontColor);
             }
+        }
+
+        private void regHyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Window window = new RegistrationWindow();
+            window.Owner = this;
+            window.ShowDialog();
         }
 
 

@@ -71,7 +71,11 @@
     <ApplicationIcon>Resources\Icons\app.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -80,8 +84,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="TAlex.Common">
-      <HintPath>..\Binaries\TAlex.Common.dll</HintPath>
+    <Reference Include="TAlex.Common, Version=1.4.4895.39370, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\TAlex.Common.1.4.4895.39370\lib\net35\TAlex.Common.dll</HintPath>
     </Reference>
     <Reference Include="TAlex.MathCore, Version=1.0.4838.28811, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -107,10 +112,14 @@
     <Compile Include="FractalsCollection.cs" />
     <Compile Include="FractalsManager.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Locators\Modules\BaseServicesNinjectModule.cs" />
+    <Compile Include="Locators\Modules\ViewModelNinjectModule.cs" />
+    <Compile Include="Locators\ViewModelLocator.cs" />
     <Compile Include="Rendering\ColorPalettes\PredefinedColorPalette.cs" />
     <Compile Include="Rendering\Font.cs" />
     <Compile Include="Rendering\LinearGradientBrush.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="Views\ErrorReportingWindow.xaml.cs">
       <DependentUpon>ErrorReportingWindow.xaml</DependentUpon>
     </Compile>
@@ -134,6 +143,9 @@
     <Compile Include="Rendering\Size.cs" />
     <Compile Include="Helpers\Win32.cs" />
     <Compile Include="ScreensaverCommandLineArgs.cs" />
+    <Compile Include="Views\RegistrationWindow.xaml.cs">
+      <DependentUpon>RegistrationWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -169,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ErrorReportingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegistrationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

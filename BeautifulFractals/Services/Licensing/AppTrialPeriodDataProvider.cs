@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TAlex.Common.Licensing;
+
+namespace TAlex.BeautifulFractals.Services.Licensing
+{
+    internal class AppTrialPeriodDataProvider : SecretFileTrialPeriodDataProvider
+    {
+    }
+}

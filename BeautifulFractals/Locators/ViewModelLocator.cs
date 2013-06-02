@@ -15,7 +15,10 @@ namespace TAlex.BeautifulFractals.Locators
 
         public ViewModelLocator()
         {
-            _kernel = new StandardKernel(new BaseServicesNinjectModule(), new ViewModelNinjectModule());
+            _kernel = new StandardKernel(
+                new BaseServicesNinjectModule(),
+                new AppLicenseNinjectModule(),
+                new ViewModelNinjectModule());
         }
 
 

@@ -84,16 +84,17 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="TAlex.Common, Version=1.4.4895.39370, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TAlex.Common, Version=1.4.4898.41164, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.Common.1.4.4895.39370\lib\net35\TAlex.Common.dll</HintPath>
+      <HintPath>..\packages\TAlex.Common.1.4.4898.41164\lib\net35\TAlex.Common.dll</HintPath>
     </Reference>
-    <Reference Include="TAlex.MathCore, Version=1.0.4838.28811, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TAlex.MathCore, Version=1.0.4871.34044, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.MathCore.1.0.4838.28811\lib\net45\TAlex.MathCore.dll</HintPath>
+      <HintPath>..\packages\TAlex.MathCore.1.0.4871.34044\lib\net45\TAlex.MathCore.dll</HintPath>
     </Reference>
-    <Reference Include="TAlex.WPF.Controls, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TAlex.WPF.Controls.1.4.1.0\lib\net35\TAlex.WPF.Controls.dll</HintPath>
+    <Reference Include="TAlex.WPF.Controls, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\TAlex.WPF.Controls.1.4.2.0\lib\net35\TAlex.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="TAlex.WPF.Mvvm, Version=1.0.4893.35434, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -112,12 +113,16 @@
     <Compile Include="FractalsCollection.cs" />
     <Compile Include="FractalsManager.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Locators\Modules\AppLicenseNinjectModule.cs" />
     <Compile Include="Locators\Modules\BaseServicesNinjectModule.cs" />
     <Compile Include="Locators\Modules\ViewModelNinjectModule.cs" />
     <Compile Include="Locators\ViewModelLocator.cs" />
     <Compile Include="Rendering\ColorPalettes\PredefinedColorPalette.cs" />
     <Compile Include="Rendering\Font.cs" />
     <Compile Include="Rendering\LinearGradientBrush.cs" />
+    <Compile Include="Services\Licensing\AppLicense.cs" />
+    <Compile Include="Services\Licensing\AppLicenseDataManager.cs" />
+    <Compile Include="Services\Licensing\AppTrialPeriodDataProvider.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="Views\ErrorReportingWindow.xaml.cs">

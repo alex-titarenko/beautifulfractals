@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautifulFractals", "BeautifulFractals\BeautifulFractals.csproj", "{B3922781-AE85-4A30-A840-FA498E4F0332}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "BeautifulFractalsSetup", "BeautifulFractalsSetup\BeautifulFractalsSetup.wixproj", "{577FAE73-397C-4AD8-9B93-786E42816483}"
@@ -11,6 +11,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{471C5A
 		.nuget\nuget.exe = .nuget\nuget.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautifulFractals.Test", "Test\BeautifulFractals.Test.csproj", "{6C097706-86D8-4CD2-8D23-76FFF1440C58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0CA6F509-CBEA-4B51-BF06-2609DEE02ACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautifulFractals.KeyGenerator", "BeautifulFractals.KeyGenerator\BeautifulFractals.KeyGenerator.csproj", "{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,8 +48,31 @@ Global
 		{577FAE73-397C-4AD8-9B93-786E42816483}.Release|Mixed Platforms.Build.0 = Release|x86
 		{577FAE73-397C-4AD8-9B93-786E42816483}.Release|x86.ActiveCfg = Release|x86
 		{577FAE73-397C-4AD8-9B93-786E42816483}.Release|x86.Build.0 = Release|x86
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58}.Release|x86.ActiveCfg = Release|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6C097706-86D8-4CD2-8D23-76FFF1440C58} = {0CA6F509-CBEA-4B51-BF06-2609DEE02ACD}
 	EndGlobalSection
 EndGlobal

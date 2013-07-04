@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
 using TAlex.Common.Environment;
+using TAlex.Common.Licensing;
 
 
 namespace TAlex.BeautifulFractals.ViewModels
@@ -13,7 +14,8 @@ namespace TAlex.BeautifulFractals.ViewModels
     {
         #region Fields
 
-        protected ApplicationInfo ApplicationInfo;
+        protected readonly ApplicationInfo ApplicationInfo;
+        protected readonly LicenseBase AppLicense;
 
         #endregion
 
@@ -92,7 +94,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return "Alex Titarenko";
+                return AppLicense.LicenseName;
             }
         }
 
@@ -100,7 +102,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return false;
+                return AppLicense.IsLicensed;
             }
         }
 
@@ -116,7 +118,7 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         #region Constructors
 
-        public AboutViewModel(ApplicationInfo applicationInfo)
+        public AboutViewModel(ApplicationInfo applicationInfo, LicenseBase appLicense)
         {
             ApplicationInfo = applicationInfo;
         }

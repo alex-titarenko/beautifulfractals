@@ -17,36 +17,36 @@ namespace TAlex.BeautifulFractals.KeyGenerator
 
         private static readonly byte[] SK = new byte[]
         {
-            18, 52, 75, 11, 76, 14, 195, 87
+            11, 11, 2, 243, 13, 5, 118, 39
         };
 
         private static readonly byte[] IV = new byte[]
         {
-            246, 198, 57, 228, 138, 4, 126, 118
+            34, 0, 1, 138, 16, 15, 2, 247
         };
 
         private static readonly string[] _secretKeys = new string[]
         {
-            "gVmT19eF8TmAdg1IuJjN5AFrP0lpR9Xx2UH7boU8",
-            "2PL5YLlABO09XcWryRy7iOls2mJc0yavmt30lfh3",
-            "GxBF97x3zc6Xi8Up9D2c3HAiI1vC2M7IH3VD6PMR",
-            "wIfv68Gd71e8aFi3Cg3D424866MVEqaNH49wqow8",
-            "PlDI49u547UZI2S5kGTbWiqu2NScgusfoiH5d0Rx",
-            "C54o507PIa7OwVcZO9T1900OT7E610o4b14DyQAi",
-            "8uB8nUwflcFI0fWBrwIGC0u6Bvn85NiGmNuRTWla",
-            "U4t2XR6Tg4VvHqThqI0ecrixAZQ7I77r090k0hCI",
-            "TltPZIiQL0uN8VW7IfCjxw2k84sqi3Pf4j9QIGOr",
-            "svEuV77z7j40A530f5e197yGI6bvD47k152xMM4C",
-            "JItM8nVJ11v23H0DWIw2YA0CSsDmIo41wdk74lCS",
-            "66THlxj9Dhj9FO3sn7D2J81kPTNqWKm088o53b2v",
-            "QXECYxru7e5up3ngXC08klPGFQ6j3B2q0CmXFUJ1",
-            "F2wc3X8R6vwz9m8Cum02paZ3A57ByU8ZY8m1ev5Q",
-            "seRSWHfflJrmq8Ddos9JP7fk6Z4YAqsyHJ7r27xD",
-            "4hE9N5A8J91qzx6f01qKS4S8bJ17mZw7Ls8zaP4D",
-            "41CzYi1Nogu4zZ4vg7LF9fEbvVLsib8PUmZnUHWN",
-            "2AoUh73v1pr3I9aKYaM0VzC83K280sLdN9883uh3",
-            "11r3O7DEzjYgGD1nW2nUX09S7aH8WX4K3yf8d11d",
-            "WMP290pIuwoXBR0ShlNY87Tf3UsEqeiEBL9v769N"
+            "Ds9W668fHA8hKH402h587diEhS2xE942PKoid1N0",
+	        "xNAGh3mm0kSug5s1TWT1pMHtr817G8GYjzYrQFtG",
+	        "3L9Xhorv072Y5uPvOL6WdXRZKU16J4H1EX403s5E",
+	        "7x57Gm833AGmKuJfj700x3i79l9yh5k3QD6gFquT",
+	        "z2RKqZS62dkkxTC2qt3B952ayY3Nu2k3rvKO1k78",
+	        "8j3Zedq5r3t8D6XjTuq50D15KxpL5P9sNwIPBOS5",
+	        "4BBZ46435gZLK8hS36tiV7RUVk41ZrTg36YGA3l4",
+	        "RnlXJ1q31GVM6zld38PfO2m1Q9k60G4713w65JGu",
+	        "l5pHV6T8q25ITc0J3hl8W5H4R2G185ZQOge0WLCs",
+	        "f0UnMaIJp5t0aXSiP93O8yX27tDe56ni20Fxb594",
+	        "ih528v7hkL948v09zPerCEtL56d11hts0tpMdE46",
+	        "cwT2GthRxuNnYZc3Ke3TELhec5Gt1sbrsybIY0uK",
+	        "q5s30GuHacj6wj5mqtNV53hn8ao3VXGF4E4dy1c0",
+	        "G53l13ma24o0a8zI4B2tJ0HCAn9R1noDrKg4Oi8o",
+	        "Cb07tnnsKX92Ck48aOplrawYMbt29hiabB6BowUE",
+	        "7QtxxX4FIr34dpLyMWZg832nW0zY9sxKqvsY7JG2",
+	        "17Kv3ry212YEjn9vy4sjPL4H61JUr4yt1vKYPoqK",
+	        "kw77I43B69wl65Xem9KWgaoGr8jL376YT67aCQ0b",
+	        "oCL3M19G8iZ9mcai8R2fyVuh8DXmP27dFFmT068a",
+	        "kb92ORpZQ9R53jr78Y1As6HfZ1l8h6zay33S6vM7"
         };
 
         #endregion

@@ -11,12 +11,12 @@ namespace TAlex.BeautifulFractals.Services.Licensing
     {
         protected override byte[] IV
         {
-            get { throw new NotImplementedException(); }
+            get { return new byte[] { 114, 254, 1, 2, 6, 34, 105, 18 }; }
         }
 
         protected override byte[] SK
         {
-            get { throw new NotImplementedException(); }
+            get { return new byte[] { 11, 11, 103, 104, 15, 2, 0, 6 }; }
         }
     }
 }

@@ -121,6 +121,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         public AboutViewModel(ApplicationInfo applicationInfo, LicenseBase appLicense)
         {
             ApplicationInfo = applicationInfo;
+            AppLicense = appLicense;
         }
 
         #endregion

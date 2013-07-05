@@ -50,10 +50,5 @@ namespace TAlex.BeautifulFractals.Views
             DialogResult = true;
             App.Current.Shutdown();
         }
-
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = false;
-        }
     }
 }

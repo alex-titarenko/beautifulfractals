@@ -35,21 +35,94 @@ namespace TAlex.BeautifulFractals.Test.ViewModels
             ApplicationInfoMock.Title.Returns(expected);
 
             //action
-            var actual = ViewModel.AboutLogoTitle;
+            string actual = ViewModel.AboutLogoTitle;
+
+            //assert
+            actual.Should().Be(expected);
+        }
+
+        [TestCase(1, 0, 0, 5)]
+        public void Version_Test(int major, int minor, int build, int revision)
+        {
+            //arrange
+            var expected = new Version(major, minor, build, revision);
+            ApplicationInfoMock.Version.Returns(expected);
+
+            //action
+            Version actual = ViewModel.Version;
 
             //assert
             actual.Should().Be(expected);
         }
 
         [Test]
-        public void Version_Test()
+        public void EmailAddress_Test()
+        {
+            //action
+            string actual = ViewModel.EmailAddress; 
+
+            //assert
+            actual.Should().Be(TAlex.BeautifulFractals.Properties.Resources.SupportEmail);
+        }
+
+        [Test]
+        public void HomepageUrl_Test()
+        {
+            //action
+            string actual = ViewModel.HomepageUrl;
+
+            //assert
+            actual.Should().Be(TAlex.BeautifulFractals.Properties.Resources.HomepageUrl);
+        }
+
+        [TestCase("Some Copyright")]
+        public void Copyright_Test(string expected)
         {
             //arrange
-            var expected = new Version(1, 0, 0, 5);
-            ApplicationInfoMock.Version.Returns(expected);
+            ApplicationInfoMock.CopyrightDisplayText.Returns(expected);
 
             //action
-            var actual = ViewModel.Version;
+            string actual = ViewModel.Copyright;
+
+            //assert
+            actual.Should().Be(expected);
+        }
+
+        [TestCase("License Name")]
+        public void LicenseName_Test(string expected)
+        {
+            //arrange
+            LicenseBaseMock.LicenseName.Returns(expected);
+
+            //action
+            string actual = ViewModel.LicenseName;
+
+            //assert
+            actual.Should().Be(expected);
+        }
+
+        [Test]
+        public void LicenseInfoVisibility_Test([Values(true, false)]bool expected)
+        {
+            //arrange
+            LicenseBaseMock.IsLicensed.Returns(expected);
+
+            //action
+            bool actual = ViewModel.LicenseInfoVisibility;
+
+            //assert
+            actual.Should().Be(expected);
+        }
+
+        [Test]
+        public void UnregisteredTextVisibility_Test([Values(true, false)]bool isLicensed)
+        {
+            //arrange
+            var expected = !isLicensed;
+            LicenseBaseMock.IsLicensed.Returns(isLicensed);
+
+            //action
+            bool actual = ViewModel.UnregisteredTextVisibility;
 
             //assert
             actual.Should().Be(expected);

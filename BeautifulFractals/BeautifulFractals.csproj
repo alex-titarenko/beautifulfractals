@@ -96,9 +96,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\TAlex.WPF.Controls.1.4.2.0\lib\net35\TAlex.WPF.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="TAlex.WPF.Mvvm, Version=1.0.4893.35434, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TAlex.WPF.Mvvm, Version=1.0.4936.1378, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.WPF.Mvvm.1.0.4893.35434\lib\net45\TAlex.WPF.Mvvm.dll</HintPath>
+      <HintPath>..\packages\TAlex.WPF.Mvvm.1.0.4936.1378\lib\net45\TAlex.WPF.Mvvm.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />

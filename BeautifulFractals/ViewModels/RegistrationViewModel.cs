@@ -21,6 +21,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         #region Properties
 
         [Required]
+        [StringLength(255, MinimumLength = 5)]
         public string LicenseName { get; set; }
 
         [Required]
@@ -36,7 +37,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             LicenseDataManager = licenseDataManager;
 
-            //RegisterCommand = 
+            RegisterCommand = new RelayCommand(RegisterCommandExecute, RegisterCommandCanExecute);
         }
 
         #endregion
@@ -47,17 +48,6 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             string lin = LicenseName.Trim();
             string lik = LicenseKey.Trim();
-
-            //if (String.IsNullOrEmpty(lin))
-            //{
-            //    MessageBox.Show(this, "Please input license name.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    return;
-            //}
-            //else if (String.IsNullOrEmpty(lik))
-            //{
-            //    MessageBox.Show(this, "Please input license key.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    return;
-            //}
 
             //MessageBox.Show(this, "Please restart this program to verify your license data.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 

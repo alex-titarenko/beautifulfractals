@@ -10,8 +10,13 @@ namespace TAlex.BeautifulFractals.Locators
 {
     public class ViewModelLocator
     {
+        #region Fields
+
         private IKernel _kernel;
 
+        #endregion
+
+        #region Constructors
 
         public ViewModelLocator()
         {
@@ -21,6 +26,8 @@ namespace TAlex.BeautifulFractals.Locators
                 new ViewModelNinjectModule());
         }
 
+        #endregion
+
 
         //public MainWindowViewModel MainWindowViewModel
         //{
@@ -29,6 +36,8 @@ namespace TAlex.BeautifulFractals.Locators
         //        return _kernel.Get<MainWindowViewModel>();
         //    }
         //}
+
+        #region Properties
 
         public AboutViewModel AboutViewModel
         {
@@ -45,5 +54,20 @@ namespace TAlex.BeautifulFractals.Locators
                 return _kernel.Get<RegistrationViewModel>();
             }
         }
+
+        #endregion
+
+        #region Methods
+
+        #region Methods
+
+        public T Get<T>()
+        {
+            return _kernel.Get<T>();
+        }
+
+        #endregion
+
+        #endregion
     }
 }

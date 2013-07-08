@@ -13,6 +13,9 @@ using System.Windows.Threading;
 using TAlex.Common.Diagnostics.ErrorReporting;
 using TAlex.BeautifulFractals.Helpers;
 using TAlex.Common.Environment;
+using TAlex.BeautifulFractals.Locators;
+using TAlex.BeautifulFractals.Views;
+using TAlex.BeautifulFractals.Services.Licensing;
 
 
 namespace TAlex.BeautifulFractals
@@ -36,11 +39,14 @@ namespace TAlex.BeautifulFractals
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            // check license
+            CheckTrialExpiration();
+
             if (e.Args.Length > 0)
             {
-                string oprtion = e.Args[0].ToLower().Substring(0, 2);
+                string option = e.Args[0].ToLower().Substring(0, 2);
 
-                switch (oprtion)
+                switch (option)
                 {
                     case ScreensaverCommandLineArgs.Configure:
                         new PreferencesWindow().Show();
@@ -75,7 +81,7 @@ namespace TAlex.BeautifulFractals
                         return;
 
                     default:
-                        MessageBox.Show(String.Format("Invalid command line argument: {0}", oprtion),
+                        MessageBox.Show(String.Format(TAlex.BeautifulFractals.Properties.Resources.locInvalidCommandLineArgument, option),
                             "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                 }
@@ -122,6 +128,28 @@ namespace TAlex.BeautifulFractals
                 reportWindow.Owner = activeWindow;
             }
             reportWindow.ShowDialog();
+        }
+
+        private void CheckTrialExpiration()
+        {
+            ViewModelLocator locator = Resources["viewModelLocator"] as ViewModelLocator;
+            AppLicense license = locator.Get<AppLicense>();
+
+            if (license.IsTrial && license.TrialHasExpired)
+            {
+                if (MessageBox.Show(TAlex.BeautifulFractals.Properties.Resources.locEvaluationPeriodHasExpired,
+                    TAlex.BeautifulFractals.Properties.Resources.locInformationMessageCaption,
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    RegistrationWindow window = new RegistrationWindow();
+                    window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    window.ShowDialog();
+                }
+                else
+                {
+                    Shutdown();
+                }
+            }
         }
 
         #endregion

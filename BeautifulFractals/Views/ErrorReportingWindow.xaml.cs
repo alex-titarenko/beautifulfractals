@@ -62,7 +62,7 @@ namespace TAlex.BeautifulFractals.Services
 
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://www.talex-soft.com/company/contact.php");
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://talex-soft.com/company/contact_us");
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
 
@@ -71,8 +71,8 @@ namespace TAlex.BeautifulFractals.Services
                 using (Stream stream = request.GetRequestStream())
                 {
                     string requestStr = String.Format(
-                        "name={0}&email={1}&subject={2}&message={3}",
-                        "Anonymous user", "noname@gmail.com",
+                        "Name={0}&Email={1}&Subject={2}&Message={3}",
+                        "Anonymous user", "noname@live.com",
                         Report.Subject, Report.GenerateFullHtmlReport());
 
                     byte[] bytes = Encoding.UTF8.GetBytes(requestStr);

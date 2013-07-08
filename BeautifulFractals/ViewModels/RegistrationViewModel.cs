@@ -4,17 +4,23 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using TAlex.BeautifulFractals.Properties;
+using TAlex.BeautifulFractals.Services.Windows;
 using TAlex.Common.Licensing;
+using TAlex.WPF.Mvvm;
 using TAlex.WPF.Mvvm.Commands;
+using TAlex.WPF.Mvvm.Services;
 
 
 namespace TAlex.BeautifulFractals.ViewModels
 {
-    public class RegistrationViewModel
+    public class RegistrationViewModel : ViewModelBase
     {
         #region Fields
 
         protected readonly ILicenseDataManager LicenseDataManager;
+        protected readonly IMessageService MessageService;
+        protected readonly IApplicationService ApplicationService;
 
         #endregion
 
@@ -33,9 +39,11 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         #region Constructors
 
-        public RegistrationViewModel(ILicenseDataManager licenseDataManager)
+        public RegistrationViewModel(ILicenseDataManager licenseDataManager, IMessageService messageService, IApplicationService applicationService)
         {
             LicenseDataManager = licenseDataManager;
+            MessageService = messageService;
+            ApplicationService = applicationService;
 
             RegisterCommand = new RelayCommand(RegisterCommandExecute, RegisterCommandCanExecute);
         }
@@ -46,12 +54,9 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         private void RegisterCommandExecute()
         {
-            string lin = LicenseName.Trim();
-            string lik = LicenseKey.Trim();
-
-            //MessageBox.Show(this, "Please restart this program to verify your license data.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            LicenseDataManager.Save(new LicenseData { LicenseName = lin, LicenseKey = lik });
+            LicenseDataManager.Save(new LicenseData { LicenseName = LicenseName.Trim(), LicenseKey = LicenseKey.Trim() });
+            MessageService.ShowInformation(Resources.locPleaseRestartToVerifyLicense, Resources.locInformationMessageCaption);
+            ApplicationService.Shutdown();
         }
 
         private bool RegisterCommandCanExecute()

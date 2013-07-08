@@ -9,5 +9,9 @@ namespace TAlex.BeautifulFractals.Services.Licensing
 {
     internal class AppTrialPeriodDataProvider : SecretFileTrialPeriodDataProvider
     {
+        public AppTrialPeriodDataProvider()
+        {
+            FileName = "mnl80mpt2xy254t73sftgue6567b7.dat";
+        }
     }
 }

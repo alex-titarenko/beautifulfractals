@@ -23,32 +23,5 @@ namespace TAlex.BeautifulFractals.Views
         {
             InitializeComponent();
         }
-
-        private void okButton_Click(object sender, RoutedEventArgs e)
-        {
-            //string lin = linTextBox.Text.Trim();
-            //string lik = likTextBox.Text.Trim();
-
-            //if (String.IsNullOrEmpty(lin))
-            //{
-            //    MessageBox.Show(this, "Please input license name.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    return;
-            //}
-            //else if (String.IsNullOrEmpty(lik))
-            //{
-            //    MessageBox.Show(this, "Please input license key.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    return;
-            //}
-
-            //MessageBox.Show(this, "Please restart this program to verify your license data.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            //LicenseDataProvider licData = new LicFileLicenseDataProvider();
-            //licData.LicenseName = lin;
-            //licData.LicenseKey = lik;
-            //licData.Save();
-
-            DialogResult = true;
-            App.Current.Shutdown();
-        }
     }
 }

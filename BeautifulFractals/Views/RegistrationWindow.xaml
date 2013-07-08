@@ -32,7 +32,7 @@
             </Grid>
         </GroupBox>
 
-        <Button Name="okButton" Margin="0,0,90,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Height="25" Command="{Binding RegisterCommand}" Click="okButton_Click" Grid.Row="1">_OK</Button>
+        <Button Name="okButton" Margin="0,0,90,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Height="25" Command="{Binding RegisterCommand}" Grid.Row="1">_OK</Button>
         <Button Name="cancelButton" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,0" Width="80" Height="25" Grid.Row="1" IsCancel="True">_Cancel</Button>
     </Grid>
 </Window>

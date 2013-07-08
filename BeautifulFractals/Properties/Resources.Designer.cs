@@ -70,6 +70,42 @@ namespace TAlex.BeautifulFractals.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Evaluation period has expired, please register..
+        /// </summary>
+        public static string locEvaluationPeriodHasExpired {
+            get {
+                return ResourceManager.GetString("locEvaluationPeriodHasExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string locInformationMessageCaption {
+            get {
+                return ResourceManager.GetString("locInformationMessageCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid command line argument: {0}.
+        /// </summary>
+        public static string locInvalidCommandLineArgument {
+            get {
+                return ResourceManager.GetString("locInvalidCommandLineArgument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please restart this program to verify your license data..
+        /// </summary>
+        public static string locPleaseRestartToVerifyLicense {
+            get {
+                return ResourceManager.GetString("locPleaseRestartToVerifyLicense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to mailto:support@talex-soft.com.
         /// </summary>
         public static string SupportEmail {

@@ -15,6 +15,8 @@ using System.IO;
 
 using TAlex.Common.Environment;
 using TAlex.Common.Diagnostics.ErrorReporting;
+using System.Net.Mail;
+using System.Diagnostics;
 
 
 namespace TAlex.BeautifulFractals.Services
@@ -62,36 +64,18 @@ namespace TAlex.BeautifulFractals.Services
 
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://talex-soft.com/company/contact_us");
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-
             try
             {
-                using (Stream stream = request.GetRequestStream())
-                {
-                    string requestStr = String.Format(
-                        "Name={0}&Email={1}&Subject={2}&Message={3}",
-                        "Anonymous user", "noname@live.com",
-                        Report.Subject, Report.GenerateFullHtmlReport());
-
-                    byte[] bytes = Encoding.UTF8.GetBytes(requestStr);
-                    stream.Write(bytes, 0, bytes.Length);
-                }
+                string body = Report.GenerateFullPlainTextReport();
+                string encodedBody = body.Replace(Environment.NewLine, "%0D%0A"); // encode new line separator
+                Process.Start(String.Format(@"mailto:support@talex-soft.com?subject={0}&body={1}", Report.Subject, encodedBody));
             }
             catch (Exception exc)
             {
                 MessageBox.Show(this, exc.Message, ApplicationInfo.Title, MessageBoxButton.OK, MessageBoxImage.Error);
-                Application.Current.Shutdown();
             }
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            finally
             {
-                if (response.StatusCode == HttpStatusCode.OK)
-                    MessageBox.Show(this, "Thank you. Your error report has been sent successfully.", ApplicationInfo.Title, MessageBoxButton.OK, MessageBoxImage.Information);
-                else
-                    MessageBox.Show(this, "", ApplicationInfo.Title, MessageBoxButton.OK, MessageBoxImage.Error);
-
                 Application.Current.Shutdown();
             }
         }

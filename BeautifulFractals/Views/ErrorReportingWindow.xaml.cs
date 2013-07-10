@@ -28,7 +28,8 @@ namespace TAlex.BeautifulFractals.Services
     {
         #region Fields
 
-        protected ApplicationInfo ApplicationInfo;
+        protected readonly ApplicationInfo ApplicationInfo;
+        protected readonly IErrorReportSender ErrorReportSender = new ErrorReportSender();
 
         public ErrorReport Report { get; set; }
 
@@ -66,9 +67,8 @@ namespace TAlex.BeautifulFractals.Services
         {
             try
             {
-                string body = Report.GenerateFullPlainTextReport();
-                string encodedBody = body.Replace(Environment.NewLine, "%0D%0A"); // encode new line separator
-                Process.Start(String.Format(@"mailto:support@talex-soft.com?subject={0}&body={1}", Report.Subject, encodedBody));
+                ErrorReportSender.Send(new ErrorReportModel() { Subject = Report.Subject, Report = Report.GenerateFullHtmlReport() });
+                MessageBox.Show(this, "Thank you. Your error report has been sent successfully.", ApplicationInfo.Title, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception exc)
             {

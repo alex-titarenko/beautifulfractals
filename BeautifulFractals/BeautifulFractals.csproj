@@ -79,14 +79,15 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="TAlex.Common, Version=1.4.4938.42371, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TAlex.Common, Version=1.4.4940.188, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.Common.1.4.4938.42371\lib\net35\TAlex.Common.dll</HintPath>
+      <HintPath>..\packages\TAlex.Common.1.4.4940.188\lib\net35\TAlex.Common.dll</HintPath>
     </Reference>
     <Reference Include="TAlex.MathCore, Version=1.0.4871.34044, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -5,11 +5,16 @@
         xmlns:viewmodels="clr-namespace:TAlex.BeautifulFractals.ViewModels"
         xmlns:talex="http://schemas.talex-soft.com/2010/xaml/presentation"
         xmlns:env="clr-namespace:TAlex.Common.Environment;assembly=TAlex.Common"
-        Height="350" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Height="350" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        DataContext="{Binding Source={StaticResource viewModelLocator}, Path=PreferencesWindowViewModel, Mode=OneTime}">
     <Window.Resources>
         <talex:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <talex:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
         <talex:HyperlinkNavigateCommand x:Key="HyperlinkNavigateCommand" />
         <data:DisplayToBrushConverter x:Key="DisplayToBrushConverter" />
+        <data:RenderColorToWpfColorConverter x:Key="RenderColorToWpfColorConverter" />
+        <data:BackgroundPreviewMultiConverter x:Key="BackgroundPreviewMultiConverter" />
+        <data:TimeSpanToSecondsConverter x:Key="TimeSpanToSecondsConverter" />
     </Window.Resources>
     
     <Window.Background>
@@ -71,10 +76,11 @@
                             <Border BorderBrush="Silver" BorderThickness="1" CornerRadius="3" Padding="4">
                                 <Rectangle Name="bgPreviewRectangle">
                                     <Rectangle.Fill>
-                                        <LinearGradientBrush x:Name="bgPreviewBrush" EndPoint="0,1">
-                                            <GradientStop Color="{Binding Path=SelectedColor, ElementName=firstBackColorChip}" Offset="0" />
-                                            <GradientStop Color="{Binding Path=SelectedColor, ElementName=secondBackColorChip}" Offset="1" />
-                                        </LinearGradientBrush>
+                                        <MultiBinding Converter="{StaticResource BackgroundPreviewMultiConverter}">
+                                            <Binding Path="PrimaryBackColor" />
+                                            <Binding Path="SecondaryBackColor" />
+                                            <Binding Path="BackGradientType" />
+                                        </MultiBinding>
                                     </Rectangle.Fill>
                                 </Rectangle>
                             </Border>
@@ -85,21 +91,23 @@
                                     <RowDefinition Height="20" />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                
-                                <talex:ColorChip Name="firstBackColorChip" PreviewAreaWidth="24" PreviewAreaHeight="20" Grid.Row="0">First color</talex:ColorChip>
-                                
-                                <Viewbox Height="18" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <Canvas Width="42.6528" Height="54.36" Background="Transparent" MouseDown="swapBackColors_MouseDown">
-                                        <Canvas.LayoutTransform>
-                                            <RotateTransform Angle="90" />
-                                        </Canvas.LayoutTransform>
 
-                                        <Path Width="39.536" Height="25.1414" Canvas.Left="3.11679" Canvas.Top="0" Stretch="Fill" Fill="#FF555555" Data="F1 M 30.0901,25.1254L 42.6528,12.5626L 30.0901,0L 21.8048,0L 31.3595,9.55469L 3.11679,9.55469L 3.11679,15.636L 31.2928,15.636L 21.7888,25.1414L 30.0901,25.1254 Z "/>
-                                        <Path Width="39.536" Height="25.1414" Canvas.Left="0" Canvas.Top="29.2186" Stretch="Fill" Fill="#FF555555" Data="F1 M 12.564,29.2346L 0,41.7974L 12.5627,54.36L 20.848,54.36L 11.2933,44.8053L 39.536,44.8053L 39.536,38.724L 11.36,38.724L 20.864,29.2186L 12.564,29.2346 Z "/>
-                                    </Canvas>
-                                </Viewbox>
-                                
-                                <talex:ColorChip Name="secondBackColorChip" PreviewAreaWidth="24" PreviewAreaHeight="20" Grid.Row="2">Second color</talex:ColorChip>
+                                <talex:ColorChip PreviewAreaWidth="24" PreviewAreaHeight="20" Grid.Row="0" SelectedColor="{Binding PrimaryBackColor, Mode=TwoWay, Converter={StaticResource RenderColorToWpfColorConverter}}">First color</talex:ColorChip>
+
+                                <Button Height="18" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent" Command="{Binding SwapBackgroundColors}">
+                                    <Viewbox>
+                                        <Canvas Width="42.6528" Height="54.36" Background="Transparent">
+                                            <Canvas.LayoutTransform>
+                                                <RotateTransform Angle="90" />
+                                            </Canvas.LayoutTransform>
+
+                                            <Path Width="39.536" Height="25.1414" Canvas.Left="3.11679" Canvas.Top="0" Stretch="Fill" Fill="#FF555555" Data="F1 M 30.0901,25.1254L 42.6528,12.5626L 30.0901,0L 21.8048,0L 31.3595,9.55469L 3.11679,9.55469L 3.11679,15.636L 31.2928,15.636L 21.7888,25.1414L 30.0901,25.1254 Z "/>
+                                            <Path Width="39.536" Height="25.1414" Canvas.Left="0" Canvas.Top="29.2186" Stretch="Fill" Fill="#FF555555" Data="F1 M 12.564,29.2346L 0,41.7974L 12.5627,54.36L 20.848,54.36L 11.2933,44.8053L 39.536,44.8053L 39.536,38.724L 11.36,38.724L 20.864,29.2186L 12.564,29.2346 Z "/>
+                                        </Canvas>
+                                    </Viewbox>
+                                </Button>
+
+                                <talex:ColorChip PreviewAreaWidth="24" PreviewAreaHeight="20" Grid.Row="2" SelectedColor="{Binding SecondaryBackColor, Mode=TwoWay, Converter={StaticResource RenderColorToWpfColorConverter}}">Second color</talex:ColorChip>
                             </Grid>
                             
                             <Grid Grid.Column="2">
@@ -110,10 +118,10 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
 
-                                <RadioButton Name="verticalBgTypeRadioButton" Grid.Row="0" VerticalAlignment="Center" Content="Vertical" Click="bgTypeRadioButton_Click" />
-                                <RadioButton Name="horizontalBgTypeRadioButton" Grid.Row="1" VerticalAlignment="Center" Content="Horizontal" Click="bgTypeRadioButton_Click" />
-                                <RadioButton Name="forwardDiagonalBgTypeRadioButton" Grid.Row="2" VerticalAlignment="Center" Content="Forward Diagonal" Click="bgTypeRadioButton_Click" />
-                                <RadioButton Name="backwardDiagonalBgTypeRadioButton" Grid.Row="3" VerticalAlignment="Center" Content="Backward Diagonal" Click="bgTypeRadioButton_Click" />
+                                <RadioButton Grid.Row="0" VerticalAlignment="Center" Content="Vertical" IsChecked="{Binding BackGradientType, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static viewmodels:BackgroundGradientType.Vertical}}" />
+                                <RadioButton Grid.Row="1" VerticalAlignment="Center" Content="Horizontal" IsChecked="{Binding BackGradientType, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static viewmodels:BackgroundGradientType.Horizontal}}" />
+                                <RadioButton Grid.Row="2" VerticalAlignment="Center" Content="Forward Diagonal" IsChecked="{Binding BackGradientType, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static viewmodels:BackgroundGradientType.ForwardDiagonal}}" />
+                                <RadioButton Grid.Row="3" VerticalAlignment="Center" Content="Backward Diagonal" IsChecked="{Binding BackGradientType, Mode=TwoWay, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static viewmodels:BackgroundGradientType.BackwardDiagonal}}" />
                             </Grid>
                         </Grid>
                     </GroupBox>
@@ -137,12 +145,14 @@
                             <TextBlock Text="sec." />
                         </StackPanel>
 
-                        <Slider Name="delaySlider" VerticalAlignment="Center" Grid.Column="1" Maximum="10" SmallChange="0.1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="0.5" />
+                        <Slider Name="delaySlider" VerticalAlignment="Center" Grid.Column="1" Maximum="10" SmallChange="0.1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="0.5" Value="{Binding Delay, Converter={StaticResource TimeSpanToSecondsConverter}}" />
 
-                        <CheckBox Name="randomOrderCheckBox" VerticalAlignment="Center" Grid.Row="1" Content="Random fractal sequence" />
-                        <CheckBox Name="exitOnMouseMoveCheckBox" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Content="Exit on mouse move" />
-                        <CheckBox Name="showFractalCaptionsCheckBox" VerticalAlignment="Center" Grid.Row="2" Content="Show fractal captions" />
-                        <TextBlock Name="captionStyleTextBlock" Text="Caption style" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" MouseLeftButtonDown="captionStyleTextBlock_MouseLeftButtonDown" />
+                        <CheckBox VerticalAlignment="Center" Grid.Row="1" Content="Random fractal sequence" IsChecked="{Binding RandomOrder}" />
+                        <CheckBox VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Content="Exit on mouse move" IsChecked="{Binding ExitOnMouseMove}" />
+                        <CheckBox VerticalAlignment="Center" Grid.Row="2" Content="Show fractal captions" IsChecked="{Binding ShowFractalCaptions}" />
+                        <TextBlock Name="captionStyleTextBlock" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2">
+                            <Hyperlink Click="captionStyleHyperlink_Click">Caption style</Hyperlink>
+                        </TextBlock>
                     </Grid>
                 </Grid>
             </TabItem>

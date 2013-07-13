@@ -28,16 +28,15 @@ namespace TAlex.BeautifulFractals.Locators
 
         #endregion
 
-
-        //public MainWindowViewModel MainWindowViewModel
-        //{
-        //    get
-        //    {
-        //        return _kernel.Get<MainWindowViewModel>();
-        //    }
-        //}
-
         #region Properties
+
+        public PreferencesWindowViewModel PreferencesWindowViewModel
+        {
+            get
+            {
+                return _kernel.Get<PreferencesWindowViewModel>();
+            }
+        }
 
         public AboutViewModel AboutViewModel
         {

@@ -13,7 +13,7 @@ namespace TAlex.BeautifulFractals.Locators.Modules
     {
         public override void Load()
         {
-            //Bind<MainWindowViewModel>().ToSelf();
+            Bind<PreferencesWindowViewModel>().ToSelf();
             Bind<AboutViewModel>().ToSelf().InSingletonScope();
             Bind<RegistrationViewModel>().ToSelf();
         }

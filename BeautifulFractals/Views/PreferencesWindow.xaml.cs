@@ -60,28 +60,28 @@ namespace TAlex.BeautifulFractals
         {
             Properties.Settings settings = Properties.Settings.Default;
             
-            randomOrderCheckBox.IsChecked = settings.RandomOrder;
-            exitOnMouseMoveCheckBox.IsChecked = settings.ExitOnMouseMove;
-            showFractalCaptionsCheckBox.IsChecked = settings.ShowFractalCaptions;
+            //randomOrderCheckBox.IsChecked = settings.RandomOrder;
+            //exitOnMouseMoveCheckBox.IsChecked = settings.ExitOnMouseMove;
+            //showFractalCaptionsCheckBox.IsChecked = settings.ShowFractalCaptions;
 
-            delaySlider.Value = settings.Delay.TotalSeconds;
+            //delaySlider.Value = settings.Delay.TotalSeconds;
 
-            firstBackColorChip.SelectedColor = ColorHelper.ToWpfColor(settings.Background_FirstColor);
-            secondBackColorChip.SelectedColor = ColorHelper.ToWpfColor(settings.Background_SecondColor);
+            //firstBackColorChip.SelectedColor = ColorHelper.ToWpfColor(settings.Background_FirstColor);
+            //secondBackColorChip.SelectedColor = ColorHelper.ToWpfColor(settings.Background_SecondColor);
         }
 
         private void SaveSettings()
         {
             Properties.Settings settings = Properties.Settings.Default;
 
-            settings.RandomOrder = (bool)randomOrderCheckBox.IsChecked;
-            settings.ExitOnMouseMove = (bool)exitOnMouseMoveCheckBox.IsChecked;
-            settings.ShowFractalCaptions = (bool)showFractalCaptionsCheckBox.IsChecked;
+            //settings.RandomOrder = (bool)randomOrderCheckBox.IsChecked;
+            //settings.ExitOnMouseMove = (bool)exitOnMouseMoveCheckBox.IsChecked;
+            //settings.ShowFractalCaptions = (bool)showFractalCaptionsCheckBox.IsChecked;
             
-            settings.Delay = TimeSpan.FromSeconds(delaySlider.Value);
+            //settings.Delay = TimeSpan.FromSeconds(delaySlider.Value);
 
-            settings.Background_FirstColor = ColorHelper.FromWpfColor(firstBackColorChip.SelectedColor);
-            settings.Background_SecondColor = ColorHelper.FromWpfColor(secondBackColorChip.SelectedColor);
+            //settings.Background_FirstColor = ColorHelper.FromWpfColor(firstBackColorChip.SelectedColor);
+            //settings.Background_SecondColor = ColorHelper.FromWpfColor(secondBackColorChip.SelectedColor);
 
             settings.Save();
         }
@@ -99,19 +99,7 @@ namespace TAlex.BeautifulFractals
             Close();
         }
 
-        private void swapBackColors_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Color tempColor = firstBackColorChip.SelectedColor;
-            firstBackColorChip.SelectedColor = secondBackColorChip.SelectedColor;
-            secondBackColorChip.SelectedColor = tempColor;
-        }
-
-        private void bgTypeRadioButton_Click(object sender, RoutedEventArgs e)
-        {
-            UpdateBackgroundType();
-        }
-
-        private void captionStyleTextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void captionStyleHyperlink_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings settings = Properties.Settings.Default;
 
@@ -170,38 +158,10 @@ namespace TAlex.BeautifulFractals
 
         #endregion
 
-        #region Helpers
-
-        private void UpdateBackgroundType()
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-            Point startPoint = new Point();
-            Point endPoint = new Point();
 
-            if (verticalBgTypeRadioButton.IsChecked == true)
-            {
-                endPoint = new Point(0, 1);
-            }
-            else if (horizontalBgTypeRadioButton.IsChecked == true)
-            {
-                endPoint = new Point(1, 0);
-            }
-            else if (forwardDiagonalBgTypeRadioButton.IsChecked == true)
-            {
-                endPoint = new Point(1, 1);
-            }
-            else if (backwardDiagonalBgTypeRadioButton.IsChecked == true)
-            {
-                startPoint = new Point(1, 0);
-                endPoint = new Point(0, 1);
-            }
-            else
-                throw new ArgumentException();
-            
-            bgPreviewBrush.StartPoint = startPoint;
-            bgPreviewBrush.EndPoint = endPoint;
         }
-
-        #endregion
 
         #endregion
     }

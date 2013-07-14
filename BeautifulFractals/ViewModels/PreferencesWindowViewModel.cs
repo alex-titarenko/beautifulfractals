@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TAlex.BeautifulFractals.Fractals;
 using TAlex.BeautifulFractals.Rendering;
+using TAlex.BeautifulFractals.Services;
+using TAlex.BeautifulFractals.Services.Licensing;
 using TAlex.BeautifulFractals.Services.Windows;
+using TAlex.Common.Environment;
+using TAlex.Common.Licensing;
 using TAlex.WPF.Mvvm;
 using TAlex.WPF.Mvvm.Commands;
 
@@ -18,14 +22,10 @@ namespace TAlex.BeautifulFractals.ViewModels
     {
         #region Fields
 
-        private string _title;
-        private Color _primaryBackColor;
-        private Color _secondaryBackColor;
-        private BackgroundGradientType _backGradientType;
-        private TimeSpan _delay;
-        private bool _randomOrder;
-        private bool _exitOnMouseMove;
-        private bool _showFractalCaptions;
+        protected readonly IAppSettings AppSettings;
+        protected readonly ApplicationInfo ApplicationInfo;
+        protected readonly LicenseBase AppLicense;
+        protected readonly IFontChooserDialogService FontChooserDialogService;
 
         #endregion
 
@@ -35,25 +35,27 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return _title;
-            }
+                string baseTitle = String.Format("{0} Preferences", ApplicationInfo.Title);
 
-            set
-            {
-                Set(() => Title, ref _title, value);
+                if (AppLicense.IsTrial)
+                    return String.Format("{0} (days left: {1})", baseTitle, AppLicense.TrialDaysLeft);
+                else
+                    return baseTitle;
             }
         }
+
 
         public Color PrimaryBackColor
         {
             get
             {
-                return _primaryBackColor;
+                return AppSettings.PrimaryBackColor;
             }
 
             set
             {
-                Set(() => PrimaryBackColor, ref _primaryBackColor, value);
+                AppSettings.PrimaryBackColor = value;
+                RaisePropertyChanged(() => PrimaryBackColor);
             }
         }
 
@@ -61,12 +63,13 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return _secondaryBackColor;
+                return AppSettings.SecondaryBackColor;
             }
 
             set
             {
-                Set(() => SecondaryBackColor, ref _secondaryBackColor, value);
+                AppSettings.SecondaryBackColor = value;
+                RaisePropertyChanged(() => SecondaryBackColor);
             }
         }
 
@@ -74,12 +77,13 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return _backGradientType;
+                return AppSettings.BackGradientType;
             }
 
             set
             {
-                Set(() => BackGradientType, ref _backGradientType, value);
+                AppSettings.BackGradientType = value;
+                RaisePropertyChanged(() => BackGradientType);
             }
         }
 
@@ -87,12 +91,13 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return _delay;
+                return AppSettings.Delay;
             }
 
             set
             {
-                Set(() => Delay, ref _delay, value);
+                AppSettings.Delay = value;
+                RaisePropertyChanged(() => Delay);
             }
         }
 
@@ -100,12 +105,13 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return _randomOrder;
+                return AppSettings.RandomOrder;
             }
 
             set
             {
-                Set(() => RandomOrder, ref _randomOrder, value);
+                AppSettings.RandomOrder = value;
+                RaisePropertyChanged(() => RandomOrder);
             }
         }
 
@@ -113,12 +119,13 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return _exitOnMouseMove;
+                return AppSettings.ExitOnMouseMove;
             }
 
             set
             {
-                Set(() => ExitOnMouseMove, ref _exitOnMouseMove, value);
+                AppSettings.ExitOnMouseMove = value;
+                RaisePropertyChanged(() => ExitOnMouseMove);
             }
         }
 
@@ -126,12 +133,53 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return _showFractalCaptions;
+                return AppSettings.ShowFractalCaptions;
             }
 
             set
             {
-                Set(() => ShowFractalCaptions, ref _showFractalCaptions, value);
+                AppSettings.ShowFractalCaptions = value;
+                RaisePropertyChanged(() => ShowFractalCaptions);
+            }
+        }
+
+
+        public string CaptionFontFamily
+        {
+            get
+            {
+                return AppSettings.CaptionFontFamily;
+            }
+
+            set
+            {
+                AppSettings.CaptionFontFamily = value;
+            }
+        }
+
+        public double CaptionFontSize
+        {
+            get
+            {
+                return AppSettings.CaptionFontSize;
+            }
+
+            set
+            {
+                AppSettings.CaptionFontSize = value;
+            }
+        }
+
+        public Rendering.Color CaptionFontColor
+        {
+            get
+            {
+                return AppSettings.CaptionFontColor; 
+            }
+
+            set
+            {
+                AppSettings.CaptionFontColor = value;
             }
         }
 
@@ -142,9 +190,11 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         #region Commands
 
-        public ICommand SwapBackgroundColors { get; set; }
+        public ICommand SwapBackgroundColorsCommand { get; set; }
 
-        public ICommand SaveSettingsCommand { get; set; }
+        public ICommand OpenCaptionStyleChooserDialogCommand { get; set; }
+
+        public ICommand SaveCommand { get; set; }
 
         public ICommand CancelCommand { get; set; }
 
@@ -152,28 +202,54 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         #region Constructors
 
-        public PreferencesWindowViewModel()
+        public PreferencesWindowViewModel(IAppSettings appSettings, ApplicationInfo applicationInfo, LicenseBase appLicense, FontChooserDialogService fontChooserDialogService)
         {
-            Fractals = new ObservableCollection<Fractal>();
+            AppSettings = appSettings;
+            ApplicationInfo = applicationInfo;
+            AppLicense = appLicense;
+            FontChooserDialogService = fontChooserDialogService;
 
-            SwapBackgroundColors = new RelayCommand(SwapBackgroundColorsExecute);
-            SaveSettingsCommand = new RelayCommand(SaveSettingsCommandExecute);
-            CancelCommand = new RelayCommand(CancelCommandExecute);
+            Fractals = new ObservableCollection<Fractal>();
+            InitCommands();
         }
 
         #endregion
 
         #region Methods
 
-        private void SwapBackgroundColorsExecute()
+        private void InitCommands()
+        {
+            SwapBackgroundColorsCommand = new RelayCommand(SwapBackgroundColorsCommandExecute);
+            OpenCaptionStyleChooserDialogCommand = new RelayCommand(OpenCaptionStyleChooserDialogCommandExecute);
+            SaveCommand = new RelayCommand(SaveCommandExecute);
+            CancelCommand = new RelayCommand(CancelCommandExecute);
+        }
+
+
+        private void SwapBackgroundColorsCommandExecute()
         {
             var temp = PrimaryBackColor;
             PrimaryBackColor = SecondaryBackColor;
             SecondaryBackColor = temp;
         }
 
-        private void SaveSettingsCommandExecute()
+        private void OpenCaptionStyleChooserDialogCommandExecute()
         {
+            FontChooserDialogService.SelectedFontFamily = CaptionFontFamily;
+            FontChooserDialogService.SelectedFontSize = CaptionFontSize;
+            FontChooserDialogService.SelectedFontColor = CaptionFontColor;
+
+            if (FontChooserDialogService.ShowDialog() == true)
+            {
+                CaptionFontFamily = FontChooserDialogService.SelectedFontFamily;
+                CaptionFontSize = FontChooserDialogService.SelectedFontSize;
+                CaptionFontColor = FontChooserDialogService.SelectedFontColor;
+            }
+        }
+
+        private void SaveCommandExecute()
+        {
+            AppSettings.Save();
         }
 
         public void CancelCommandExecute()

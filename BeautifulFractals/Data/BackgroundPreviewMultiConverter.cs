@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +17,11 @@ namespace TAlex.BeautifulFractals.Data
     {
         #region IMultiValueConverter Members
 
-        public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             if (targetType == typeof(Brush))
             {
-                if (values != null)
+                if (values.Length == 3 && values.All(x => x != null && x != DependencyProperty.UnsetValue))
                 {
                     var primaryColor = (BeautifulFractals.Rendering.Color)values[0];
                     var secondaryColor = (BeautifulFractals.Rendering.Color)values[1];
@@ -73,7 +75,7 @@ namespace TAlex.BeautifulFractals.Data
             }
         }
 
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

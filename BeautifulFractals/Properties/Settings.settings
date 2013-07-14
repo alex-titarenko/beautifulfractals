@@ -17,20 +17,23 @@
     <Setting Name="ShowFractalCaptions" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Background_FirstColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
+    <Setting Name="PrimaryBackColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
       <Value Profile="(Default)">#ff1e90ff</Value>
     </Setting>
-    <Setting Name="Background_SecondColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
+    <Setting Name="SecondaryBackColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
       <Value Profile="(Default)">#ff000000</Value>
     </Setting>
-    <Setting Name="Caption_FontFamily" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="CaptionFontFamily" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Arial</Value>
     </Setting>
-    <Setting Name="Caption_FontSize" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Double" Scope="User">
+    <Setting Name="CaptionFontSize" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Double" Scope="User">
       <Value Profile="(Default)">12</Value>
     </Setting>
-    <Setting Name="Caption_FontColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
+    <Setting Name="CaptionFontColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
       <Value Profile="(Default)">#ff000000</Value>
+    </Setting>
+    <Setting Name="BackGradientType" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.ViewModels.BackgroundGradientType" Scope="User">
+      <Value Profile="(Default)">Vertical</Value>
     </Setting>
   </Settings>
 </SettingsFile>

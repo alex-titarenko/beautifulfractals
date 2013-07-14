@@ -124,11 +124,17 @@
     <Compile Include="Rendering\ColorPalettes\PredefinedColorPalette.cs" />
     <Compile Include="Rendering\Font.cs" />
     <Compile Include="Rendering\LinearGradientBrush.cs" />
+    <Compile Include="Services\IAppSettings.cs" />
     <Compile Include="Services\Licensing\AppLicense.cs" />
     <Compile Include="Services\Licensing\AppLicenseDataManager.cs" />
     <Compile Include="Services\Licensing\AppTrialPeriodDataProvider.cs" />
     <Compile Include="Services\Windows\ApplicationService.cs" />
+    <Compile Include="Services\Windows\FontChooserDialogService.cs" />
     <Compile Include="Services\Windows\IApplicationService.cs" />
+    <Compile Include="Services\Windows\IFontChooserDialogService.cs" />
+    <Compile Include="Services\Windows\IRegistrationWindowService.cs" />
+    <Compile Include="Services\Windows\RegistrationWindowService.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\PreferencesWindowViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />

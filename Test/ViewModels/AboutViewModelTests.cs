@@ -5,6 +5,7 @@ using TAlex.Common.Environment;
 using TAlex.Common.Licensing;
 using NSubstitute;
 using FluentAssertions;
+using TAlex.BeautifulFractals.Services.Windows;
 
 
 namespace TAlex.BeautifulFractals.Test.ViewModels
@@ -15,6 +16,7 @@ namespace TAlex.BeautifulFractals.Test.ViewModels
         private AboutViewModel ViewModel;
         private ApplicationInfo ApplicationInfoMock;
         private LicenseBase LicenseBaseMock;
+        private IRegistrationWindowService RegistrationWindowServiceMock;
 
 
         [SetUp]
@@ -22,8 +24,9 @@ namespace TAlex.BeautifulFractals.Test.ViewModels
         {
             ApplicationInfoMock = Substitute.For<ApplicationInfo>();
             LicenseBaseMock = Substitute.For<LicenseBase>(Substitute.For<ILicenseDataManager>(), Substitute.For<ITrialPeriodDataProvider>());
+            RegistrationWindowServiceMock = Substitute.For<IRegistrationWindowService>();
 
-            ViewModel = new AboutViewModel(ApplicationInfoMock, LicenseBaseMock);
+            ViewModel = new AboutViewModel(ApplicationInfoMock, LicenseBaseMock, RegistrationWindowServiceMock);
         }
 
 

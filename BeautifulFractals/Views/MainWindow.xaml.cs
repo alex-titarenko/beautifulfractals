@@ -96,15 +96,15 @@ namespace TAlex.BeautifulFractals
             Properties.Settings settings = Properties.Settings.Default;
 
             Rendering.LinearGradientBrush brush = new Rendering.LinearGradientBrush();
-            brush.FromColor = settings.Background_FirstColor;
-            brush.ToColor = settings.Background_SecondColor;
+            brush.FromColor = settings.PrimaryBackColor;
+            brush.ToColor = settings.SecondaryBackColor;
             brush.Angle = 90;
 
 
             context.Clear(brush);
             Thread.Sleep(TimeSpan.FromSeconds(2));
 
-            Rendering.Font captionFont = new Rendering.Font(settings.Caption_FontFamily, settings.Caption_FontSize);
+            Rendering.Font captionFont = new Rendering.Font(settings.CaptionFontFamily, settings.CaptionFontSize);
 
             while (true)
             {
@@ -115,7 +115,7 @@ namespace TAlex.BeautifulFractals
                     Rendering.Size captionSize = context.MeasureString(fractal.Caption, captionFont);
                     
                     context.DrawString(fractal.Caption, captionFont,
-                        settings.Caption_FontColor,
+                        settings.CaptionFontColor,
                         new Rendering.Point(context.Viewport.Width / 2 - captionSize.Width / 2, context.Viewport.Height - 20 - captionSize.Height));
                     
                     fractal.Render(context);

@@ -34,9 +34,6 @@ namespace TAlex.BeautifulFractals
         {
             InitializeComponent();
             LoadFractals();
-            LoadSettings();
-
-            Title = String.Format("{0} Preferences", ApplicationInfo.Current.Title);
         }
 
         #endregion
@@ -56,41 +53,10 @@ namespace TAlex.BeautifulFractals
             }
         }
 
-        private void LoadSettings()
-        {
-            Properties.Settings settings = Properties.Settings.Default;
-            
-            //randomOrderCheckBox.IsChecked = settings.RandomOrder;
-            //exitOnMouseMoveCheckBox.IsChecked = settings.ExitOnMouseMove;
-            //showFractalCaptionsCheckBox.IsChecked = settings.ShowFractalCaptions;
-
-            //delaySlider.Value = settings.Delay.TotalSeconds;
-
-            //firstBackColorChip.SelectedColor = ColorHelper.ToWpfColor(settings.Background_FirstColor);
-            //secondBackColorChip.SelectedColor = ColorHelper.ToWpfColor(settings.Background_SecondColor);
-        }
-
-        private void SaveSettings()
-        {
-            Properties.Settings settings = Properties.Settings.Default;
-
-            //settings.RandomOrder = (bool)randomOrderCheckBox.IsChecked;
-            //settings.ExitOnMouseMove = (bool)exitOnMouseMoveCheckBox.IsChecked;
-            //settings.ShowFractalCaptions = (bool)showFractalCaptionsCheckBox.IsChecked;
-            
-            //settings.Delay = TimeSpan.FromSeconds(delaySlider.Value);
-
-            //settings.Background_FirstColor = ColorHelper.FromWpfColor(firstBackColorChip.SelectedColor);
-            //settings.Background_SecondColor = ColorHelper.FromWpfColor(secondBackColorChip.SelectedColor);
-
-            settings.Save();
-        }
-
         #region Event Handlers
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            SaveSettings();
             Close();
         }
 
@@ -98,34 +64,6 @@ namespace TAlex.BeautifulFractals
         {
             Close();
         }
-
-        private void captionStyleHyperlink_Click(object sender, RoutedEventArgs e)
-        {
-            Properties.Settings settings = Properties.Settings.Default;
-
-            FontChooserDialog fontChooser = new FontChooserDialog();
-            fontChooser.ShowTextDecorations = false;
-            fontChooser.Owner = this;
-
-            fontChooser.SelectedFontFamily = new FontFamily(settings.Caption_FontFamily);
-            fontChooser.SelectedFontSize = settings.Caption_FontSize;
-            fontChooser.SelectedFontColor = ColorHelper.ToWpfColor(settings.Caption_FontColor);
-
-            if (fontChooser.ShowDialog() == true)
-            {
-                settings.Caption_FontFamily = fontChooser.SelectedFontFamily.Source;
-                settings.Caption_FontSize = fontChooser.SelectedFontSize;
-                settings.Caption_FontColor = ColorHelper.FromWpfColor(fontChooser.SelectedFontColor);
-            }
-        }
-
-        private void regHyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
-            Window window = new RegistrationWindow();
-            window.Owner = this;
-            window.ShowDialog();
-        }
-
 
         System.Collections.ObjectModel.ObservableCollection<Fractals.Fractal> _fractals;
         private void searchQueryTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -157,11 +95,6 @@ namespace TAlex.BeautifulFractals
         }
 
         #endregion
-
-        private void Hyperlink_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         #endregion
     }

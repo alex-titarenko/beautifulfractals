@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using System.Windows.Markup;
+using TAlex.BeautifulFractals.Services.Windows;
 using TAlex.Common.Environment;
 using TAlex.Common.Licensing;
+using TAlex.WPF.Mvvm.Commands;
 
 
 namespace TAlex.BeautifulFractals.ViewModels
@@ -16,6 +19,7 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         protected readonly ApplicationInfo ApplicationInfo;
         protected readonly LicenseBase AppLicense;
+        protected readonly IRegistrationWindowService RegistrationWindowService;
 
         #endregion
 
@@ -116,12 +120,35 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         #endregion
 
+        #region Commands
+
+        public ICommand OpenRegistrationDialogCommand { get; set; }
+
+        #endregion
+
         #region Constructors
 
-        public AboutViewModel(ApplicationInfo applicationInfo, LicenseBase appLicense)
+        public AboutViewModel(ApplicationInfo applicationInfo, LicenseBase appLicense, IRegistrationWindowService registrationWindowService)
         {
             ApplicationInfo = applicationInfo;
             AppLicense = appLicense;
+            RegistrationWindowService = registrationWindowService;
+
+            InitCommands();
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void InitCommands()
+        {
+            OpenRegistrationDialogCommand = new RelayCommand(OpenRegistrationDialogCommandExecute);
+        }
+
+        private void OpenRegistrationDialogCommandExecute()
+        {
+            RegistrationWindowService.Show();
         }
 
         #endregion

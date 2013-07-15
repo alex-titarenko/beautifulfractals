@@ -110,6 +110,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviours\WindowCloseBehavior.cs" />
     <Compile Include="Data\BackgroundPreviewMultiConverter.cs" />
     <Compile Include="Data\DisplayToBrushConverter.cs" />
     <Compile Include="Data\RenderColorToWpfColorConverter.cs" />

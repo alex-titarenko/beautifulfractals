@@ -55,16 +55,6 @@ namespace TAlex.BeautifulFractals
 
         #region Event Handlers
 
-        private void okButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         System.Collections.ObjectModel.ObservableCollection<Fractals.Fractal> _fractals;
         private void searchQueryTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:data="clr-namespace:TAlex.BeautifulFractals.Data"
         xmlns:viewmodels="clr-namespace:TAlex.BeautifulFractals.ViewModels"
+        xmlns:behaviours="clr-namespace:TAlex.BeautifulFractals.Behaviours"
         xmlns:talex="http://schemas.talex-soft.com/2010/xaml/presentation"
         xmlns:env="clr-namespace:TAlex.Common.Environment;assembly=TAlex.Common"
         Height="350" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
@@ -17,6 +18,16 @@
         <data:BackgroundPreviewMultiConverter x:Key="BackgroundPreviewMultiConverter" />
         <data:TimeSpanToSecondsConverter x:Key="TimeSpanToSecondsConverter" />
     </Window.Resources>
+
+    <Window.Style>
+        <Style>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding CloseSignal}" Value="true">
+                    <Setter Property="behaviours:WindowCloseBehavior.Close" Value="true" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Style>
     
     <Window.Background>
         <DrawingBrush TileMode="Tile" Viewport="0,0,4,4" ViewportUnits="Absolute">
@@ -139,7 +150,6 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         
-
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <TextBlock Text="Delay between shows:" Margin="0,0,10,0" />
                             <Label Content="{Binding ElementName=delaySlider, Path=Value}" ContentStringFormat="F1" Padding="0" Margin="0,0,3,0" />

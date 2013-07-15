@@ -27,6 +27,8 @@ namespace TAlex.BeautifulFractals.ViewModels
         protected readonly LicenseBase AppLicense;
         protected readonly IFontChooserDialogService FontChooserDialogService;
 
+        private bool _closeSignal;
+
         #endregion
 
         #region Properties
@@ -186,6 +188,20 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         public ObservableCollection<Fractal> Fractals { get; set; }
 
+
+        public bool CloseSignal
+        {
+            get
+            {
+                return _closeSignal;
+            }
+
+            set
+            {
+                Set(() => CloseSignal, ref _closeSignal, value);
+            }
+        }
+
         #endregion
 
         #region Commands
@@ -250,11 +266,12 @@ namespace TAlex.BeautifulFractals.ViewModels
         private void SaveCommandExecute()
         {
             AppSettings.Save();
+            CloseSignal = true;
         }
 
         public void CancelCommandExecute()
         {
-
+            CloseSignal = true;
         }
 
         #endregion

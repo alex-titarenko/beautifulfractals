@@ -73,7 +73,7 @@
     <Compile Include="ViewModels\RegistrationViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BeautifulFractals\BeautifulFractals.csproj">
+    <ProjectReference Include="..\BeautifulFractals.csproj">
       <Project>{b3922781-ae85-4a30-a840-fa498e4f0332}</Project>
       <Name>BeautifulFractals</Name>
     </ProjectReference>

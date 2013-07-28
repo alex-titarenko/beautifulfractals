@@ -32,6 +32,7 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         private ObservableCollection<Fractal> _fractals;
         public BeautifulFractals.Infrastructure.ICollectionView _fractalsView;
+        private bool? _displayAllFractals;
         private string _fractalsSearchQuery;
         private Func<Fractal, bool> _searchPredicate;
         private bool _closeSignal;
@@ -192,6 +193,20 @@ namespace TAlex.BeautifulFractals.ViewModels
             }
         }
 
+        public bool? DisplayAllFractals
+        {
+            get
+            {
+                return _displayAllFractals;
+            }
+
+            set
+            {
+                Set(() => DisplayAllFractals, ref _displayAllFractals, value);
+                UpdateDisplayProperty();
+            }
+        }
+
         public string FractalsSearchQuery
         {
             get
@@ -341,6 +356,14 @@ namespace TAlex.BeautifulFractals.ViewModels
             CloseSignal = true;
         }
 
+
+        private void UpdateDisplayProperty()
+        {
+            if (DisplayAllFractals.HasValue)
+            {
+                foreach (Fractal fractal in FractalsView) fractal.Display = DisplayAllFractals.Value;
+            }
+        }
 
         private void UpdateSearchPredicate()
         {

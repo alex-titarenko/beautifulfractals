@@ -249,10 +249,7 @@
                             <GridView>
                                 <GridViewColumn Width="30">
                                     <GridViewColumn.Header>
-                                        <Grid ToolTip="Display">
-                                            <Ellipse Width="12" Height="12" Stroke="Black" StrokeThickness="2" StrokeDashArray="0.5,2.1" StrokeDashCap="Round" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                            <Ellipse Width="6" Height="6" Stroke="Black" StrokeThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Grid>
+                                        <CheckBox IsChecked="{Binding DisplayAllFractals}" ToolTip="Display" />
                                     </GridViewColumn.Header>
                                     
                                     <GridViewColumn.CellTemplate>

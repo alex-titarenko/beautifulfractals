@@ -11,6 +11,7 @@ using TAlex.BeautifulFractals.Services;
 using TAlex.BeautifulFractals.Services.Licensing;
 using TAlex.BeautifulFractals.Services.Windows;
 using TAlex.Common.Environment;
+using TAlex.Common.Extensions;
 using TAlex.Common.Licensing;
 using TAlex.WPF.Mvvm;
 using TAlex.WPF.Mvvm.Commands;
@@ -32,6 +33,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         private ObservableCollection<Fractal> _fractals;
         public BeautifulFractals.Infrastructure.ICollectionView _fractalsView;
         private string _fractalsSearchQuery;
+        private Func<Fractal, bool> _searchPredicate;
         private bool _closeSignal;
 
         #endregion
@@ -200,6 +202,7 @@ namespace TAlex.BeautifulFractals.ViewModels
             set
             {
                 Set(() => FractalsSearchQuery, ref _fractalsSearchQuery, value);
+                UpdateSearchPredicate();
                 _fractalsView.Refresh();
             }
         }
@@ -215,7 +218,7 @@ namespace TAlex.BeautifulFractals.ViewModels
             {
                 _fractals = value;
                 _fractalsView = CollectionViewFactory.GetView(_fractals);
-                _fractalsView.Filter = FractalFilter;
+                _fractalsView.Filter = SearchFilter;
             }
         }
 
@@ -258,7 +261,13 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         #region Constructors
 
-        public PreferencesWindowViewModel(IAppSettings appSettings, ApplicationInfo applicationInfo, LicenseBase appLicense, FontChooserDialogService fontChooserDialogService, IFractalsManager fractalManager, BeautifulFractals.Infrastructure.ICollectionViewFactory collectionViewFactory)
+        public PreferencesWindowViewModel(
+            IAppSettings appSettings,
+            ApplicationInfo applicationInfo,
+            LicenseBase appLicense,
+            FontChooserDialogService fontChooserDialogService,
+            IFractalsManager fractalManager,
+            BeautifulFractals.Infrastructure.ICollectionViewFactory collectionViewFactory)
         {
             AppSettings = appSettings;
             ApplicationInfo = applicationInfo;
@@ -333,26 +342,34 @@ namespace TAlex.BeautifulFractals.ViewModels
         }
 
 
-        private bool FractalFilter(object o)
+        private void UpdateSearchPredicate()
         {
-            Fractal fractal = o as Fractal;
+            string text = (FractalsSearchQuery + String.Empty);
+            Func<Fractal, bool> predicate;
 
-            var query = (FractalsSearchQuery + String.Empty).ToLower();
-            if (String.IsNullOrWhiteSpace(query))
+            if (!String.IsNullOrWhiteSpace(text))
             {
-                return true;
-            }
-            string[] captionParts = fractal.Caption.ToLower().Split(' ');
+                string query = text;
 
-            foreach (var captionPart in captionParts)
+                if (text.TrimEnd().Length == text.Length)
+                    query += "*";
+                query = query.Trim();
+
+                predicate = EnumerableSearcher<Fractal>.BuildSearchPredicate(query,
+                    new List<Func<Fractals.Fractal, object>>() { { x => x.Caption } },
+                    DefaultOperator.And, DefaultComplianceType.Strict);
+            }
+            else
             {
-                if (captionPart.StartsWith(query))
-                {
-                    return true;
-                }
+                predicate = x => true;
             }
 
-            return false;
+            _searchPredicate = predicate;
+        }
+
+        private bool SearchFilter(object o)
+        {
+            return _searchPredicate != null ? _searchPredicate(o as Fractal) : true;
         }
 
         #endregion

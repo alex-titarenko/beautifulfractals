@@ -367,20 +367,6 @@
                     <Label Margin="0,0,0,12" Padding="0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                         Content="{Binding Copyright}" Effect="{StaticResource textEffect}">
                     </Label>
-
-                    <!-- Easter egg. -->
-                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Hidden">
-                        <Label Name="dedicatedLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0">
-                            This product is dedicated to the best friend!
-                        </Label>
-                        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Label Name="ILabel" Padding="2" Opacity="0">I</Label>
-                            <Label Name="LoveLabel" Padding="2" Opacity="0">Love</Label>
-                            <Label Name="YouLabel" Padding="2" Opacity="0">You</Label>
-                            <Label Name="KseniaLabel" Padding="2" Opacity="0">Ksenia</Label>
-                            <Label Name="SavitskayaLabel" Padding="2" Opacity="0">Savitskaya</Label>
-                        </WrapPanel>
-                    </Grid>
                 </Grid>
             </TabItem>
         </TabControl>

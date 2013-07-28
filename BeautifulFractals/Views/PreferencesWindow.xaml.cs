@@ -37,36 +37,5 @@ namespace TAlex.BeautifulFractals
         }
 
         #endregion
-
-        #region Methds
-
-        #region Event Handlers
-
-        private void searchQueryTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //string text = searchQueryTextBox.Text;
-
-            //if (!String.IsNullOrEmpty(text))
-            //{
-            //    string query = text;
-
-            //    if (text.TrimEnd().Length == text.Length)
-            //        query += "*";
-            //    query = query.Trim();
-
-            //    fractalsListView.ItemsSource = _fractals.Search(query,
-            //        new List<Func<Fractals.Fractal, object>>() { { x => x.Caption } },
-            //        DefaultOperator.And, DefaultComplianceType.Strict);
-            //}
-            //else
-            //{
-            //    fractalsListView.ItemsSource = _fractals;
-            //}
-
-        }
-
-        #endregion
-
-        #endregion
     }
 }

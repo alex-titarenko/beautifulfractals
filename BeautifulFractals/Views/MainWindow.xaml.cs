@@ -18,6 +18,7 @@ using System.Threading;
 using TAlex.BeautifulFractals.Fractals;
 using Rendering = TAlex.BeautifulFractals.Rendering;
 using TAlex.Common.Extensions;
+using TAlex.BeautifulFractals.Services;
 
 
 namespace TAlex.BeautifulFractals
@@ -141,7 +142,7 @@ namespace TAlex.BeautifulFractals
         {
             try
             {
-                _fractals = FractalsManager.Load(Properties.Settings.Default.FractalsCollectionPath).
+                _fractals = new FractalsManager().Load(Properties.Settings.Default.FractalsCollectionPath).
                     Where(f => f.Display).
                     ToList();
 

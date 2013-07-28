@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using TAlex.BeautifulFractals.Fractals;
 using TAlex.BeautifulFractals.Rendering;
@@ -25,8 +25,13 @@ namespace TAlex.BeautifulFractals.ViewModels
         protected readonly IAppSettings AppSettings;
         protected readonly ApplicationInfo ApplicationInfo;
         protected readonly LicenseBase AppLicense;
+        protected readonly IFractalsManager FractalManager;
         protected readonly IFontChooserDialogService FontChooserDialogService;
+        protected readonly BeautifulFractals.Infrastructure.ICollectionViewFactory CollectionViewFactory;
 
+        private ObservableCollection<Fractal> _fractals;
+        public BeautifulFractals.Infrastructure.ICollectionView _fractalsView;
+        private string _fractalsSearchQuery;
         private bool _closeSignal;
 
         #endregion
@@ -185,9 +190,42 @@ namespace TAlex.BeautifulFractals.ViewModels
             }
         }
 
+        public string FractalsSearchQuery
+        {
+            get
+            {
+                return _fractalsSearchQuery;
+            }
 
-        public ObservableCollection<Fractal> Fractals { get; set; }
+            set
+            {
+                Set(() => FractalsSearchQuery, ref _fractalsSearchQuery, value);
+                _fractalsView.Refresh();
+            }
+        }
 
+        public ObservableCollection<Fractal> Fractals
+        {
+            get
+            {
+                return _fractals;
+            }
+
+            set
+            {
+                _fractals = value;
+                _fractalsView = CollectionViewFactory.GetView(_fractals);
+                _fractalsView.Filter = FractalFilter;
+            }
+        }
+
+        public BeautifulFractals.Infrastructure.ICollectionView FractalsView
+        {
+            get
+            {
+                return _fractalsView;
+            }
+        }
 
         public bool CloseSignal
         {
@@ -210,6 +248,8 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         public ICommand OpenCaptionStyleChooserDialogCommand { get; set; }
 
+        public ICommand ClearSearchQueryCommand { get; set; }
+
         public ICommand SaveCommand { get; set; }
 
         public ICommand CancelCommand { get; set; }
@@ -218,14 +258,16 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         #region Constructors
 
-        public PreferencesWindowViewModel(IAppSettings appSettings, ApplicationInfo applicationInfo, LicenseBase appLicense, FontChooserDialogService fontChooserDialogService)
+        public PreferencesWindowViewModel(IAppSettings appSettings, ApplicationInfo applicationInfo, LicenseBase appLicense, FontChooserDialogService fontChooserDialogService, IFractalsManager fractalManager, BeautifulFractals.Infrastructure.ICollectionViewFactory collectionViewFactory)
         {
             AppSettings = appSettings;
             ApplicationInfo = applicationInfo;
             AppLicense = appLicense;
             FontChooserDialogService = fontChooserDialogService;
+            FractalManager = fractalManager;
+            CollectionViewFactory = collectionViewFactory;
 
-            Fractals = new ObservableCollection<Fractal>();
+            LoadFractals();
             InitCommands();
         }
 
@@ -237,8 +279,14 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             SwapBackgroundColorsCommand = new RelayCommand(SwapBackgroundColorsCommandExecute);
             OpenCaptionStyleChooserDialogCommand = new RelayCommand(OpenCaptionStyleChooserDialogCommandExecute);
+            ClearSearchQueryCommand = new RelayCommand(ClearSearchQueryExecute, ClearSearchQueryCanExecute);
             SaveCommand = new RelayCommand(SaveCommandExecute);
             CancelCommand = new RelayCommand(CancelCommandExecute);
+        }
+
+        private void LoadFractals()
+        {
+            Fractals = FractalManager.Load(AppSettings.FractalsCollectionPath);
         }
 
 
@@ -263,6 +311,16 @@ namespace TAlex.BeautifulFractals.ViewModels
             }
         }
 
+        private bool ClearSearchQueryCanExecute()
+        {
+            return !String.IsNullOrEmpty(FractalsSearchQuery);
+        }
+
+        private void ClearSearchQueryExecute()
+        {
+            FractalsSearchQuery = String.Empty;
+        }
+
         private void SaveCommandExecute()
         {
             AppSettings.Save();
@@ -272,6 +330,29 @@ namespace TAlex.BeautifulFractals.ViewModels
         public void CancelCommandExecute()
         {
             CloseSignal = true;
+        }
+
+
+        private bool FractalFilter(object o)
+        {
+            Fractal fractal = o as Fractal;
+
+            var query = (FractalsSearchQuery + String.Empty).ToLower();
+            if (String.IsNullOrWhiteSpace(query))
+            {
+                return true;
+            }
+            string[] captionParts = fractal.Caption.ToLower().Split(' ');
+
+            foreach (var captionPart in captionParts)
+            {
+                if (captionPart.StartsWith(query))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         #endregion

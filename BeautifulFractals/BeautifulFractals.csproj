@@ -116,8 +116,13 @@
     <Compile Include="Data\RenderColorToWpfColorConverter.cs" />
     <Compile Include="Data\TimeSpanToSecondsConverter.cs" />
     <Compile Include="FractalsCollection.cs" />
-    <Compile Include="FractalsManager.cs" />
+    <Compile Include="Infrastructure\CollectionView.cs" />
+    <Compile Include="Infrastructure\CollectionViewFactory.cs" />
+    <Compile Include="Infrastructure\ICollectionView.cs" />
+    <Compile Include="Infrastructure\ICollectionViewFactory.cs" />
+    <Compile Include="Services\FractalsManager.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Services\IFractalsManager.cs" />
     <Compile Include="Locators\Modules\AppLicenseNinjectModule.cs" />
     <Compile Include="Locators\Modules\BaseServicesNinjectModule.cs" />
     <Compile Include="Locators\Modules\ViewModelNinjectModule.cs" />

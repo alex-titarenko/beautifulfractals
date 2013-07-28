@@ -185,10 +185,10 @@
                             <Grid.Resources>
                                 <Style TargetType="TextBox" x:Key="stlHintbox">
                                     <Style.Triggers>
-                                        <Trigger Property="IsKeyboardFocused" Value="False">
+                                        <Trigger Property="Text" Value="">
                                             <Setter Property="TextBox.Background">
                                                 <Setter.Value>
-                                                    <VisualBrush Stretch="None" AlignmentX="Left" Visual="{Binding ElementName=hintText}" />
+                                                    <VisualBrush Stretch="None" AlignmentX="Left" AlignmentY="Center" Visual="{Binding ElementName=hintText}" />
                                                 </Setter.Value>
                                             </Setter>
                                         </Trigger>
@@ -196,7 +196,7 @@
                                 </Style>
                             </Grid.Resources>
 
-                            <TextBox Name="searchQueryTextBox" TabIndex="1" Tag="Search" BorderThickness="1,1,0,1" Style="{StaticResource stlHintbox}" TextChanged="searchQueryTextBox_TextChanged">
+                            <TextBox Name="searchQueryTextBox" TabIndex="1" Tag="Search" TextOptions.TextRenderingMode="ClearType" BorderThickness="1,1,0,1" Style="{StaticResource stlHintbox}" Text="{Binding Path=FractalsSearchQuery, UpdateSourceTrigger=PropertyChanged}">
                                 <TextBox.BorderBrush>
                                     <LinearGradientBrush EndPoint="0,1">
                                         <GradientStop Color="#a5cae4" Offset="0" />
@@ -205,11 +205,11 @@
                                 </TextBox.BorderBrush>
                             </TextBox>
                             <Border Visibility="Hidden">
-                                <TextBlock Padding="5" Name="hintText" Background="{Binding Path=Background, ElementName=searchQueryTextBox}" Text="{Binding Tag, ElementName=searchQueryTextBox}" Foreground="Gray" VerticalAlignment="Center" />
+                                <TextBlock Padding="2,0,0,3" Name="hintText" Background="{Binding Path=Background, ElementName=searchQueryTextBox}" Text="{Binding Tag, ElementName=searchQueryTextBox}" Foreground="Gray" VerticalAlignment="Center" />
                             </Border>
                         </Grid>
 
-                        <Button SnapsToDevicePixels="True" Background="Transparent" Grid.Column="1" ToolTip="Clear Search" Click="clearQueryButton_Click">
+                        <Button SnapsToDevicePixels="True" Background="Transparent" Grid.Column="1" ToolTip="Clear Search" Command="{Binding ClearSearchQueryCommand}">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Template">
@@ -239,8 +239,8 @@
                             </Path>
                         </Button>
                     </Grid>
-                        
-                    <ListView Name="fractalsListView" Grid.Row="1">
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding FractalsView}">
                         <talex:DragAndDropService.DragAndDropManager>
                             <talex:ItemsControlDragDropManager />
                         </talex:DragAndDropService.DragAndDropManager>

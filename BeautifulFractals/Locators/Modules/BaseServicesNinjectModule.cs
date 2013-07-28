@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TAlex.BeautifulFractals.Infrastructure;
 using TAlex.BeautifulFractals.Services;
 using TAlex.BeautifulFractals.Services.Windows;
 using TAlex.Common.Environment;
@@ -22,7 +23,9 @@ namespace TAlex.BeautifulFractals.Locators.Modules
             Bind<IFontChooserDialogService>().To<FontChooserDialogService>();
             Bind<IRegistrationWindowService>().To<RegistrationWindowService>();
 
-            Bind<IAppSettings>().ToMethod(x => Properties.Settings.Default);
+            Bind<IAppSettings>().ToMethod(x => Properties.Settings.Default).InSingletonScope();
+            Bind<IFractalsManager>().To<FractalsManager>().InSingletonScope();
+            Bind<ICollectionViewFactory>().To<CollectionViewFactory>().InSingletonScope();
         }
     }
 }

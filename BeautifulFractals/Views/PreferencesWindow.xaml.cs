@@ -19,6 +19,7 @@ using TAlex.Common.Environment;
 
 using TAlex.BeautifulFractals.Helpers;
 using TAlex.BeautifulFractals.Views;
+using TAlex.BeautifulFractals.Services;
 
 
 namespace TAlex.BeautifulFractals
@@ -33,55 +34,35 @@ namespace TAlex.BeautifulFractals
         public PreferencesWindow()
         {
             InitializeComponent();
-            LoadFractals();
         }
 
         #endregion
 
         #region Methds
 
-        private void LoadFractals()
-        {
-            try
-            {
-                _fractals = FractalsManager.Load(Properties.Settings.Default.FractalsCollectionPath);
-                fractalsListView.ItemsSource = _fractals; //FractalsManager.Load(Properties.Settings.Default.FractalsCollectionPath);
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(this, exc.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         #region Event Handlers
 
-        System.Collections.ObjectModel.ObservableCollection<Fractals.Fractal> _fractals;
         private void searchQueryTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string text = searchQueryTextBox.Text;
+            //string text = searchQueryTextBox.Text;
 
-            if (!String.IsNullOrEmpty(text))
-            {
-                string query = text;
+            //if (!String.IsNullOrEmpty(text))
+            //{
+            //    string query = text;
 
-                if (text.TrimEnd().Length == text.Length)
-                    query += "*";
-                query = query.Trim();
+            //    if (text.TrimEnd().Length == text.Length)
+            //        query += "*";
+            //    query = query.Trim();
 
-                fractalsListView.ItemsSource = _fractals.Search(query,
-                    new List<Func<Fractals.Fractal, object>>() { { x => x.Caption } },
-                    DefaultOperator.And, DefaultComplianceType.Strict);
-            }
-            else
-            {
-                fractalsListView.ItemsSource = _fractals;
-            }
+            //    fractalsListView.ItemsSource = _fractals.Search(query,
+            //        new List<Func<Fractals.Fractal, object>>() { { x => x.Caption } },
+            //        DefaultOperator.And, DefaultComplianceType.Strict);
+            //}
+            //else
+            //{
+            //    fractalsListView.ItemsSource = _fractals;
+            //}
 
-        }
-
-        private void clearQueryButton_Click(object sender, RoutedEventArgs e)
-        {
-            searchQueryTextBox.Text = String.Empty;
         }
 
         #endregion

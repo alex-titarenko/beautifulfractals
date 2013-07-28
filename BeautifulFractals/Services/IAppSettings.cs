@@ -32,6 +32,8 @@ namespace TAlex.BeautifulFractals.Services
 
         Color CaptionFontColor { get; set; }
 
+        string FractalsCollectionPath { get; }
+
         void Save();
     }
 }

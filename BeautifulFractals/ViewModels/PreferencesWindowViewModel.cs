@@ -268,6 +268,8 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         public ICommand ClearSearchQueryCommand { get; set; }
 
+        public ICommand OpenFractalPreviewCommand { get; set; }
+
         public ICommand SaveCommand { get; set; }
 
         public ICommand CancelCommand { get; set; }
@@ -304,6 +306,7 @@ namespace TAlex.BeautifulFractals.ViewModels
             SwapBackgroundColorsCommand = new RelayCommand(SwapBackgroundColorsCommandExecute);
             OpenCaptionStyleChooserDialogCommand = new RelayCommand(OpenCaptionStyleChooserDialogCommandExecute);
             ClearSearchQueryCommand = new RelayCommand(ClearSearchQueryExecute, ClearSearchQueryCanExecute);
+            OpenFractalPreviewCommand = new RelayCommand<Fractal>(OpenFractalPreviewExecute);
             SaveCommand = new RelayCommand(SaveCommandExecute);
             CancelCommand = new RelayCommand(CancelCommandExecute);
         }
@@ -343,6 +346,11 @@ namespace TAlex.BeautifulFractals.ViewModels
         private void ClearSearchQueryExecute()
         {
             FractalsSearchQuery = String.Empty;
+        }
+
+        private void OpenFractalPreviewExecute(Fractal fractal)
+        {
+            new TAlex.BeautifulFractals.Views.PreviewWindow().Show();
         }
 
         private void SaveCommandExecute()

@@ -1,8 +1,36 @@
 ﻿<Window x:Class="TAlex.BeautifulFractals.Views.PreviewWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Preview" Height="600" Width="800" WindowStartupLocation="CenterOwner">
+        Title="Preview" Height="600" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="55" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="1" Background="WhiteSmoke" BorderBrush="Silver" BorderThickness="0,1,0,0">        
+            <Grid Margin="10" HorizontalAlignment="Center" Width="150">            
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" FontSize="20" FontWeight="ExtraBold" VerticalContentAlignment="Center">
+                    <Viewbox Margin="3">
+                        <Path Stretch="Fill" Fill="#FF000000" Data="F1 M 77.2798,42.312L 62.3771,30.448L 57.4118,36.6814L 65.8771,43.4214L 42.6131,43.4214L 42.6131,51.392L 65.8745,51.392L 57.4118,58.1294L 62.3771,64.3654L 77.2798,52.5L 83.6771,47.4053L 77.2798,42.312 Z ">
+                            <Path.LayoutTransform>
+                                <ScaleTransform ScaleX="-1" />
+                            </Path.LayoutTransform>
+                        </Path>
+                    </Viewbox>
+                </Button>
+                <Button Grid.Column="2" FontSize="20" FontWeight="ExtraBold" VerticalContentAlignment="Center">
+                    <Viewbox Margin="3">
+                        <Path Stretch="Fill" Fill="#FF000000" Data="F1 M 77.2798,42.312L 62.3771,30.448L 57.4118,36.6814L 65.8771,43.4214L 42.6131,43.4214L 42.6131,51.392L 65.8745,51.392L 57.4118,58.1294L 62.3771,64.3654L 77.2798,52.5L 83.6771,47.4053L 77.2798,42.312 Z "/>
+                    </Viewbox>
+                </Button>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

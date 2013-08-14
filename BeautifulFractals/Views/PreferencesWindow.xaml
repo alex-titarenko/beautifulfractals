@@ -241,10 +241,16 @@
                     </Grid>
 
                     <ListView Grid.Row="1" ItemsSource="{Binding FractalsView}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+
                         <talex:DragAndDropService.DragAndDropManager>
                             <talex:ItemsControlDragDropManager />
                         </talex:DragAndDropService.DragAndDropManager>
-                                                
+
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Width="30">
@@ -262,7 +268,7 @@
                                 <GridViewColumn Header="Name" Width="360">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding}" Foreground="{Binding Path=Display, Converter={StaticResource DisplayToBrushConverter}}" HorizontalAlignment="Stretch">
+                                            <TextBlock Text="{Binding}" Foreground="{Binding Path=Display, Converter={StaticResource DisplayToBrushConverter}}">
                                                 <TextBlock.InputBindings>
                                                     <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding DataContext.OpenFractalPreviewCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" CommandParameter="{Binding}" />
                                                 </TextBlock.InputBindings>

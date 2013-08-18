@@ -403,7 +403,7 @@ namespace TAlex.BeautifulFractals.ViewModels
             return _searchPredicate != null ? _searchPredicate(o as Fractal) : true;
         }
 
-        #endregion
+        #endregion 
     }
 
     public enum BackgroundGradientType

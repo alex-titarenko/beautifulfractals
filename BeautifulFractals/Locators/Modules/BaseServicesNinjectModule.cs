@@ -22,6 +22,7 @@ namespace TAlex.BeautifulFractals.Locators.Modules
             Bind<IApplicationService>().To<ApplicationService>();
             Bind<IFontChooserDialogService>().To<FontChooserDialogService>();
             Bind<IRegistrationWindowService>().To<RegistrationWindowService>();
+            Bind<IPreviewDialogService>().To<PreviewDialogService>();
 
             Bind<IAppSettings>().ToMethod(x => Properties.Settings.Default).InSingletonScope();
             Bind<IFractalsManager>().To<FractalsManager>().InSingletonScope();

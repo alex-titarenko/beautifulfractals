@@ -104,6 +104,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WriteableBitmapEx.Wpf">
+      <HintPath>..\packages\WriteableBitmapEx.1.0.8.0\lib\net40\WriteableBitmapEx.Wpf.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -120,6 +123,7 @@
     <Compile Include="Infrastructure\CollectionViewFactory.cs" />
     <Compile Include="Infrastructure\ICollectionView.cs" />
     <Compile Include="Infrastructure\ICollectionViewFactory.cs" />
+    <Compile Include="Rendering\WriteableBitmapGraphicsContext.cs" />
     <Compile Include="Services\FractalsManager.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Services\IFractalsManager.cs" />
@@ -138,7 +142,9 @@
     <Compile Include="Services\Windows\FontChooserDialogService.cs" />
     <Compile Include="Services\Windows\IApplicationService.cs" />
     <Compile Include="Services\Windows\IFontChooserDialogService.cs" />
+    <Compile Include="Services\Windows\IPreviewDialogService.cs" />
     <Compile Include="Services\Windows\IRegistrationWindowService.cs" />
+    <Compile Include="Services\Windows\PreviewDialogService.cs" />
     <Compile Include="Services\Windows\RegistrationWindowService.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />

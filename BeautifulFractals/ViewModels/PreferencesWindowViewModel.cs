@@ -29,6 +29,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         protected readonly IFractalsManager FractalManager;
         protected readonly IFontChooserDialogService FontChooserDialogService;
         protected readonly BeautifulFractals.Infrastructure.ICollectionViewFactory CollectionViewFactory;
+        protected readonly IPreviewDialogService PreviewDialogService;
 
         private ObservableCollection<Fractal> _fractals;
         public BeautifulFractals.Infrastructure.ICollectionView _fractalsView;
@@ -284,7 +285,8 @@ namespace TAlex.BeautifulFractals.ViewModels
             LicenseBase appLicense,
             FontChooserDialogService fontChooserDialogService,
             IFractalsManager fractalManager,
-            BeautifulFractals.Infrastructure.ICollectionViewFactory collectionViewFactory)
+            BeautifulFractals.Infrastructure.ICollectionViewFactory collectionViewFactory,
+            IPreviewDialogService previewDialogService)
         {
             AppSettings = appSettings;
             ApplicationInfo = applicationInfo;
@@ -292,6 +294,7 @@ namespace TAlex.BeautifulFractals.ViewModels
             FontChooserDialogService = fontChooserDialogService;
             FractalManager = fractalManager;
             CollectionViewFactory = collectionViewFactory;
+            PreviewDialogService = previewDialogService;
 
             LoadFractals();
             InitCommands();
@@ -350,7 +353,8 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         private void OpenFractalPreviewExecute(Fractal fractal)
         {
-            new TAlex.BeautifulFractals.Views.PreviewWindow().Show();
+            FractalsView.MoveCurrentTo(fractal);
+            PreviewDialogService.Show(FractalsView);
         }
 
         private void SaveCommandExecute()

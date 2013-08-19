@@ -322,14 +322,14 @@ namespace TAlex.BeautifulFractals.Rendering
             throw new NotImplementedException();
         }
 
-        public void ReadXml(XmlReader reader)
+        void IXmlSerializable.ReadXml(XmlReader reader)
         {
             string str = reader.ReadElementString();
             Color c = Parse(str);
             value = c.value;
         }
 
-        public void WriteXml(XmlWriter writer)
+        void IXmlSerializable.WriteXml(XmlWriter writer)
         {
             writer.WriteValue(ToString());
         }

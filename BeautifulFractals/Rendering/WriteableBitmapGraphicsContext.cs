@@ -41,7 +41,7 @@ namespace TAlex.BeautifulFractals.Rendering
 
         public void Invalidate()
         {
-            throw new NotImplementedException();
+            _context.Freeze();
         }
 
         public void PutPixel(int x, int y, Color color)

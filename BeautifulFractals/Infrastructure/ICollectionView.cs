@@ -11,6 +11,9 @@ namespace TAlex.BeautifulFractals.Infrastructure
     {
         object CurrentItem { get; }
 
+        bool IsCurrentAfterLast { get; }
+        bool IsCurrentBeforeFirst { get; }
+
         bool MoveCurrentTo(object item);
         bool MoveCurrentToNext();
         bool MoveCurrentToPrevious();

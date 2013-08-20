@@ -21,57 +21,10 @@ namespace TAlex.BeautifulFractals.Views
     /// Interaction logic for PreviewWindow.xaml
     /// </summary>
     public partial class PreviewWindow : Window
-    {
-        public ICollectionView FractalCollection { get; set; }
-
-        
+    {        
         public PreviewWindow()
         {
             InitializeComponent();          
-        }
-
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            RenderFractal();
-        }
-
-        private void border_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            //RenderFractal();
-        }
-
-        public void RenderFractal()
-        {
-            Task.Run(() =>
-            {
-                WriteableBitmap wb = BitmapFactory.New((int)border.ActualWidth, (int)border.ActualHeight);
-                Fractal targetFractal = FractalCollection.CurrentItem as Fractal;
-
-                if (targetFractal is Fractal2D)
-                {
-                    using (wb.GetBitmapContext())
-                    {               
-                        WriteableBitmapGraphicsContext context = new WriteableBitmapGraphicsContext(wb);
-                        ((Fractal2D)targetFractal).Render(context);
-                    }
-                }
-
-                wb.Freeze();
-                Dispatcher.Invoke(() => { previewImage.Source = wb; });
-            });
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            FractalCollection.MoveCurrentToPrevious();
-            RenderFractal();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            FractalCollection.MoveCurrentToNext();
-            RenderFractal();
         }
     }
 }

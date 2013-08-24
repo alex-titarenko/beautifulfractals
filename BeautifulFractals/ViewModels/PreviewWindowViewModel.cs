@@ -106,17 +106,15 @@ namespace TAlex.BeautifulFractals.ViewModels
 
                 if (targetFractal != null)
                 {
-                    WriteableBitmapGraphicsContext context = new WriteableBitmapGraphicsContext(wb);
+                    IGraphics2DContext context = new WriteableBitmapGraphicsContext(wb);
                     targetFractal.Render(context);
                     context.Invalidate();
-                }
 
-                App.Current.Dispatcher.Invoke(() =>
-                {
-                    Plot = wb;
-                    IsBusy = false;
-                    Title = String.Format("{0} - Preview", ((Fractal)FractalCollection.CurrentItem).Caption);
-                });
+                    Title = String.Format(Properties.Resources.locPreviewWindowTitle, targetFractal.Caption);
+                }
+                
+                Plot = wb;
+                IsBusy = false;
             });
         }
 
@@ -134,7 +132,7 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         private bool ShowPrevCommandCanExecute()
         {
-            return !FractalCollection.IsCurrentBeforeFirst;
+            return FractalCollection.CurrentPosition > 0;
         }
 
         private void ShowNextCommandExecute()
@@ -145,7 +143,7 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         private bool ShowNextCommandCanExecute()
         {
-            return !FractalCollection.IsCurrentAfterLast;
+            return FractalCollection.CurrentPosition < FractalCollection.OfType<Fractal>().Count() - 1;
         }
 
         #endregion

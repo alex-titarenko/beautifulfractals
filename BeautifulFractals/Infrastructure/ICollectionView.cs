@@ -10,9 +10,7 @@ namespace TAlex.BeautifulFractals.Infrastructure
     public interface ICollectionView : IEnumerable
     {
         object CurrentItem { get; }
-
-        bool IsCurrentAfterLast { get; }
-        bool IsCurrentBeforeFirst { get; }
+        int CurrentPosition { get; }
 
         bool MoveCurrentTo(object item);
         bool MoveCurrentToNext();

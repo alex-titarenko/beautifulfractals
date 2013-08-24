@@ -136,4 +136,8 @@
   <data name="SupportEmail" xml:space="preserve">
     <value>mailto:support@talex-soft.com</value>
   </data>
+  <data name="locPreviewWindowTitle" xml:space="preserve">
+    <value>{0} - Preview</value>
+    <comment>{0} - fractal caption</comment>
+  </data>
 </root>

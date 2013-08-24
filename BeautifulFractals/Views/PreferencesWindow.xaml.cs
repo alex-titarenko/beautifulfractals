@@ -37,5 +37,15 @@ namespace TAlex.BeautifulFractals
         }
 
         #endregion
+
+        #region Event Handlers
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            App.Current.Shutdown();
+        }
+
+        #endregion
     }
 }

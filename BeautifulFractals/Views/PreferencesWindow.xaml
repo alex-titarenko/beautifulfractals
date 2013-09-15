@@ -241,6 +241,9 @@
                     </Grid>
 
                     <ListView Grid.Row="1" ItemsSource="{Binding FractalsView}">
+                        <ListView.InputBindings>
+                            <KeyBinding Key="Enter" Command="{Binding OpenFractalPreviewCommand}" CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}" />
+                        </ListView.InputBindings>
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

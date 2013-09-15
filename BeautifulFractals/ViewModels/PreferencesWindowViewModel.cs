@@ -353,8 +353,11 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         private void OpenFractalPreviewExecute(Fractal fractal)
         {
-            FractalsView.MoveCurrentTo(fractal);
-            PreviewDialogService.Show(FractalsView);
+            if (fractal != null)
+            {
+                FractalsView.MoveCurrentTo(fractal);
+                PreviewDialogService.Show(FractalsView);
+            }
         }
 
         private void SaveCommandExecute()

@@ -10,7 +10,7 @@ using TAlex.BeautifulFractals.Rendering.ColorPalettes;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// Dynamical Fractals, Nonlinear transformation, Attractors
+    /// Represents the Mandelbrot Set fractal.
     /// </summary>
     public class MandelbrotSet : AlgebraicFractal2D
     {
@@ -18,7 +18,13 @@ namespace TAlex.BeautifulFractals.Fractals
 
         public override string Caption
         {
-            get { return String.Format("Mandelbrot Set (left: {0} right: {1} top: {2} bottom: {3})", Region.Left, Region.Right, Region.Top, Region.Bottom); }
+            get
+            {
+                if (String.IsNullOrEmpty(Name))
+                    return String.Format("Mandelbrot Set (L:{0:G4} R:{1:G4} T:{2:G4} B:{3:G4})", Region.Left, Region.Right, Region.Top, Region.Bottom);
+                else
+                    return Name;
+            }
         }
 
         #endregion
@@ -95,11 +101,6 @@ namespace TAlex.BeautifulFractals.Fractals
                     }
                 }
             }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("MandelbrotSet");
         }
 
         #endregion

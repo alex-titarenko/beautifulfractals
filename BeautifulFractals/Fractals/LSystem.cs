@@ -9,7 +9,7 @@ using TAlex.BeautifulFractals.Rendering;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// 
+    /// Represents the L-System fractal generation engine.
     /// </summary>
     public class LSystem : GeometricFractal2D
     {
@@ -19,11 +19,9 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("{0} - L-System (Level: {1})", Name, Iterations);
+                return String.Format("{0} (L-System)", Name);
             }
         }
-
-        public string Name { get; set; }
 
         public string Axiom { get; set; }
 
@@ -71,7 +69,7 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             string generator = Expander(Axiom, Rules, Iterations);
 
-            Rectangle area = RenderOrCalcSize(context, generator, Angle, InitialAngle, Point.Empty, 1, true);
+            Rectangle area = RenderOrCalcMeasure(context, generator, Angle, InitialAngle, Point.Empty, 1, false);
 
             double w = context.Viewport.Width;
             double h = context.Viewport.Height;
@@ -85,7 +83,7 @@ namespace TAlex.BeautifulFractals.Fractals
             loc.X = -area.X * step + (w - area.Width * step) / 2;
             loc.Y = -area.Y * step + (h - area.Height * step) / 2;
 
-            RenderOrCalcSize(context, generator, Angle, InitialAngle, loc, step, false);
+            RenderOrCalcMeasure(context, generator, Angle, InitialAngle, loc, step, true);
         }
 
         private string Expander(string axiom, IEnumerable<Rule> rules, int level)
@@ -116,9 +114,9 @@ namespace TAlex.BeautifulFractals.Fractals
             return generator;
         }
 
-        private Rectangle RenderOrCalcSize(IGraphics2DContext context,
+        private Rectangle RenderOrCalcMeasure(IGraphics2DContext context,
             string generator, double angle, double initAngle,
-            Point loc, double step, bool dontRender)
+            Point loc, double step, bool render = true)
         {
             Stack<State> states = new Stack<State>();
             State state;
@@ -164,7 +162,7 @@ namespace TAlex.BeautifulFractals.Fractals
                         xn = x + step * Math.Cos(currAngle * Math.PI / 180);
                         yn = y + step * Math.Sin(currAngle * Math.PI / 180);
 
-                        if (c == 'F' && !dontRender)
+                        if (c == 'F' && render)
                             context.DrawLine(x, y, xn, yn, Color);
 
                         x = xn; y = yn;
@@ -181,11 +179,6 @@ namespace TAlex.BeautifulFractals.Fractals
             }
 
             return new Rectangle(xmin, ymin, xmax - xmin, ymax - ymin);
-        }
-
-        public override string ToString()
-        {
-            return String.Format("{0} (L-System)", Name);
         }
 
         #endregion

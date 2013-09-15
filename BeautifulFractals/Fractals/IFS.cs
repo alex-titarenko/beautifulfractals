@@ -9,7 +9,7 @@ using TAlex.BeautifulFractals.Rendering;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// Represents iterated function system (IFS) engine.
+    /// Represents iterated function system (IFS) fractal generation engine.
     /// </summary>
     public class IFS : Fractal2D
     {
@@ -30,14 +30,8 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("{0} - IFS (Iterations: {1})", Name, Iterations);
+                return String.Format("{0} (IFS)", Name);
             }
-        }
-
-        public string Name
-        {
-            get;
-            set;
         }
 
         public int Iterations
@@ -75,7 +69,7 @@ namespace TAlex.BeautifulFractals.Fractals
         public override void Render(IGraphics2DContext context)
         {
             UpdateColors();
-            Rectangle area = RenderOrCalcSize(context, Point.Empty, 1, 100000, true);
+            Rectangle area = RenderOrCalcMeasure(context, Point.Empty, 1, 100000, false);
 
             double w = context.Viewport.Width;
             double h = context.Viewport.Height;
@@ -83,16 +77,16 @@ namespace TAlex.BeautifulFractals.Fractals
             double scale_x = w / area.Width;
             double scale_y = h / area.Height;
 
-            double step = (scale_x < scale_y) ? scale_x : scale_y;
+            double scale = (scale_x < scale_y) ? scale_x : scale_y;
 
             Point loc = new Point();
-            loc.X = -area.X * step + (w - area.Width * step) / 2;
-            loc.Y = -area.Y * step + (h - area.Height * step) / 2;
+            loc.X = -area.X * scale + (w - area.Width * scale) / 2;
+            loc.Y = -area.Y * scale + (h - area.Height * scale) / 2;
 
-            RenderOrCalcSize(context, loc, step, Iterations, false);
+            RenderOrCalcMeasure(context, loc, scale, Iterations, true);
         }
 
-        private Rectangle RenderOrCalcSize(IGraphics2DContext context, Point loc, double scale, int iterations, bool dontRender)
+        private Rectangle RenderOrCalcMeasure(IGraphics2DContext context, Point loc, double scale, int iterations, bool render = true)
         {
             double x = 0;
             double y = 0;
@@ -135,16 +129,11 @@ namespace TAlex.BeautifulFractals.Fractals
                     }
                 }
 
-                if (!dontRender)
+                if (render)
                     context.PutPixel(loc.X + x * scale, h - (loc.Y + y * scale), color);
             }
 
             return new Rectangle(x_min, y_min, x_max - x_min, y_max - y_min);
-        }
-
-        public override string ToString()
-        {
-            return String.Format("{0} (IFS)", Name);
         }
 
         private void UpdateColors()

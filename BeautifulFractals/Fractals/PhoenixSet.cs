@@ -11,7 +11,7 @@ using TAlex.MathCore;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// Dynamical Fractals, Nonlinear transformation, Attractors
+    /// Represents the Phoenix Set fractal.
     /// </summary>
     public class PhoenixSet : AlgebraicFractal2D
     {
@@ -25,7 +25,10 @@ namespace TAlex.BeautifulFractals.Fractals
 
         public override string Caption
         {
-            get { return String.Format("Phoenix Set"); }
+            get
+            {
+                return String.IsNullOrEmpty(Name) ? "Phoenix Set" : Name;
+            }
         }
 
         public Complex C
@@ -110,11 +113,6 @@ namespace TAlex.BeautifulFractals.Fractals
                     }
                 }
             }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("Phoenix Set");
         }
 
         #endregion

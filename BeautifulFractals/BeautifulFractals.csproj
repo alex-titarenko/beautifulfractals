@@ -199,7 +199,6 @@
     <Compile Include="Fractals\Hopalong.cs" />
     <Compile Include="Fractals\IFS.cs" />
     <Compile Include="Fractals\JuliaSet.cs" />
-    <Compile Include="Fractals\LorenzAttractor.cs" />
     <Compile Include="Fractals\LSystem.cs" />
     <Compile Include="Fractals\MandelbrotSet.cs" />
     <Compile Include="Fractals\NewtonBasins.cs" />
@@ -284,6 +283,11 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fractals.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

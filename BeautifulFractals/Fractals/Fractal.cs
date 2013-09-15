@@ -10,12 +10,27 @@ namespace TAlex.BeautifulFractals.Fractals
         #region Fields
 
         private bool _display;
+        private string _name;
 
         #endregion
 
         #region Properties
 
         public abstract string Caption { get; }
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+
+            set
+            {
+                _name = value;
+                OnPropertyChanged("Name");
+            }
+        }
 
         public bool Display
         {
@@ -40,6 +55,15 @@ namespace TAlex.BeautifulFractals.Fractals
             Display = true;
         }
         
+        #endregion
+
+        #region Methods
+
+        public override string ToString()
+        {
+            return Caption;
+        }
+
         #endregion
 
         #region INotifyPropertyChanged Members

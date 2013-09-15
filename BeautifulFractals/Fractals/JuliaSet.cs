@@ -11,7 +11,7 @@ using TAlex.MathCore;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// Dynamical Fractals, Nonlinear transformation, Attractors
+    /// Represents the Julia Set fractal.
     /// </summary>
     public class JuliaSet : AlgebraicFractal2D
     {
@@ -27,7 +27,10 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("Julia Set (C= {0} + {1}i)", _c.Re, _c.Im);
+                if (String.IsNullOrEmpty(Name))
+                    return String.Format("Julia Set (C: {0})", C);
+                else
+                    return Name;
             }
         }
 
@@ -107,11 +110,6 @@ namespace TAlex.BeautifulFractals.Fractals
                     }
                 }
             }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("Julia Set (C: {0})", C);
         }
 
         #endregion

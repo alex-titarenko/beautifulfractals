@@ -9,7 +9,7 @@ using TAlex.MathCore;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// Dynamical Fractals, Nonlinear transformation, Attractors
+    /// Represents the Newton Basins fractal.
     /// </summary>
     public class NewtonBasins : AlgebraicFractal2D
     {
@@ -23,7 +23,10 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("Newton Basins");
+                if (String.IsNullOrEmpty(Name))
+                    return String.Format("Newton Basins (P: {0})", Polynomial);
+                else
+                    return Name;
             }
         }
 
@@ -99,11 +102,6 @@ namespace TAlex.BeautifulFractals.Fractals
             int r = (int)(255 * mag * (Math.Sin(angle + 4 * Math.PI / 3) / 2 + 0.5));
 
             return Color.FromArgb(r, g, b);
-        }
-
-        public override string ToString()
-        {
-            return String.Format("Newton Basins (P: {0})", Polynomial);
         }
 
         #endregion

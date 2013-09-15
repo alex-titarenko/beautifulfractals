@@ -7,7 +7,7 @@ using TAlex.BeautifulFractals.Rendering;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// 
+    /// Represents the Cantor Dust fractal.
     /// </summary>
     public class CantorDust : GeometricFractal2D
     {
@@ -17,7 +17,7 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("Cantor Dust (Level: {0})", Iterations);
+                return String.IsNullOrEmpty(Name) ? "Cantor Dust" : Name;
             }
         }
 
@@ -77,11 +77,6 @@ namespace TAlex.BeautifulFractals.Fractals
             {
                 context.FillRectangle(x, y, width, height, Color);
             }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("Cantor Dust");
         }
 
         #endregion

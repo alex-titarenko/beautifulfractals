@@ -9,9 +9,6 @@ using TAlex.BeautifulFractals.Rendering.ColorPalettes;
 
 namespace TAlex.BeautifulFractals.Fractals
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public abstract class AlgebraicFractal2D : Fractal2D
     {
         public int MaxIterations { get; set; }

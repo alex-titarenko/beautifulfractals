@@ -7,7 +7,7 @@ using TAlex.BeautifulFractals.Rendering;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// 
+    /// Represents the Cantor Set fractal.
     /// </summary>
     public class CantorSet : GeometricFractal2D
     {
@@ -23,7 +23,7 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("Cantor Set (Level: {0})", Iterations);
+                return String.IsNullOrEmpty(Name) ? "Cantor Set" : Name;
             }
         }
 
@@ -80,11 +80,6 @@ namespace TAlex.BeautifulFractals.Fractals
                 Recursion(context, x, y + LineHeight * 2, dx, level - 1);
                 Recursion(context, x + 2 * dx, y + LineHeight * 2, dx, level - 1);
             }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("Cantor Set");
         }
 
         #endregion

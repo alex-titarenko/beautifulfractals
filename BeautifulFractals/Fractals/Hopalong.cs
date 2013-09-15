@@ -8,7 +8,7 @@ using TAlex.BeautifulFractals.Rendering;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// 
+    /// Represents the Hopalong fractal.
     /// </summary>
     public class Hopalong : Fractal2D
     {
@@ -18,7 +18,10 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("Hopalong (Iterations: {0})", Iterations);
+                if (String.IsNullOrEmpty(Name))
+                    return String.Format("Hopalong (A:{0} B:{1} C:{2})", A, B, C);
+                else
+                    return Name;
             }
         }
 
@@ -75,33 +78,47 @@ namespace TAlex.BeautifulFractals.Fractals
 
         #region Methods
 
-        public override string ToString()
+        public override void Render(IGraphics2DContext context)
         {
-            return Caption;
+            Rectangle rect = RenderOrCalcMeasure(context, 1, false);
+            double w = context.Viewport.Width;
+            double h = context.Viewport.Height;
+
+            double scale_x = w / rect.Width;
+            double scale_y = h / rect.Height;
+
+            double scale = (scale_x < scale_y) ? scale_x : scale_y;
+
+            RenderOrCalcMeasure(context, scale, true);
         }
 
-        public override void Render(IGraphics2DContext context)
+        private Rectangle RenderOrCalcMeasure(IGraphics2DContext context, double scale, bool render = true)
         {
             double x = 0.0;
             double y = 0.0;
-
-            double t;
-
-            int signx = 0;
+            double max_x = 0;
+            double max_y = 0;
 
             double mx = context.Viewport.Width / 2.0;
             double my = context.Viewport.Height / 2.0;
 
             for (int n = 0; n < Iterations; n++)
             {
-                signx = (x >= 0) ? 1 : -1;
+                int signx = (x >= 0) ? 1 : -1;
 
-                t = x;
+                double t = x;
                 x = y - signx * Math.Sqrt(Math.Abs(B * x - C));
                 y = A - t;
 
-                context.PutPixel(mx + x, my - y, Color);
+                max_x = Math.Max(max_x, x);
+                max_y = Math.Max(max_y, y);
+                if (render)
+                {
+                    context.PutPixel(mx + x * scale, my - y * scale, Color);
+                }
             }
+
+            return new Rectangle(-max_x, -max_y, 2 * max_x, 2 * max_y);
         }
 
         #endregion

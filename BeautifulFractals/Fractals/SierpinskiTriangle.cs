@@ -7,7 +7,7 @@ using TAlex.BeautifulFractals.Rendering;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// Geometric Fractals
+    /// Represents the Sierpinski Triangle fractal.
     /// </summary>
     public class SierpinskiTriangle : GeometricFractal2D
     {
@@ -23,7 +23,7 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("Sierpinski Triangle (Level: {0})", Iterations);
+                return String.IsNullOrEmpty(Name) ? "Sierpinski Triangle" : Name;
             }
         }
 
@@ -89,11 +89,6 @@ namespace TAlex.BeautifulFractals.Fractals
                 Recursion(context, p2, p1n, p2n, level - 1);
                 Recursion(context, p3, p2n, p3n, level - 1);
             }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("Sierpinski Triangle");
         }
 
         #endregion

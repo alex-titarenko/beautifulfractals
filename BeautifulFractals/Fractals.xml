@@ -1,0 +1,646 @@
+<?xml version="1.0"?>
+<FractalsCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Fractals>
+    <SierpinskiTriangle>
+      <Display>true</Display>
+      <Iterations>8</Iterations>
+    </SierpinskiTriangle>
+    <SierpinskiCarpet>
+      <Display>true</Display>
+      <Iterations>5</Iterations>
+    </SierpinskiCarpet>
+    <CantorSet>
+      <Display>true</Display>
+      <Iterations>7</Iterations>
+      <LineHeight>10</LineHeight>
+      <Color>#ff00ff00</Color>
+    </CantorSet>
+    <CantorDust>
+      <Display>true</Display>
+      <Iterations>5</Iterations>
+      <Color>#ff00ff00</Color>
+    </CantorDust>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>19</Iterations>
+      <Name>Dragon Curve</Name>
+      <Axiom>FX</Axiom>
+      <Rules>
+        <Rule Var="X" Replacement="X+YF" />
+        <Rule Var="Y" Replacement="FX-Y" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>90</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ff00ff00</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>9</Iterations>
+      <Name>Arrowhead Sierpinski curve</Name>
+      <Axiom>A</Axiom>
+      <Rules>
+        <Rule Var="A" Replacement="B-A-B" />
+        <Rule Var="B" Replacement="A+B+A" />
+      </Rules>
+      <DrawingVariables>
+        <Var>A</Var>
+        <Var>B</Var>
+      </DrawingVariables>
+      <Angle>60</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ffff00ff</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>6</Iterations>
+      <Name>Sierpinski Carpet</Name>
+      <Axiom>F</Axiom>
+      <Rules>
+        <Rule Var="F" Replacement="F+F-F-F-g+F+F+F-F" />
+        <Rule Var="g" Replacement="ggg" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+        <Var>g</Var>
+      </DrawingVariables>
+      <Angle>90</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ff00ff00</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>6</Iterations>
+      <Name>Koch Curve</Name>
+      <Axiom>F</Axiom>
+      <Rules>
+        <Rule Var="F" Replacement="F-F++F-F" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>60</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ff00ff00</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>6</Iterations>
+      <Name>Koch Snowflake</Name>
+      <Axiom>F++F++F</Axiom>
+      <Rules>
+        <Rule Var="F" Replacement="F-F++F-F" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>60</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ffff00ff</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>4</Iterations>
+      <Name>Quadratic Koch Island</Name>
+      <Axiom>F+F+F+F</Axiom>
+      <Rules>
+        <Rule Var="F" Replacement="F+F-F-FF+F+F-F" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>90</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ff00ff00</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>5</Iterations>
+      <Name>Pentigree</Name>
+      <Axiom>F-F-F-F-F</Axiom>
+      <Rules>
+        <Rule Var="F" Replacement="F-F++F+F-F-F" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>72</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ff00ff00</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>6</Iterations>
+      <Name>Circular Tile</Name>
+      <Axiom>X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X+X</Axiom>
+      <Rules>
+        <Rule Var="X" Replacement="[F+F+F+F[---X-Y]+++++F++++++++F-F-F-F]" />
+        <Rule Var="Y" Replacement="[F+F+F+F[---Y]+++++F++++++++F-F-F-F]" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>15</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ffff0000</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>6</Iterations>
+      <Name>Quadratic snowflake</Name>
+      <Axiom>F</Axiom>
+      <Rules>
+        <Rule Var="F" Replacement="F-F+F+F-F" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>90</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ff00ff00</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>5</Iterations>
+      <Name>Hexagonal Gosper curve</Name>
+      <Axiom>XF</Axiom>
+      <Rules>
+        <Rule Var="X" Replacement="X+YF++YF-FX--FXFX-YF+" />
+        <Rule Var="Y" Replacement="-FX+YFYF++YF+FX--FX-Y" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>60</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ffff00ff</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>7</Iterations>
+      <Name>Hilbert curve</Name>
+      <Axiom>L</Axiom>
+      <Rules>
+        <Rule Var="L" Replacement="+RF-LFL-FR+" />
+        <Rule Var="R" Replacement="-LF+RFR+FL-" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>90</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ff00ff00</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>16</Iterations>
+      <Name>Levy C curve</Name>
+      <Axiom>F</Axiom>
+      <Rules>
+        <Rule Var="F" Replacement="+F--F+" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>45</Angle>
+      <InitialAngle>0</InitialAngle>
+      <Color>#ff00ff00</Color>
+    </LSystem>
+    <LSystem>
+      <Display>true</Display>
+      <Iterations>5</Iterations>
+      <Name>Bush</Name>
+      <Axiom>F</Axiom>
+      <Rules>
+        <Rule Var="F" Replacement="FF+[+F-F-F]-[-F+F+F]" />
+      </Rules>
+      <DrawingVariables>
+        <Var>F</Var>
+      </DrawingVariables>
+      <Angle>22.5</Angle>
+      <InitialAngle>-90</InitialAngle>
+      <Color>#ff00ff00</Color>
+    </LSystem>
+    <ApollonianGasket>
+      <Display>true</Display>
+      <Iterations>100000</Iterations>
+      <Color>#ff00ff00</Color>
+    </ApollonianGasket>
+    <IFS>
+      <Display>true</Display>
+      <Name>Fern Fractal</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0" B="0" C="0" D="0.16" E="0" F="0" P="0.01" />
+        <IteratedFunction A="0.85" B="0.04" C="-0.04" D="0.85" E="0" F="1.6" P="0.79" />
+        <IteratedFunction A="0.2" B="-0.26" C="0.23" D="0.22" E="0" F="1.6" P="0.1" />
+        <IteratedFunction A="-0.15" B="0.28" C="0.26" D="0.24" E="0" F="0.44" P="0.1" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Cross</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.333" B="0" C="0" D="0.333" E="-0.006" F="-0.667" P="0.2" />
+        <IteratedFunction A="0.333" B="0" C="0" D="0.333" E="3.99" F="3.329" P="0.2" />
+        <IteratedFunction A="0.333" B="0" C="0" D="0.333" E="-0.006" F="7.325" P="0.2" />
+        <IteratedFunction A="0.333" B="0" C="0" D="0.333" E="-4.002" F="3.329" P="0.2" />
+        <IteratedFunction A="0.333" B="0" C="0" D="0.333" E="-0.006" F="3.329" P="0.2" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Tree 1</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0" B="0" C="0" D="0.5" E="0" F="0" P="0.05" />
+        <IteratedFunction A="0.42" B="-0.42" C="0.42" D="0.42" E="0" F="0.2" P="0.4" />
+        <IteratedFunction A="0.42" B="0.42" C="-0.42" D="0.42" E="0" F="0.2" P="0.4" />
+        <IteratedFunction A="0.1" B="0" C="0" D="0.1" E="0" F="0.2" P="0.15" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Tree 2</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.195" B="-0.488" C="0.344" D="0.443" E="0.4431" F="0.2452" P="0.25" />
+        <IteratedFunction A="0.462" B="0.414" C="-0.252" D="0.361" E="0.2511" F="0.5692" P="0.25" />
+        <IteratedFunction A="-0.058" B="-0.07" C="0.423" D="-0.111" E="0.5976" F="0.0969" P="0.15" />
+        <IteratedFunction A="-0.035" B="0.07" C="-0.469" D="0.022" E="0.4884" F="0.5069" P="0.15" />
+        <IteratedFunction A="-0.637" B="0" C="0" D="0.501" E="0.8562" F="0.2513" P="0.2" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Tree 3</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.28421" B="-0.35644" C="0.32632" D="0.44555" E="0.00625" F="0.56275" P="0.166" />
+        <IteratedFunction A="0.37895" B="0.38614" C="-0.27368" D="0.34653" E="-0.08171" F="0.54063" P="0.166" />
+        <IteratedFunction A="0.41053" B="0" C="0" D="0.55446" E="-0.02832" F="0.53347" P="0.166" />
+        <IteratedFunction A="-0.62105" B="0" C="0" D="0.43564" E="-0.09537" F="0.35772" P="0.166" />
+        <IteratedFunction A="-0.03158" B="-0.07921" C="0.5579" D="-0.08911" E="-0.00755" F="0.51196" P="0.166" />
+        <IteratedFunction A="-0.08421" B="0.08911" C="-0.5579" D="-0.05941" E="-0.17617" F="0.40587" P="0.166" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Tree 4</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.05" B="0" C="0" D="0.4" E="-0.06" F="-0.47" P="0.026" />
+        <IteratedFunction A="-0.05" B="0" C="0" D="-0.4" E="-0.06" F="-0.47" P="0.0264" />
+        <IteratedFunction A="0.03" B="-0.14" C="0" D="0.26" E="-0.16" F="-0.01" P="0.0103" />
+        <IteratedFunction A="-0.03" B="0.14" C="0" D="-0.26" E="-0.16" F="-0.01" P="0.0103" />
+        <IteratedFunction A="0.56" B="0.44" C="-0.37" D="0.51" E="0.3" F="0.15" P="0.59187" />
+        <IteratedFunction A="0.19" B="0.07" C="-0.01" D="0.15" E="-0.2" F="0.28" P="0.03854" />
+        <IteratedFunction A="-0.33" B="-0.34" C="-0.33" D="0.34" E="-0.54" F="0.39" P="0.2962" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Tree 5</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.05" B="0" C="0" D="0.6" E="0" F="0" P="0.028" />
+        <IteratedFunction A="0.05" B="0" C="0" D="-0.5" E="0" F="1" P="0.02326" />
+        <IteratedFunction A="0.45963" B="-0.32139" C="0.38567" D="0.38302" E="0" F="0.6" P="0.27907" />
+        <IteratedFunction A="0.46985" B="-0.15391" C="0.17101" D="0.42286" E="0" F="1.1" P="0.2093" />
+        <IteratedFunction A="0.43301" B="0.275" C="-0.25" D="0.47631" E="0" F="1" P="0.25581" />
+        <IteratedFunction A="0.42133" B="0.25712" C="-0.35353" D="0.30642" E="0" F="0.7" P="0.20465" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Tree 6</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.45881" B="-0.22565" C="0.07268" D="0.60187" E="-0.00177" F="0.31948" P="0.31" />
+        <IteratedFunction A="0.34268" B="0.37561" C="-0.20337" D="0.54642" E="-0.0221" F="0.32976" P="0.2" />
+        <IteratedFunction A="0.13582" B="0.50273" C="-0.31347" D="0.13846" E="-0.02004" F="0.21706" P="0.16" />
+        <IteratedFunction A="0.25326" B="-0.48975" C="0.30798" D="0.34989" E="-0.0074" F="0.1981" P="0.23" />
+        <IteratedFunction A="0.06641" B="0" C="0" D="0.47942" E="-0.01492" F="-0.02422" P="0.1" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Dendrit</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0" B="-0.7" C="0.7" D="0" E="0" F="0" P="0.5" />
+        <IteratedFunction A="0.7" B="0" C="0" D="0.7" E="0.3" F="0" P="0.5" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Football</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.5" B="0" C="0" D="0.25" E="0" F="-0.75" P="0.2222222" />
+        <IteratedFunction A="0.25" B="0" C="0" D="0.5" E="-4.5" F="2.5" P="0.2222222" />
+        <IteratedFunction A="0.5" B="0" C="0" D="0.25" E="0" F="8.25" P="0.2222222" />
+        <IteratedFunction A="0.25" B="0" C="0" D="0.5" E="4.5" F="2.5" P="0.2222222" />
+        <IteratedFunction A="0.25" B="0" C="0" D="0.25" E="0" F="3.75" P="0.1111111" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Koch Curve</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.333" B="0" C="0" D="0.333" E="-4.002" F="-0.667" P="0.25" />
+        <IteratedFunction A="0.1665" B="-0.2883865" C="0.2883865" D="0.1665" E="-1.2933865" F="0.8968188" P="0.25" />
+        <IteratedFunction A="0.1665" B="0.2883865" C="-0.2883865" D="0.1665" E="1.2873865" F="0.8921812" P="0.25" />
+        <IteratedFunction A="0.333" B="0" C="0" D="0.333" E="3.99" F="-0.667" P="0.25" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Pentagon</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.382" B="0" C="0" D="0.382" E="3.528" F="4.23" P="0.2" />
+        <IteratedFunction A="0.382" B="0" C="0" D="0.382" E="-0.024" F="6.81" P="0.2" />
+        <IteratedFunction A="0.382" B="0" C="0" D="0.382" E="-3.54" F="4.23" P="0.2" />
+        <IteratedFunction A="0.382" B="0" C="0" D="0.382" E="-2.208" F="0.102" P="0.2" />
+        <IteratedFunction A="0.382" B="0" C="0" D="0.382" E="2.196" F="0.102" P="0.2" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Floor</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0" B="-0.5" C="0.5" D="0" E="-0.25" F="0" P="0.333333" />
+        <IteratedFunction A="0.5" B="0" C="0" D="0.5" E="0" F="0.25" P="0.333333" />
+        <IteratedFunction A="0" B="0.5" C="-0.5" D="0" E="0.25" F="0" P="0.333333" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Leaf</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.6" B="-0.6" C="0.6" D="0.6" E="0" F="0" P="0.5" />
+        <IteratedFunction A="0.53" B="0" C="0" D="0.53" E="0.47" F="0" P="0.5" />
+      </System>
+    </IFS>
+    <IFS>
+      <Display>true</Display>
+      <Name>Spiral</Name>
+      <Iterations>500000</Iterations>
+      <System>
+        <IteratedFunction A="0.5" B="0.66" C="-0.66" D="0.5" E="0" F="0" P="0.77" />
+        <IteratedFunction A="0" B="0.5" C="-0.5" D="0" E="1" F="0.5" P="0.23" />
+      </System>
+    </IFS>
+    <Hopalong>
+      <Display>true</Display>
+      <Iterations>100000</Iterations>
+      <A>1</A>
+      <B>4</B>
+      <C>60</C>
+      <Color>#ff00ff00</Color>
+    </Hopalong>
+    <Hopalong>
+      <Display>true</Display>
+      <Iterations>100000</Iterations>
+      <A>16</A>
+      <B>24</B>
+      <C>100</C>
+      <Color>#ff00ff00</Color>
+    </Hopalong>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <Name>Mandelbrot Set</Name>
+      <MaxIterations>150</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="-2" Y="-1.25" Width="3.25" Height="2.5" />
+	  <TransitionColorPalette>
+	    <Transitions>
+	      <Transition Color="#FF000000" Position="0.0" />
+	      <Transition Color="#FFFF5000" Position="0.2" />
+	      <Transition Color="#FFFFFF00" Position="0.4" />
+          <Transition Color="#FFFFFFFF" Position="0.6" />
+          <Transition Color="#FF0000FF" Position="0.8" />
+          <Transition Color="#FF000000" Position="1.0" />
+		</Transitions>
+	  </TransitionColorPalette>
+      <!--<OrangeBlueColorPalette />-->
+    </MandelbrotSet>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <MaxIterations>3000</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="0.25230763862694788" Y="-0.00017723378890153045" Width="3.567654283E-09" Height="2.675740701842E-09" />
+      <OrangeBlueColorPalette />
+    </MandelbrotSet>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <MaxIterations>10000</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="-1.2890264947287586" Y="-0.3536589568459817" Width="9.0305E-13" Height="6.77181E-13" />
+      <MonochromeColorPalette />
+    </MandelbrotSet>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <MaxIterations>3000</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="-1.7685821726054687" Y="0.0007315706171875" Width="1.374837890622E-05" Height="1.031128417968753E-05" />
+      <RainbowColorPalette />
+    </MandelbrotSet>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <MaxIterations>4000</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="0.26414958460019139" Y="0.002617551053143821" Width="1.174581377E-09" Height="8.8093601164E-10" />
+      <RainbowColorPalette />
+    </MandelbrotSet>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <MaxIterations>7000</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="-1.7499673902003126" Y="-2.3272717499999466E-06" Width="3.4660631254E-07" Height="2.5995473437501236E-07" />
+      <RainbowColorPalette />
+    </MandelbrotSet>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <MaxIterations>1500</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="-0.7493" Y="0.0582185" Width="0.0020815" Height="0.0017815" />
+      <RainbowColorPalette />
+    </MandelbrotSet>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <MaxIterations>870</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="-1.3923454895019531" Y="-0.015519836425781251" Width="0.00162794494628907" Height="0.0012209587097167969" />
+      <RainbowColorPalette />
+    </MandelbrotSet>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <MaxIterations>700</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="-0.14891791050672532" Y="-1.025924783024937" Width="4.6111626774072E-05" Height="3.458372008055E-05" />
+      <RainbowColorPalette />
+    </MandelbrotSet>
+    <MandelbrotSet>
+      <Display>true</Display>
+      <MaxIterations>1130</MaxIterations>
+      <BailOut>20</BailOut>
+      <Region X="-0.14890753539070115" Y="-1.0259043209905558" Width="5.908052180428E-06" Height="4.43103913532E-06" />
+      <RainbowColorPalette />
+    </MandelbrotSet>
+    <PhoenixSet>
+      <Display>true</Display>
+      <MaxIterations>120</MaxIterations>
+      <BailOut>1E+20</BailOut>
+      <Region X="-1" Y="-1.5" Width="2.5" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="0.56667" Im="-0.5" />
+    </PhoenixSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="-0.5" Im="0.6" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="-0.4" Im="0.6" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="0.285" Im="0" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="0.285" Im="0.01" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="0.45" Im="0.1428" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="-0.70176" Im="-0.3842" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="-0.835" Im="-0.2321" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="-0.8" Im="0.156" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="-0.123" Im="0.745" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="0" Im="1" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="-1" Im="0.1" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="-0.5" Im="0.56667" />
+    </JuliaSet>
+    <JuliaSet>
+      <Display>true</Display>
+      <MaxIterations>250</MaxIterations>
+      <BailOut>2</BailOut>
+      <Region X="-1.5" Y="-1.5" Width="3" Height="3" />
+      <MulticoloredColorPalette />
+      <C Re="-0.07377" Im="0.6961044" />
+    </JuliaSet>
+	<NewtonBasins>
+      <Display>true</Display>
+      <MaxIterations>20</MaxIterations>
+      <BailOut>1E+15</BailOut>
+      <Region X="-2" Y="-1.5" Width="4" Height="3" />
+      <Polynomial>-1+x^3</Polynomial>
+    </NewtonBasins>
+    <NewtonBasins>
+      <Display>true</Display>
+      <MaxIterations>32</MaxIterations>
+      <BailOut>1E+15</BailOut>
+      <Region X="-2" Y="-1.5" Width="4" Height="3" />
+      <Polynomial>-1+x^5</Polynomial>
+    </NewtonBasins>
+	<NewtonBasins>
+      <Display>true</Display>
+      <MaxIterations>50</MaxIterations>
+      <BailOut>1E+15</BailOut>
+      <Region X="-2" Y="-1.5" Width="4" Height="3" />
+      <Polynomial>0.11z^9-0.571z^7+1.2z^5-1.3333z^3+z</Polynomial>
+    </NewtonBasins>
+	<NewtonBasins>
+      <Display>true</Display>
+      <MaxIterations>20</MaxIterations>
+      <BailOut>1E+15</BailOut>
+      <Region X="-2" Y="-1.5" Width="4" Height="3" />
+      <Polynomial>z^3-2z+2</Polynomial>
+    </NewtonBasins>
+	<NewtonBasins>
+      <Display>true</Display>
+      <MaxIterations>35</MaxIterations>
+      <BailOut>1E+15</BailOut>
+      <Region X="-2" Y="-1.5" Width="4" Height="3" />
+      <Polynomial>x^8+15x^4-16</Polynomial>
+    </NewtonBasins>
+  </Fractals>
+</FractalsCollection>

@@ -17,7 +17,6 @@ namespace TAlex.BeautifulFractals
         [XmlArrayItem(typeof(Hopalong))]
         [XmlArrayItem(typeof(IFS))]
         [XmlArrayItem(typeof(JuliaSet))]
-        [XmlArrayItem(typeof(LorenzAttractor))]
         [XmlArrayItem(typeof(LSystem))]
         [XmlArrayItem(typeof(MandelbrotSet))]
         [XmlArrayItem(typeof(NewtonBasins))]

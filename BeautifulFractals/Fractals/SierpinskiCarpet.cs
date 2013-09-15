@@ -7,7 +7,7 @@ using TAlex.BeautifulFractals.Rendering;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// Geometric Fractals
+    /// Represents the Sierpinski Carpet fractal.
     /// </summary>
     public class SierpinskiCarpet : GeometricFractal2D
     {
@@ -23,7 +23,7 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("Sierpinski Carpet (Level: {0})", Iterations);
+                return String.IsNullOrEmpty(Name) ? "Sierpinski Carpet" : Name;
             }
         }
 
@@ -81,11 +81,6 @@ namespace TAlex.BeautifulFractals.Fractals
                 Recursion(context, x1n, y2n, x2n, y2, level - 1);
                 Recursion(context, x2n, y2n, x2, y2, level - 1);
             }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("Sierpinski Carpet");
         }
 
         #endregion

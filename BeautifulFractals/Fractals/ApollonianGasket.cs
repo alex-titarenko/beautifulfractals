@@ -7,7 +7,7 @@ using TAlex.BeautifulFractals.Rendering;
 namespace TAlex.BeautifulFractals.Fractals
 {
     /// <summary>
-    /// 
+    /// Represents the Apollonian Gasket fractal.
     /// </summary>
     public class ApollonianGasket : Fractal2D
     {
@@ -23,7 +23,7 @@ namespace TAlex.BeautifulFractals.Fractals
         {
             get
             {
-                return String.Format("Apollonian Gasket  (Iterations: {0})", Iterations);
+                return String.IsNullOrEmpty(Name) ? "Apollonian Gasket" : Name;
             }
         }
 
@@ -100,11 +100,6 @@ namespace TAlex.BeautifulFractals.Fractals
 
                 context.PutPixel(x * scale + mx, y * scale + my, Color);
             }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("Apollonian Gasket");
         }
 
         #endregion

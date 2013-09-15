@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using TAlex.BeautifulFractals.Fractals;
 using TAlex.BeautifulFractals.Infrastructure;
 using TAlex.BeautifulFractals.Rendering;
+using TAlex.BeautifulFractals.ViewModels;
 
 namespace TAlex.BeautifulFractals.Views
 {
@@ -24,7 +25,7 @@ namespace TAlex.BeautifulFractals.Views
     {        
         public PreviewWindow()
         {
-            InitializeComponent();          
+            InitializeComponent();
         }
     }
 }

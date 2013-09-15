@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -19,9 +20,16 @@ namespace TAlex.BeautifulFractals.ViewModels
     {
         #region Fields
 
+        private static readonly int ResizeTimerInterval = 2000;
+
         private string _title;
         private bool _isBusy;
         private ImageSource _plot;
+
+        private double _currPlotWidth;
+        private double _currPlotHeight;
+        private Fractal _currFractal;
+        private Timer _refreshTimer;
 
         protected ICollectionView FractalCollection { get; set; }
 
@@ -83,11 +91,9 @@ namespace TAlex.BeautifulFractals.ViewModels
         public PreviewWindowViewModel(ICollectionView fractalCollection)
         {
             RegisterCommands();
-
             FractalCollection = fractalCollection;
 
-            // Set default values
-            Title = "Preview";
+            _refreshTimer = new Timer(ResizeCallback, null, 100, ResizeTimerInterval);
         }
 
         #endregion
@@ -103,6 +109,10 @@ namespace TAlex.BeautifulFractals.ViewModels
             {
                 WriteableBitmap wb = BitmapFactory.New((int)PlotWidth, (int)PlotHeight);
                 Fractal2D targetFractal = FractalCollection.CurrentItem as Fractal2D;
+
+                _currPlotWidth = PlotWidth;
+                _currPlotHeight = PlotHeight;
+                _currFractal = targetFractal;
 
                 if (targetFractal != null)
                 {
@@ -144,6 +154,15 @@ namespace TAlex.BeautifulFractals.ViewModels
         private bool ShowNextCommandCanExecute()
         {
             return FractalCollection.CurrentPosition < FractalCollection.OfType<Fractal>().Count() - 1;
+        }
+
+
+        private void ResizeCallback(object state)
+        {
+            if (_currPlotWidth != PlotWidth || _currPlotHeight != PlotHeight || _currFractal != FractalCollection.CurrentItem)
+            {
+                RenderFractal();
+            }
         }
 
         #endregion

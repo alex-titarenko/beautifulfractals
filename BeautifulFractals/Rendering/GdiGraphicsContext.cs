@@ -79,7 +79,7 @@ namespace TAlex.BeautifulFractals.Rendering
 
         public void Clear(LinearGradientBrush brush)
         {
-            FillRectangle(0, 0, _window.ActualWidth, _window.ActualHeight, brush);
+            FillRectangle(-1, -1, _window.ActualWidth + 1, _window.ActualHeight + 1, brush);
         }
 
         public void Invalidate()

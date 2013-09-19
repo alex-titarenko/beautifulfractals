@@ -16,11 +16,11 @@ using TAlex.WPF.Mvvm.Commands;
 
 namespace TAlex.BeautifulFractals.ViewModels
 {
-    public class PreviewWindowViewModel : ViewModelBase
+    public class PreviewWindowViewModel : ViewModelBase, IDisposable
     {
         #region Fields
 
-        private static readonly int ResizeTimerInterval = 2000;
+        private static readonly TimeSpan ResizeTimerInterval = TimeSpan.FromSeconds(2);
 
         private string _title;
         private bool _isBusy;
@@ -30,8 +30,6 @@ namespace TAlex.BeautifulFractals.ViewModels
         private double _currPlotHeight;
         private Fractal _currFractal;
         private Timer _refreshTimer;
-
-        protected ICollectionView FractalCollection { get; set; }
 
         #endregion
 
@@ -67,6 +65,8 @@ namespace TAlex.BeautifulFractals.ViewModels
             }
         }
 
+        public ICollectionView FractalCollection { get; set; }
+
         public ImageSource Plot
         {
             get
@@ -93,7 +93,7 @@ namespace TAlex.BeautifulFractals.ViewModels
             RegisterCommands();
             FractalCollection = fractalCollection;
 
-            _refreshTimer = new Timer(ResizeCallback, null, 100, ResizeTimerInterval);
+            _refreshTimer = new Timer(ResizeCallback, null, ResizeTimerInterval, ResizeTimerInterval);
         }
 
         #endregion
@@ -117,8 +117,14 @@ namespace TAlex.BeautifulFractals.ViewModels
                 if (targetFractal != null)
                 {
                     IGraphics2DContext context = new WriteableBitmapGraphicsContext(wb);
-                    targetFractal.Render(context);
-                    context.Invalidate();
+                    try
+                    {
+                        targetFractal.Render(context);
+                    }
+                    finally
+                    {
+                        context.Invalidate();
+                    }
 
                     Title = String.Format(Properties.Resources.locPreviewWindowTitle, targetFractal.Caption);
                 }
@@ -163,6 +169,15 @@ namespace TAlex.BeautifulFractals.ViewModels
             {
                 RenderFractal();
             }
+        }
+
+        #endregion
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            _refreshTimer.Dispose();
         }
 
         #endregion

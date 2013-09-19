@@ -14,28 +14,28 @@ namespace TAlex.BeautifulFractals.Services.Windows
     public class PreviewDialogService : IPreviewDialogService
     {
         private PreviewWindow _window;
+        private PreviewWindowViewModel _viewModel;
 
 
         #region IPreviewDialogService Members
 
         public void Show(ICollectionView fractalCollection)
         {
-            PreviewWindowViewModel viewModel;
+            if (_viewModel == null || !Object.ReferenceEquals(_viewModel.FractalCollection, fractalCollection))
+                _viewModel = new PreviewWindowViewModel(fractalCollection);
 
             if (_window == null || !_window.IsLoaded)
             {
-                _window = new PreviewWindow();
-                viewModel = new PreviewWindowViewModel(fractalCollection);
-                _window.DataContext = viewModel;
+                _window = new PreviewWindow { DataContext = _viewModel };
                 _window.Show();
             }
             else
             {
-                viewModel = _window.DataContext as PreviewWindowViewModel;
+                _window.DataContext = _viewModel;
                 _window.Activate();
             }
 
-            viewModel.RenderFractal();
+            _viewModel.RenderFractal();
         }
 
         #endregion

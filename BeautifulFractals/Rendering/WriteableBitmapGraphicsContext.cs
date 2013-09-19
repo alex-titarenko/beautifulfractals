@@ -41,7 +41,10 @@ namespace TAlex.BeautifulFractals.Rendering
 
         public void Invalidate()
         {
-            _context.Freeze();
+            if (_context.CanFreeze)
+            {
+                _context.Freeze();
+            }
         }
 
         public void PutPixel(int x, int y, Color color)
@@ -108,7 +111,6 @@ namespace TAlex.BeautifulFractals.Rendering
 
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
 
         #endregion

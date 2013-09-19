@@ -42,10 +42,10 @@
       <HintPath>..\..\packages\FluentAssertions.2.1.0.0\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
     <Reference Include="NSubstitute">
-      <HintPath>..\packages\NSubstitute.1.6.1.0\lib\NET40\NSubstitute.dll</HintPath>
+      <HintPath>..\..\packages\NSubstitute.1.6.1.0\lib\NET40\NSubstitute.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -56,7 +56,7 @@
     </Reference>
     <Reference Include="TAlex.WPF.Mvvm, Version=1.0.4937.37054, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.WPF.Mvvm.1.0.4937.37054\lib\net45\TAlex.WPF.Mvvm.dll</HintPath>
+      <HintPath>..\..\packages\TAlex.WPF.Mvvm.1.0.4937.37054\lib\net45\TAlex.WPF.Mvvm.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Choose>

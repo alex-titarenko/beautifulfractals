@@ -13,7 +13,6 @@ namespace TAlex.BeautifulFractals.Services
     public interface IFractalsManager
     {
         ObservableCollection<Fractal> Load(string filePath);
-
-        void Save(ObservableCollection<Fractal> fractals, Stream stream);
+        void Save(ObservableCollection<Fractal> fractals, string filePath);
     }
 }

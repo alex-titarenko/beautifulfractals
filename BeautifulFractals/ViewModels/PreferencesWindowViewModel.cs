@@ -363,6 +363,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         private void SaveCommandExecute()
         {
             AppSettings.Save();
+            FractalManager.Save(Fractals, AppSettings.FractalsCollectionPath);
             CloseSignal = true;
         }
 

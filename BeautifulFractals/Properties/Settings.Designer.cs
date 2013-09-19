@@ -39,7 +39,7 @@ namespace TAlex.BeautifulFractals.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(TAlex.Common.Configuration.XmlSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool RandomOrder {
             get {
                 return ((bool)(this["RandomOrder"]));

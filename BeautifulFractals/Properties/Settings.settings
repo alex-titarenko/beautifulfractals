@@ -6,7 +6,7 @@
       <Value Profile="(Default)">Fractals.xml</Value>
     </Setting>
     <Setting Name="RandomOrder" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ExitOnMouseMove" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

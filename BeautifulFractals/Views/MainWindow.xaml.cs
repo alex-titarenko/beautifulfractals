@@ -19,6 +19,7 @@ using TAlex.BeautifulFractals.Fractals;
 using Rendering = TAlex.BeautifulFractals.Rendering;
 using TAlex.Common.Extensions;
 using TAlex.BeautifulFractals.Services;
+using TAlex.BeautifulFractals.ViewModels;
 
 
 namespace TAlex.BeautifulFractals
@@ -30,9 +31,12 @@ namespace TAlex.BeautifulFractals
     {
         #region Fields
 
+        private const double CaptionMarginBottom = 20;
+
         private Thread _mainThread;
         private List<Fractal> _fractals;
 
+        private TimeSpan _initialDelay = TimeSpan.FromSeconds(2);
         private TimeSpan _delay = TimeSpan.Zero;
         private bool _exitOnMouseMove;
         private Point? _oldMousePos = null;
@@ -83,11 +87,10 @@ namespace TAlex.BeautifulFractals
 
             Rendering.GdiGraphicsContext context = new Rendering.GdiGraphicsContext(this);
 
-            _mainThread = new Thread((ThreadStart)delegate() { RenderFractals(context); });
+            _mainThread = new Thread(() => { RenderFractals(context); });
             _mainThread.Priority = ThreadPriority.Lowest;
             _mainThread.IsBackground = true;
             _mainThread.Start();
-
         }
 
         #endregion
@@ -96,14 +99,13 @@ namespace TAlex.BeautifulFractals
         {
             Properties.Settings settings = Properties.Settings.Default;
 
-            Rendering.LinearGradientBrush brush = new Rendering.LinearGradientBrush();
-            brush.FromColor = settings.PrimaryBackColor;
-            brush.ToColor = settings.SecondaryBackColor;
-            brush.Angle = 90;
+            Rendering.LinearGradientBrush backgroundBrush = new Rendering.LinearGradientBrush();
+            backgroundBrush.FromColor = settings.PrimaryBackColor;
+            backgroundBrush.ToColor = settings.SecondaryBackColor;
+            backgroundBrush.Angle = GetGradientAngle(settings.BackGradientType);
 
-
-            context.Clear(brush);
-            Thread.Sleep(TimeSpan.FromSeconds(2));
+            context.Clear(backgroundBrush);
+            Thread.Sleep(_initialDelay);
 
             Rendering.Font captionFont = new Rendering.Font(settings.CaptionFontFamily, settings.CaptionFontSize);
 
@@ -111,31 +113,50 @@ namespace TAlex.BeautifulFractals
             {
                 foreach (Fractal2D fractal in _fractals)
                 {
-                    context.Clear(brush);
-
-                    Rendering.Size captionSize = context.MeasureString(fractal.Caption, captionFont);
-                    
-                    context.DrawString(fractal.Caption, captionFont,
+                    context.Clear(backgroundBrush);
+                    context.DrawString(
+                        fractal.Caption,
+                        captionFont,
                         settings.CaptionFontColor,
-                        new Rendering.Point(context.Viewport.Width / 2 - captionSize.Width / 2, context.Viewport.Height - 20 - captionSize.Height));
-                    
+                        CalculateCaptionPosition(context, fractal.Caption, captionFont));
+
                     fractal.Render(context);
                     Thread.Sleep(_delay);
                 }
             }
         }
 
+
+        private double GetGradientAngle(BackgroundGradientType gradientType)
+        {
+            switch (gradientType)
+            {
+                case BackgroundGradientType.Horizontal:
+                    return 45;
+                case BackgroundGradientType.Vertical:
+                    return 90;
+                case BackgroundGradientType.ForwardDiagonal:
+                    return 67.5;
+                case BackgroundGradientType.BackwardDiagonal:
+                    return 157.5;
+                default:
+                    throw new Exception(String.Format("Fallowing '{0}' gradient type is not supported.", gradientType));
+            }
+        }
+
+        private Rendering.Point CalculateCaptionPosition(Rendering.IGraphics2DContext context, string caption, Rendering.Font font)
+        {
+            Rendering.Size captionSize = context.MeasureString(caption, font);
+            return new Rendering.Point(context.Viewport.Width / 2 - captionSize.Width / 2, context.Viewport.Height - CaptionMarginBottom - captionSize.Height);
+        }
+
         private void LoadSettings()
         {
             Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-
             Properties.Settings settings = Properties.Settings.Default;
-
             _exitOnMouseMove = settings.ExitOnMouseMove;
             _delay = settings.Delay;
-            captionTextBlock.Visibility = settings.ShowFractalCaptions ?
-                System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
         }
 
         private void LoadFractals()

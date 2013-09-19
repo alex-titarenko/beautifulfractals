@@ -114,11 +114,14 @@ namespace TAlex.BeautifulFractals
                 foreach (Fractal2D fractal in _fractals)
                 {
                     context.Clear(backgroundBrush);
-                    context.DrawString(
-                        fractal.Caption,
-                        captionFont,
-                        settings.CaptionFontColor,
-                        CalculateCaptionPosition(context, fractal.Caption, captionFont));
+                    if (settings.ShowFractalCaptions)
+                    {
+                        context.DrawString(
+                            fractal.Caption,
+                            captionFont,
+                            settings.CaptionFontColor,
+                            CalculateCaptionPosition(context, fractal.Caption, captionFont));
+                    }
 
                     fractal.Render(context);
                     Thread.Sleep(_delay);

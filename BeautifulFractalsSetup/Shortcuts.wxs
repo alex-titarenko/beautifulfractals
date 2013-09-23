@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <?include Variables.wxi ?>
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="CMP_ProgramsMenuShortcuts" Guid="24A551B0-1954-49CD-BB14-FC96E28948D8">
+        <Shortcut Id="MainExecutableShortcut" Name="$(var.ProductName)" Target="[#MainExecutableFile]" Description="$(var.ProductName)" WorkingDirectory="INSTALLLOCATION" Icon="ProductIcon.exe" />
+        <Shortcut Id="UninstallShortcut" Name="Uninstall $(var.ProductName)" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Description="Uninstall $(var.ProductName) from the current computer" />
+        <util:InternetShortcut Id="HomePageInternetShortcut" Name="$(var.ProductName) on the Web" Target="$(var.HomePageUrl)" />
+
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+        <Condition>SHORTCUT_PROGRAMMENU</Condition>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="CMP_MainExecutableDesktopShorctut" Guid="F5CA20B8-D42F-45F2-B41A-A3076C325359">
+        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+        <Shortcut Id="MainExecutableDesktopShorctut" Name="$(var.ProductName)" Description="$(var.ProductName)" WorkingDirectory="INSTALLLOCATION"
+                  Directory="DesktopFolder" Advertise="no" Icon="ProductIcon.exe" Target="[#MainExecutableFile]"></Shortcut>
+        <Condition>SHORTCUT_DESKTOP</Condition>
+      </Component>
+    </DirectoryRef>
+	</Fragment>
+</Wix>

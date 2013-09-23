@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Variables.wxi ?>
+  <Fragment>
+    <DirectoryRef Id="INSTALLLOCATION">
+      <!-- Executable file -->
+      <Component Id="MainExecutable" Guid="94274C51-1013-4FD5-9171-59A5E61FF567">
+        <File Id="MainExecutableFile" Name="$(var.MainExecutableFileName)" Source="$(var.BeautifulFractals.TargetPath)" DiskId="1" KeyPath="yes"></File>
+      </Component>
+      <!-- Configuration file -->
+      <Component Id="MainExecutableConfig" Guid="FC9945EA-AD5A-4835-A1F6-566526CD936E">
+        <File Id="MainExecutableConfigFile" Name="$(var.MainExecutableFileName).config" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+      <!-- TAlex.Common -->
+      <Component Id="CMP_TAlexCommon" Guid="E16370DD-C930-4080-B9D6-DCFE6A6AF1B3">
+        <File Id="FILE_TAlexCommon" Name="TAlex.Common.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+      <!-- TAlex.MathCore -->
+      <Component Id="CMP_TAlexMathCore" Guid="B8E74F31-B52E-46E7-BF3D-D579F97A59AB">
+        <File Id="FILE_TAlexMathCore" Name="TAlex.MathCore.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+      <!-- TAlex.WPF.Controls -->
+      <Component Id="CMP_TAlexWPFControls" Guid="7B8FB84B-ED77-4A96-8C8B-69EB82881A64">
+        <File Id="FILE_TAlexWPFControls" Name="TAlex.WPF.Controls.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+      <!-- TAlex.WPF.Mvvm -->
+      <Component Id="CMP_TAlexWPFMvvm" Guid="36BDDA1B-FA16-4AA9-8341-01608F5C941B">
+        <File Id="FILE_TAlexWPFMvvm" Name="TAlex.WPF.Mvvm.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+      <!-- WriteableBitmapEx.Wpf -->
+      <Component Id="CMP_WriteableBitmapExWpf" Guid="275A5D8F-5B6C-4DC9-BE82-A1AA2AD240D7">
+        <File Id="FILE_WriteableBitmapExWpf" Name="WriteableBitmapEx.Wpf.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+      <!-- Ninject -->
+      <Component Id="CMP_Ninject" Guid="6FA72732-DE30-4067-839B-C0A54FB3A34E">
+        <File Id="FILE_Ninject" Name="Ninject.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+      <!-- Fractals XML -->
+      <Component Id="CMP_FractalsXML" Guid="D3EE93B7-5A7A-4886-8E52-8A13769FA5AD">
+        <File Id="FILE_FractalsXML" Name="Fractals.xml" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+	</Fragment>
+</Wix>

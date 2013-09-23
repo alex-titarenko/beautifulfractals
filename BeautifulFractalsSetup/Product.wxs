@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include Variables.wxi ?>
   
   <Product Id="$(var.ProductCode)" UpgradeCode="$(var.UpgradeCode)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)">
-		<Package Id="3F5A5982-A5FB-41FE-8447-ED5592DBFA11" InstallerVersion="200" Compressed="yes" />
+		<Package  InstallerVersion="200" Compressed="yes" />
 		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
 
     <!-- Detecting installed version of .NET Framework -->
@@ -19,86 +19,23 @@
     <Property Id="DEFAULT_SCREENSAVER">1</Property>
     <Property Id="SHORTCUT_PROGRAMMENU">1</Property>
     <Property Id="SHORTCUT_DESKTOP">1</Property>
-    
-    <!-- Directory tree -->
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
+
+    <!--Directory structure-->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
         <Directory Id="ManufacturerFolder" Name="$(var.Manufacturer)">
-				  <Directory Id="INSTALLLOCATION" Name="$(var.ProductName)"></Directory>
+          <Directory Id="INSTALLLOCATION" Name="$(var.ProductName)"></Directory>
         </Directory>
-			</Directory>
+      </Directory>
 
       <Directory Id="ProgramMenuFolder">
-          <Directory Id="ProgramMenuDir" Name="$(var.ProductName)" />
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.ProductName)" />
       </Directory>
 
       <Directory Id="DesktopFolder" />
-		</Directory>
+    </Directory>
 
-    <!-- Files -->
-    <DirectoryRef Id="INSTALLLOCATION">
-      <!-- Executable file -->
-      <Component Id="MainExecutable" Guid="94274C51-1013-4FD5-9171-59A5E61FF567">
-        <File Id="MainExecutableFile" Name="$(var.MainExecutableFileName)" Source="$(var.BeautifulFractals.TargetPath)" DiskId="1" KeyPath="yes"></File>
-      </Component>
-      <!-- Configuration file -->
-      <Component Id="MainExecutableConfig" Guid="FC9945EA-AD5A-4835-A1F6-566526CD936E">
-        <File Id="MainExecutableConfigFile" Name="$(var.MainExecutableFileName).config" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
-      </Component>
-      <!-- TAlex.Common -->
-      <Component Id="Common" Guid="E16370DD-C930-4080-B9D6-DCFE6A6AF1B3">
-        <File Id="CommonFile" Name="TAlex.Common.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
-      </Component>
-      <!-- TAlex.WPF.Controls -->
-      <Component Id="WPFControls" Guid="7B8FB84B-ED77-4A96-8C8B-69EB82881A64">
-        <File Id="WPFControlsFile" Name="TAlex.WPF.Controls.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
-      </Component>
-    </DirectoryRef>
-
-    <!-- Program Menu Shortcuts -->
-    <DirectoryRef Id="ProgramMenuDir">
-      <Component Id="ProgramMenuDir" Guid="F040B56E-3545-4452-B8F9-5A5C54C0A80B">
-        <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
-        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Type="string" Value="" KeyPath="yes" />
-      </Component>
-      <Component Id="ProgramsMenuIcons" Guid="24A551B0-1954-49CD-BB14-FC96E28948D8">
-        <Shortcut Id="ProgramsMenuShortcut" Name="$(var.ProductName)" Target="[#MainExecutableFile]" Description="$(var.ProductName)" WorkingDirectory="INSTALLLOCATION" Directory="ProgramMenuDir" Icon="ProductIcon.exe" />
-        <Shortcut Id="UninstallProduct" Name="Uninstall $(var.ProductName)" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Description="Uninstall $(var.ProductName) from the current computer" />
-        <util:InternetShortcut Id="HomePage" Name="$(var.ProductName) on the Web" Target="$(var.HomePageUrl)" />
-        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
-        <Condition>SHORTCUT_PROGRAMMENU</Condition>
-      </Component>
-    </DirectoryRef>
-
-    <!-- Desktop shortcuts -->
-    <DirectoryRef Id="DesktopFolder">
-      <Component Id="DesktopIcons" Guid="F5CA20B8-D42F-45F2-B41A-A3076C325359">
-        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
-        <Shortcut Id="DesktopShortcut" Name="$(var.ProductName)" Description="$(var.ProductName)" WorkingDirectory="INSTALLLOCATION"
-                  Directory="DesktopFolder" Advertise="no" Icon="ProductIcon.exe" Target="[#MainExecutableFile]"></Shortcut>
-        <Condition>SHORTCUT_DESKTOP</Condition>
-      </Component>
-    </DirectoryRef>
-    
-
-    <Component Id="InstallScreensaver" Guid="DD07477C-8572-4D77-9244-DAB561094770" Directory="INSTALLLOCATION">
-      <RegistryValue Root="HKCU" Key="Control Panel\Desktop" Name="SCRNSAVE.EXE" Value="[!MainExecutableFile]" Type="string" KeyPath="yes" />
-      <Condition>DEFAULT_SCREENSAVER</Condition>
-    </Component>
-
-    <Feature Id="Complete" Title="$(var.ProductName)" Description="Complete setup" Display="expand" Level="1" ConfigurableDirectory="INSTALLLOCATION" AllowAdvertise="no" Absent="disallow" InstallDefault="local">
-      <Feature Id="RequiredComponents" Title="Required components" Description="Important components" Level="1" AllowAdvertise="no" Absent="disallow" InstallDefault="local">
-        <ComponentRef Id="MainExecutable" />
-        <ComponentRef Id="MainExecutableConfig" />
-        <ComponentRef Id="Common" />
-        <ComponentRef Id="WPFControls" />
-        <ComponentRef Id="ProgramMenuDir" />
-        <ComponentRef Id="ProgramsMenuIcons" />
-        <ComponentRef Id="DesktopIcons" />
-        
-        <ComponentRef Id="InstallScreensaver" />
-      </Feature>
-    </Feature>
+    <FeatureRef Id="Complete"/>
 
     <!-- Icons -->
     <Icon Id="ProductIcon.exe" SourceFile="$(var.BeautifulFractals.TargetPath)" />

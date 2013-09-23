@@ -19,9 +19,14 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug;</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Components.wxs" />
+    <Compile Include="Features.wxs" />
+    <Compile Include="Files.wxs" />
     <Compile Include="Product.wxs" />
+    <Compile Include="Shortcuts.wxs" />
     <Compile Include="UI\AdditionalTasksDlg.wxs" />
     <Compile Include="UI\WixUI_InstallDirEx.wxs" />
   </ItemGroup>
@@ -56,6 +61,7 @@
     <Content Include="Variables.wxi" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Localization" />
     <Folder Include="UI" />
     <Folder Include="Resources" />
     <Folder Include="Resources\Images" />
@@ -69,7 +75,7 @@
     </BootstrapperFile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="UI\WixUI_en-us.wxl" />
+    <EmbeddedResource Include="Localization\WixUI_en-us.wxl" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

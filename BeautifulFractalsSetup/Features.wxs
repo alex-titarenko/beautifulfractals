@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Variables.wxi ?>
+	<Fragment>
+    <Feature Id="Complete" Title="$(var.ProductName)" Description="Complete setup" Display="expand" Level="1" ConfigurableDirectory="INSTALLLOCATION" AllowAdvertise="no" Absent="disallow" InstallDefault="local">
+      <Feature Id="RequiredComponents" Title="Required components" Description="Important components" Level="1" AllowAdvertise="no" Absent="disallow" InstallDefault="local">
+        <ComponentRef Id="MainExecutable" />
+        <ComponentRef Id="MainExecutableConfig" />
+        <ComponentRef Id="CMP_TAlexCommon" />
+        <ComponentRef Id="CMP_TAlexMathCore" />
+        <ComponentRef Id="CMP_TAlexWPFControls" />
+        <ComponentRef Id="CMP_TAlexWPFMvvm" />
+        <ComponentRef Id="CMP_WriteableBitmapExWpf" />
+        <ComponentRef Id="CMP_Ninject" />
+        <ComponentRef Id="CMP_FractalsXML" />
+        
+        <ComponentRef Id="CMP_ProgramsMenuShortcuts" />
+        <ComponentRef Id="CMP_MainExecutableDesktopShorctut" />
+
+        <ComponentRef Id="CMP_InstallScreensaver" />
+      </Feature>
+    </Feature>
+	</Fragment>
+</Wix>

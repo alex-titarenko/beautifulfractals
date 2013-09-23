@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <Component Id="CMP_InstallScreensaver" Guid="DD07477C-8572-4D77-9244-DAB561094770" Directory="INSTALLLOCATION">
+      <RegistryValue Root="HKCU" Key="Control Panel\Desktop" Name="SCRNSAVE.EXE" Value="[!MainExecutableFile]" Type="string" KeyPath="yes" />
+      <Condition>DEFAULT_SCREENSAVER</Condition>
+    </Component>
+	</Fragment>
+</Wix>

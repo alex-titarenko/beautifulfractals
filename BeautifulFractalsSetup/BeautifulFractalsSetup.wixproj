@@ -67,7 +67,7 @@
     <Folder Include="Resources\Images" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperFile Include="Microsoft.Net.Framework.4.5">
+    <BootstrapperFile Include=".NETFramework,Version=v4.5">
       <ProductName>.NET Framework 4.5</ProductName>
     </BootstrapperFile>
     <BootstrapperFile Include="Microsoft.Windows.Installer.3.1">

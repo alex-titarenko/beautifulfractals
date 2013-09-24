@@ -154,7 +154,6 @@ namespace TAlex.BeautifulFractals.Properties {
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(TAlex.Common.Configuration.XmlSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("%localappdata%/T-Alex Software/Beautiful Fractals/Fractals.xml")]
         public string FractalsCollectionPath {

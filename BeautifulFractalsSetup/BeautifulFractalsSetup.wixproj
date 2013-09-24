@@ -68,10 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <BootstrapperFile Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
       <ProductName>.NET Framework 4.5</ProductName>
-    </BootstrapperFile>
-    <BootstrapperFile Include="Microsoft.Windows.Installer.3.1">
-      <ProductName>Windows Installer 3.1</ProductName>
     </BootstrapperFile>
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +82,6 @@
 	<Target Name="BeforeBuild">
 	</Target> -->
   <Target Name="AfterBuild">
-    <GenerateBootstrapper ApplicationFile="$(TargetFileName)" ApplicationName="Beautiful Fractals" BootstrapperItems="@(BootstrapperFile)" ComponentsLocation="Relative" CopyComponents="False" OutputPath="$(OutputPath)" Path="C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\Bootstrapper\" />
+    <GenerateBootstrapper ApplicationFile="$(TargetFileName)" ApplicationName="Beautiful Fractals" BootstrapperItems="@(BootstrapperFile)" ComponentsLocation="Relative" CopyComponents="True" OutputPath="$(OutputPath)" Path="C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\Bootstrapper\" />
   </Target>
 </Project>

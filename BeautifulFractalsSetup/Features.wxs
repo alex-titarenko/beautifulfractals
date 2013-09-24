@@ -12,6 +12,7 @@
         <ComponentRef Id="CMP_TAlexWPFMvvm" />
         <ComponentRef Id="CMP_WriteableBitmapExWpf" />
         <ComponentRef Id="CMP_Ninject" />
+        
         <ComponentRef Id="CMP_FractalsXML" />
         
         <ComponentRef Id="CMP_ProgramsMenuShortcuts" />

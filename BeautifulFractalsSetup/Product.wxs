@@ -28,6 +28,12 @@
         </Directory>
       </Directory>
 
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="AppDataManufacturerFolder" Name="$(var.Manufacturer)">
+          <Directory Id="AppDataProductFolder" Name="$(var.ProductName)"></Directory>
+        </Directory>
+      </Directory>
+      
       <Directory Id="ProgramMenuFolder">
         <Directory Id="ApplicationProgramsFolder" Name="$(var.ProductName)" />
       </Directory>

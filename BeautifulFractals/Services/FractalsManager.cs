@@ -22,7 +22,7 @@ namespace TAlex.BeautifulFractals.Services
         public ObservableCollection<Fractal> Load(string filePath)
         {
             ObservableCollection<Fractal> fractals = null;
-            using (FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            using (FileStream file = new FileStream(Environment.ExpandEnvironmentVariables(filePath), FileMode.Open, FileAccess.Read))
             {
                 fractals = Load(file);
             }
@@ -39,7 +39,7 @@ namespace TAlex.BeautifulFractals.Services
 
         public void Save(ObservableCollection<Fractal> fractals, string filePath)
         {
-            using (FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            using (FileStream file = new FileStream(Environment.ExpandEnvironmentVariables(filePath), FileMode.Create, FileAccess.Write))
             {
                 Save(fractals, file);
             }

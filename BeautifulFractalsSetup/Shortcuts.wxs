@@ -5,7 +5,6 @@
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="CMP_ProgramsMenuShortcuts" Guid="24A551B0-1954-49CD-BB14-FC96E28948D8">
         <Shortcut Id="MainExecutableShortcut" Name="$(var.ProductName)" Target="[#MainExecutableFile]" Description="$(var.ProductName)" WorkingDirectory="INSTALLLOCATION" Icon="ProductIcon.exe" />
-        <Shortcut Id="UninstallShortcut" Name="Uninstall $(var.ProductName)" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]" Description="Uninstall $(var.ProductName) from the current computer" />
         <util:InternetShortcut Id="HomePageInternetShortcut" Name="$(var.ProductName) on the Web" Target="$(var.HomePageUrl)" />
 
         <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />

@@ -27,7 +27,7 @@
       <Value Profile="(Default)">12</Value>
     </Setting>
     <Setting Name="CaptionFontColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
-      <Value Profile="(Default)">#ff000000</Value>
+      <Value Profile="(Default)">#ffffffff</Value>
     </Setting>
     <Setting Name="BackGradientType" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.ViewModels.BackgroundGradientType" Scope="User">
       <Value Profile="(Default)">Vertical</Value>

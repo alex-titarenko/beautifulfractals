@@ -130,7 +130,7 @@ namespace TAlex.BeautifulFractals.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(TAlex.Common.Configuration.XmlSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#ff000000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#ffffffff")]
         public global::TAlex.BeautifulFractals.Rendering.Color CaptionFontColor {
             get {
                 return ((global::TAlex.BeautifulFractals.Rendering.Color)(this["CaptionFontColor"]));

@@ -93,9 +93,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\TAlex.MathCore.1.0.4871.34044\lib\net45\TAlex.MathCore.dll</HintPath>
     </Reference>
-    <Reference Include="TAlex.WPF.Controls, Version=1.7.4984.15813, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TAlex.WPF.Controls, Version=1.7.5018.40064, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.WPF.Controls.1.7.4984.15813\lib\net40\TAlex.WPF.Controls.dll</HintPath>
+      <HintPath>..\packages\TAlex.WPF.Controls.1.7.5018.40064\lib\net40\TAlex.WPF.Controls.dll</HintPath>
     </Reference>
     <Reference Include="TAlex.WPF.Mvvm, Version=1.0.4937.37054, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

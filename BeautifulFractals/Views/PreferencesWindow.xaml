@@ -162,7 +162,7 @@
                         <CheckBox VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Content="Exit on mouse move" IsChecked="{Binding ExitOnMouseMove}" />
                         <CheckBox VerticalAlignment="Center" Grid.Row="2" Content="Show fractal captions" IsChecked="{Binding ShowFractalCaptions}" />
                         <TextBlock Name="captionStyleTextBlock" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2">
-                            <Hyperlink Command="{Binding OpenCaptionStyleChooserDialogCommand}">Caption style</Hyperlink>
+                            <Hyperlink IsEnabled="{Binding ShowFractalCaptions}" Command="{Binding OpenCaptionStyleChooserDialogCommand}">Caption style</Hyperlink>
                         </TextBlock>
                     </Grid>
                 </Grid>

@@ -37,6 +37,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         private string _fractalsSearchQuery;
         private Func<Fractal, bool> _searchPredicate;
         private bool _closeSignal;
+        private Object _syncObj = new Object();
 
         #endregion
 
@@ -217,9 +218,12 @@ namespace TAlex.BeautifulFractals.ViewModels
 
             set
             {
-                Set(() => FractalsSearchQuery, ref _fractalsSearchQuery, value);
-                UpdateSearchPredicate();
-                _fractalsView.Refresh();
+                lock (_syncObj)
+                {
+                    Set(() => FractalsSearchQuery, ref _fractalsSearchQuery, value);
+                    UpdateSearchPredicate();
+                    _fractalsView.Refresh();
+                }
             }
         }
 

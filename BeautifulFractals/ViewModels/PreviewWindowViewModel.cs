@@ -114,19 +114,13 @@ namespace TAlex.BeautifulFractals.ViewModels
                 _currPlotHeight = PlotHeight;
                 _currFractal = targetFractal;
 
-                if (targetFractal != null)
+                using (IGraphics2DContext context = new WriteableBitmapGraphicsContext(wb))
                 {
-                    IGraphics2DContext context = new WriteableBitmapGraphicsContext(wb);
-                    try
+                    if (targetFractal != null)
                     {
                         targetFractal.Render(context);
                     }
-                    finally
-                    {
-                        context.Invalidate();
-                    }
-
-                    Title = String.Format(Properties.Resources.locPreviewWindowTitle, targetFractal.Caption);
+                    Title = String.Format(Properties.Resources.locPreviewWindowTitle, targetFractal != null ? targetFractal.Caption : "Empty");
                 }
                 
                 Plot = wb;

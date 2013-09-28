@@ -111,6 +111,7 @@ namespace TAlex.BeautifulFractals.Rendering
 
         public void Dispose()
         {
+            Invalidate();
         }
 
         #endregion

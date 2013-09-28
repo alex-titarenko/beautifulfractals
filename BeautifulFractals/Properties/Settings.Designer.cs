@@ -143,7 +143,7 @@ namespace TAlex.BeautifulFractals.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Configuration.SettingsProviderAttribute(typeof(TAlex.Common.Configuration.XmlSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Vertical")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Horizontal")]
         public global::TAlex.BeautifulFractals.ViewModels.BackgroundGradientType BackGradientType {
             get {
                 return ((global::TAlex.BeautifulFractals.ViewModels.BackgroundGradientType)(this["BackGradientType"]));

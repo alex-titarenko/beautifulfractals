@@ -26,6 +26,8 @@ namespace TAlex.BeautifulFractals.Services.Windows
 
             if (_window == null || !_window.IsLoaded)
             {
+                _viewModel.Plot = null;
+                _viewModel.Title = String.Empty;
                 _window = new PreviewWindow { DataContext = _viewModel };
                 _window.Show();
             }

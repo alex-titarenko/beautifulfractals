@@ -6,6 +6,7 @@ using GdiPlus = System.Drawing;
 
 using TAlex.BeautifulFractals.Rendering;
 using TAlex.BeautifulFractals.Helpers;
+using System.Windows;
 
 
 namespace TAlex.BeautifulFractals.Rendering
@@ -61,8 +62,9 @@ namespace TAlex.BeautifulFractals.Rendering
         {
             get
             {
-                double w = Math.Min(_window.ActualWidth, System.Windows.SystemParameters.PrimaryScreenWidth);
-                double h = Math.Min(_window.ActualHeight, System.Windows.SystemParameters.PrimaryScreenHeight);
+                Size scale = GetScalingFactor();
+                double w = _window.ActualWidth * scale.Width;
+                double h = _window.ActualHeight * scale.Height;
 
                 if (ViewportPadding == 0.0)
                     return new Rectangle(0, 0, w, h);
@@ -79,7 +81,8 @@ namespace TAlex.BeautifulFractals.Rendering
 
         public void Clear(LinearGradientBrush brush)
         {
-            FillRectangle(-1, -1, _window.ActualWidth + 1, _window.ActualHeight + 1, brush);
+            Size scale = GetScalingFactor();
+            FillRectangle(-1, -1, _window.ActualWidth * scale.Width + 1, _window.ActualHeight * scale.Height + 1, brush);
         }
 
         public void Invalidate()
@@ -184,6 +187,21 @@ namespace TAlex.BeautifulFractals.Rendering
         private GdiPlus.Font ToGdiFont(Font font)
         {
             return new GdiPlus.Font(font.FamilyName, (float)font.Size, GdiPlus.GraphicsUnit.Pixel);
+        }
+
+        private Size GetScalingFactor()
+        {
+            double scaleX = 1, scaleY = 1;
+            _window.Dispatcher.Invoke(() =>
+            {
+                PresentationSource source = PresentationSource.FromVisual(_window);
+                if (source != null)
+                {
+                    scaleX = source.CompositionTarget.TransformToDevice.M11;
+                    scaleY = source.CompositionTarget.TransformToDevice.M22;
+                }
+            });
+            return new Size { Width = scaleX, Height = scaleY };
         }
 
         #endregion

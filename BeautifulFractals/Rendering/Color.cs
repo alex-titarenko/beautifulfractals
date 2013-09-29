@@ -148,7 +148,12 @@ namespace TAlex.BeautifulFractals.Rendering
 
         public static Color Random()
         {
-            return FromArgb(random.Next(255), random.Next(255), random.Next(255));
+            return Random(random);
+        }
+
+        public static Color Random(Random rnd)
+        {
+            return FromArgb(rnd.Next(255), rnd.Next(255), rnd.Next(255));
         }
 
         public static Color Parse(string s)

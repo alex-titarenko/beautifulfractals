@@ -15,11 +15,7 @@ namespace TAlex.BeautifulFractals.Fractals
     {
         #region Fields
 
-        private Random _rand = new Random();
-
-        private Color _color;
-
-        private bool _randColor = false;
+        private int? _colorSeed;
         private Color[] _colors = null;
 
         #endregion
@@ -40,10 +36,24 @@ namespace TAlex.BeautifulFractals.Fractals
             set;
         }
 
+        public Color? Color
+        {
+            get;
+            set;
+        }
+
         public List<IteratedFunction> System
         {
             get;
             set;
+        }
+
+        public override bool FullyFillRendering
+        {
+            get
+            {
+                return false;
+            }
         }
 
         #endregion
@@ -97,16 +107,16 @@ namespace TAlex.BeautifulFractals.Fractals
             double y_max = y;
 
             double temp_x;
-            Color color = _color;
-
             double h = context.Viewport.Height;
+            Random rand = new Random(0);
 
             for (int i = 0; i < iterations; i++)
             {
-                double probability = _rand.NextDouble();
+                double probability = rand.NextDouble();
                 temp_x = x;
 
                 double sum = 0.0;
+                Color color = Color ?? Rendering.Color.FromArgb(0, 0, 0);
 
                 for (int j = 0; j < System.Count; j++)
                 {
@@ -119,7 +129,7 @@ namespace TAlex.BeautifulFractals.Fractals
                         x = func.A * temp_x + func.B * y + func.E;
                         y = func.C * temp_x + func.D * y + func.F;
 
-                        if (_randColor) color = _colors[j];
+                        color = Color ?? _colors[j];
 
                         if (x > x_max) x_max = x;
                         if (x < x_min) x_min = x;
@@ -138,12 +148,13 @@ namespace TAlex.BeautifulFractals.Fractals
 
         private void UpdateColors()
         {
-            _randColor = true;
+            if (!_colorSeed.HasValue) _colorSeed = new Random().Next();
+            Random rnd = new Random(_colorSeed.Value);
             _colors = new Color[System.Count];
-
+            
             for (int i = 0; i < System.Count; i++)
             {
-                _colors[i] = Color.Random();
+                _colors[i] = Rendering.Color.Random(rnd);
             }
         }
 

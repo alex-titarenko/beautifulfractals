@@ -32,5 +32,13 @@ namespace TAlex.BeautifulFractals.Fractals
             get;
             set;
         }
+
+        public override bool FullyFillRendering
+        {
+            get
+            {
+                return true;
+            }
+        }
     }
 }

@@ -113,7 +113,10 @@ namespace TAlex.BeautifulFractals
             {
                 foreach (Fractal2D fractal in _fractals)
                 {
-                    context.Clear(backgroundBrush);
+                    //if (!fractal.FullyFillRendering)
+                    {
+                        context.Clear(backgroundBrush);
+                    }
                     if (settings.ShowFractalCaptions)
                     {
                         context.DrawString(

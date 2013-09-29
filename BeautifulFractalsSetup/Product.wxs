@@ -3,7 +3,7 @@
   <?include Variables.wxi ?>
   
   <Product Id="$(var.ProductCode)" UpgradeCode="$(var.UpgradeCode)" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)">
-		<Package  InstallerVersion="200" Compressed="yes" />
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" />
 		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
 
     <!-- Detecting installed version of .NET Framework -->

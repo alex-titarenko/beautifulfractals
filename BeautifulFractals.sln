@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0CA6F509
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautifulFractals.KeyGenerator", "BeautifulFractals.KeyGenerator\BeautifulFractals.KeyGenerator.csproj", "{C214B159-B7B1-4A59-8B88-89B40FCFBF2E}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "BeautifulFractalsBootstrapperSetup", "BeautifulFractalsBootstrapperSetup\BeautifulFractalsBootstrapperSetup.wixproj", "{CA343E21-581B-43BD-92AF-C04A8CC4E692}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "BeautifulFractalsSetupBootstrapper", "BeautifulFractalsBootstrapperSetup\BeautifulFractalsSetupBootstrapper.wixproj", "{CA343E21-581B-43BD-92AF-C04A8CC4E692}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

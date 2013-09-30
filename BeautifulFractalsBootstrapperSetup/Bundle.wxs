@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
-	<Bundle Name="Beautiful Fractals" Version="2.0.0" Manufacturer="T-Alex Software" UpgradeCode="ca343e21-581b-43bd-92af-c04a8cc4e692">
+  <?include Variables.wxi ?>
+
+  <Bundle Name="$(var.ProductName)" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)" Copyright="$(var.Copyright)" AboutUrl="$(var.HomePageUrl)" UpdateUrl="$(var.UpdateInformation)" HelpUrl="$(var.HelpLink)">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
       <bal:WixStandardBootstrapperApplication
         LicenseFile="$(var.BeautifulFractalsSetup.ProjectDir)\Resources\License.rtf"
@@ -10,7 +12,7 @@
 
 		<Chain>
       <PackageGroupRef Id="NetFx45Web" />
-			<MsiPackage DisplayInternalUI="yes" Compressed="yes" SourceFile="$(var.BeautifulFractalsSetup.TargetPath)" />
+			<MsiPackage DisplayInternalUI="yes" Compressed="yes" ForcePerMachine="yes" SourceFile="$(var.BeautifulFractalsSetup.TargetPath)" />
 		</Chain>
 	</Bundle>
 </Wix>

@@ -18,7 +18,7 @@
     <!-- Properties for UI -->
     <Property Id="DEFAULT_SCREENSAVER">1</Property>
     <Property Id="SHORTCUT_PROGRAMMENU">1</Property>
-    <Property Id="SHORTCUT_DESKTOP">1</Property>
+    <Property Id="SHORTCUT_DESKTOP"></Property>
 
     <!--Directory structure-->
     <Directory Id="TARGETDIR" Name="SourceDir">

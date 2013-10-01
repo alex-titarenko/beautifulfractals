@@ -50,9 +50,9 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="TAlex.Common, Version=1.4.5015.39869, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TAlex.Common, Version=1.4.5022.42154, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\TAlex.Common.1.4.5015.39869\lib\net40\TAlex.Common.dll</HintPath>
+      <HintPath>..\..\packages\TAlex.Common.1.4.5022.42154\lib\net40\TAlex.Common.dll</HintPath>
     </Reference>
     <Reference Include="TAlex.WPF.Mvvm, Version=1.0.4937.37054, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

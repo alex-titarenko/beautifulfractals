@@ -1,4 +1,9 @@
-﻿using TAlex.BeautifulFractals.Services;
+﻿using System;
+using System.IO;
+using System.Reflection;
+using TAlex.BeautifulFractals.Helpers;
+using TAlex.BeautifulFractals.Services;
+
 namespace TAlex.BeautifulFractals.Properties {
     
     
@@ -9,12 +14,28 @@ namespace TAlex.BeautifulFractals.Properties {
     //  The SettingsSaving event is raised before the setting values are saved.
     internal sealed partial class Settings : IAppSettings {
         
-        public Settings() {
+        public Settings() {                
             if (CallUpgrade)
             {
-                Upgrade();
+                UpgradeSettings();
                 CallUpgrade = false;
             }
+        }
+
+        private void UpgradeSettings()
+        {
+            try
+            {
+                string path = Environment.ExpandEnvironmentVariables(FractalsCollectionPath);
+                if (!Directory.Exists(Path.GetDirectoryName(path))) Directory.CreateDirectory(Path.GetDirectoryName(path));
+                using (var file = new FileStream(path, FileMode.Create, FileAccess.Write))
+                {
+                    FractalsHelper.GetEmbeddedFractalsStream().CopyTo(file);
+                }
+            }
+            catch (IOException) {}
+
+            Upgrade();
         }
     }
 }

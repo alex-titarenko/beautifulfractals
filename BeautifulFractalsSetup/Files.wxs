@@ -36,15 +36,5 @@
         <File Id="FILE_Ninject" Name="Ninject.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
       </Component>
     </DirectoryRef>
-
-    <DirectoryRef Id="AppDataProductFolder">
-      <!-- Fractals XML -->
-      <Component Id="CMP_FractalsXML" Guid="D3EE93B7-5A7A-4886-8E52-8A13769FA5AD">
-        <File Id="FILE_FractalsXML" Name="Fractals.xml" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" />
-        <RemoveFolder Id="RemoveAppDataProductFolder" Directory="AppDataProductFolder" On="uninstall" />
-        <RemoveFolder Id="RemoveAppDataManufacturerFolder" Directory="AppDataManufacturerFolder" On="uninstall" />
-        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
-      </Component>
-    </DirectoryRef>
 	</Fragment>
 </Wix>

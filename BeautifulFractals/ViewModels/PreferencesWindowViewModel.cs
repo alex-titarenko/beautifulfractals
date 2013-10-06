@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using TAlex.BeautifulFractals.Fractals;
+using TAlex.BeautifulFractals.Properties;
 using TAlex.BeautifulFractals.Rendering;
 using TAlex.BeautifulFractals.Services;
 using TAlex.BeautifulFractals.Services.Licensing;
@@ -15,6 +17,7 @@ using TAlex.Common.Extensions;
 using TAlex.Common.Licensing;
 using TAlex.WPF.Mvvm;
 using TAlex.WPF.Mvvm.Commands;
+using TAlex.WPF.Mvvm.Services;
 
 
 namespace TAlex.BeautifulFractals.ViewModels
@@ -30,6 +33,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         protected readonly IFontChooserDialogService FontChooserDialogService;
         protected readonly BeautifulFractals.Infrastructure.ICollectionViewFactory CollectionViewFactory;
         protected readonly IPreviewDialogService PreviewDialogService;
+        protected readonly IMessageService MessageService;
 
         private ObservableCollection<Fractal> _fractals;
         public BeautifulFractals.Infrastructure.ICollectionView _fractalsView;
@@ -290,7 +294,8 @@ namespace TAlex.BeautifulFractals.ViewModels
             FontChooserDialogService fontChooserDialogService,
             IFractalsManager fractalManager,
             BeautifulFractals.Infrastructure.ICollectionViewFactory collectionViewFactory,
-            IPreviewDialogService previewDialogService)
+            IPreviewDialogService previewDialogService,
+            IMessageService messageService)
         {
             AppSettings = appSettings;
             ApplicationInfo = applicationInfo;
@@ -299,6 +304,7 @@ namespace TAlex.BeautifulFractals.ViewModels
             FractalManager = fractalManager;
             CollectionViewFactory = collectionViewFactory;
             PreviewDialogService = previewDialogService;
+            MessageService = messageService;
 
             LoadFractals();
             InitCommands();
@@ -367,7 +373,14 @@ namespace TAlex.BeautifulFractals.ViewModels
         private void SaveCommandExecute()
         {
             AppSettings.Save();
-            FractalManager.Save(Fractals, AppSettings.FractalsCollectionPath);
+            try
+            {
+                FractalManager.Save(Fractals, AppSettings.FractalsCollectionPath);
+            }
+            catch (IOException exc)
+            {
+                MessageService.ShowError(exc.Message, Resources.locInformationMessageCaption);
+            }
             CloseSignal = true;
         }
 

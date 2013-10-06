@@ -5,6 +5,8 @@ using System.Text;
 using System.IO;
 using System.Xml.Serialization;
 using TAlex.BeautifulFractals.Fractals;
+using TAlex.BeautifulFractals.Helpers;
+using System.Diagnostics;
 
 
 namespace TAlex.BeautifulFractals.Services
@@ -22,9 +24,17 @@ namespace TAlex.BeautifulFractals.Services
         public ObservableCollection<Fractal> Load(string filePath)
         {
             ObservableCollection<Fractal> fractals = null;
-            using (FileStream file = new FileStream(Environment.ExpandEnvironmentVariables(filePath), FileMode.Open, FileAccess.Read))
+            try
             {
-                fractals = Load(file);
+                using (FileStream file = new FileStream(Environment.ExpandEnvironmentVariables(filePath), FileMode.Open, FileAccess.Read))
+                {
+                    fractals = Load(file);
+                }
+            }
+            catch (IOException exc)
+            {
+                Trace.TraceError(exc.Message);
+                fractals = Load(FractalsHelper.GetEmbeddedFractalsStream());
             }
             return fractals;
         }

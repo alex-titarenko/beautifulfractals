@@ -10,6 +10,7 @@ using TAlex.BeautifulFractals.Services.Windows;
 using TAlex.Common.Environment;
 using TAlex.WPF.Mvvm.Services;
 
+
 namespace TAlex.BeautifulFractals.Locators.Modules
 {
     public class BaseServicesNinjectModule : NinjectModule
@@ -21,7 +22,6 @@ namespace TAlex.BeautifulFractals.Locators.Modules
             Bind<IMessageService>().To<MessageService>();
             Bind<IApplicationService>().To<ApplicationService>();
             Bind<IFontChooserDialogService>().To<FontChooserDialogService>();
-            Bind<IRegistrationWindowService>().To<RegistrationWindowService>();
             Bind<IPreviewDialogService>().To<PreviewDialogService>();
 
             Bind<IAppSettings>().ToMethod(x => Properties.Settings.Default).InSingletonScope();

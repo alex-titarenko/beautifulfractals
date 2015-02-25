@@ -128,7 +128,6 @@
     <Compile Include="Services\FractalsManager.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Services\IFractalsManager.cs" />
-    <Compile Include="Locators\Modules\AppLicenseNinjectModule.cs" />
     <Compile Include="Locators\Modules\BaseServicesNinjectModule.cs" />
     <Compile Include="Locators\Modules\ViewModelNinjectModule.cs" />
     <Compile Include="Locators\ViewModelLocator.cs" />
@@ -136,22 +135,16 @@
     <Compile Include="Rendering\Font.cs" />
     <Compile Include="Rendering\LinearGradientBrush.cs" />
     <Compile Include="Services\IAppSettings.cs" />
-    <Compile Include="Services\Licensing\AppLicense.cs" />
-    <Compile Include="Services\Licensing\AppLicenseDataManager.cs" />
-    <Compile Include="Services\Licensing\AppTrialPeriodDataProvider.cs" />
     <Compile Include="Services\Windows\ApplicationService.cs" />
     <Compile Include="Services\Windows\FontChooserDialogService.cs" />
     <Compile Include="Services\Windows\IApplicationService.cs" />
     <Compile Include="Services\Windows\IFontChooserDialogService.cs" />
     <Compile Include="Services\Windows\IPreviewDialogService.cs" />
-    <Compile Include="Services\Windows\IRegistrationWindowService.cs" />
     <Compile Include="Services\Windows\PreviewDialogService.cs" />
-    <Compile Include="Services\Windows\RegistrationWindowService.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\PreferencesWindowViewModel.cs" />
     <Compile Include="ViewModels\PreviewWindowViewModel.cs" />
-    <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="Views\ErrorReportingWindow.xaml.cs">
       <DependentUpon>ErrorReportingWindow.xaml</DependentUpon>
     </Compile>
@@ -177,9 +170,6 @@
     <Compile Include="ScreensaverCommandLineArgs.cs" />
     <Compile Include="Views\PreviewWindow.xaml.cs">
       <DependentUpon>PreviewWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RegistrationWindow.xaml.cs">
-      <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -222,10 +212,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RegistrationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -246,9 +232,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <Content Include="License.dat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

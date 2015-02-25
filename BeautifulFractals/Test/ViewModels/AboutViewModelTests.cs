@@ -15,18 +15,14 @@ namespace TAlex.BeautifulFractals.Test.ViewModels
     {
         private AboutViewModel ViewModel;
         private ApplicationInfo ApplicationInfoMock;
-        private LicenseBase LicenseBaseMock;
-        private IRegistrationWindowService RegistrationWindowServiceMock;
 
 
         [SetUp]
         public void SetUp()
         {
             ApplicationInfoMock = Substitute.For<ApplicationInfo>();
-            LicenseBaseMock = Substitute.For<LicenseBase>(Substitute.For<ILicenseDataManager>(), Substitute.For<ITrialPeriodDataProvider>());
-            RegistrationWindowServiceMock = Substitute.For<IRegistrationWindowService>();
 
-            ViewModel = new AboutViewModel(ApplicationInfoMock, LicenseBaseMock, RegistrationWindowServiceMock);
+            ViewModel = new AboutViewModel(ApplicationInfoMock);
         }
 
 
@@ -86,46 +82,6 @@ namespace TAlex.BeautifulFractals.Test.ViewModels
 
             //action
             string actual = ViewModel.Copyright;
-
-            //assert
-            actual.Should().Be(expected);
-        }
-
-        [TestCase("License Name")]
-        public void LicenseName_Test(string expected)
-        {
-            //arrange
-            LicenseBaseMock.LicenseName.Returns(expected);
-
-            //action
-            string actual = ViewModel.LicenseName;
-
-            //assert
-            actual.Should().Be(expected);
-        }
-
-        [Test]
-        public void LicenseInfoVisibility_Test([Values(true, false)]bool expected)
-        {
-            //arrange
-            LicenseBaseMock.IsLicensed.Returns(expected);
-
-            //action
-            bool actual = ViewModel.LicenseInfoVisibility;
-
-            //assert
-            actual.Should().Be(expected);
-        }
-
-        [Test]
-        public void UnregisteredTextVisibility_Test([Values(true, false)]bool isLicensed)
-        {
-            //arrange
-            var expected = !isLicensed;
-            LicenseBaseMock.IsLicensed.Returns(isLicensed);
-
-            //action
-            bool actual = ViewModel.UnregisteredTextVisibility;
 
             //assert
             actual.Should().Be(expected);

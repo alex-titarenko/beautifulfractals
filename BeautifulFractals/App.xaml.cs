@@ -15,7 +15,6 @@ using TAlex.BeautifulFractals.Helpers;
 using TAlex.Common.Environment;
 using TAlex.BeautifulFractals.Locators;
 using TAlex.BeautifulFractals.Views;
-using TAlex.BeautifulFractals.Services.Licensing;
 
 
 namespace TAlex.BeautifulFractals
@@ -39,9 +38,6 @@ namespace TAlex.BeautifulFractals
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            // check license
-            CheckTrialExpiration();
-
             if (e.Args.Length > 0)
             {
                 string option = e.Args[0].ToLower().Substring(0, 2);
@@ -128,28 +124,6 @@ namespace TAlex.BeautifulFractals
                 reportWindow.Owner = activeWindow;
             }
             reportWindow.ShowDialog();
-        }
-
-        private void CheckTrialExpiration()
-        {
-            ViewModelLocator locator = Resources["viewModelLocator"] as ViewModelLocator;
-            AppLicense license = locator.Get<AppLicense>();
-
-            if (license.IsTrial && license.TrialHasExpired)
-            {
-                if (MessageBox.Show(TAlex.BeautifulFractals.Properties.Resources.locEvaluationPeriodHasExpired,
-                    TAlex.BeautifulFractals.Properties.Resources.locInformationMessageCaption,
-                    MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                {
-                    RegistrationWindow window = new RegistrationWindow();
-                    window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                    window.ShowDialog();
-                }
-                else
-                {
-                    Shutdown();
-                }
-            }
         }
 
         #endregion

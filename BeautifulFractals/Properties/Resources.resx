@@ -120,18 +120,12 @@
   <data name="HomepageUrl" xml:space="preserve">
     <value>http://www.talex-soft.com</value>
   </data>
-  <data name="locEvaluationPeriodHasExpired" xml:space="preserve">
-    <value>Evaluation period has expired, please register.</value>
-  </data>
   <data name="locInformationMessageCaption" xml:space="preserve">
     <value>Information</value>
   </data>
   <data name="locInvalidCommandLineArgument" xml:space="preserve">
     <value>Invalid command line argument: {0}</value>
     <comment>{0} - argument name</comment>
-  </data>
-  <data name="locPleaseRestartToVerifyLicense" xml:space="preserve">
-    <value>Please restart this program to verify your license data.</value>
   </data>
   <data name="SupportEmail" xml:space="preserve">
     <value>mailto:support@talex-soft.com</value>

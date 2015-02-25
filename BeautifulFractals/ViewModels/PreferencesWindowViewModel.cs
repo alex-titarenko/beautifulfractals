@@ -10,7 +10,6 @@ using TAlex.BeautifulFractals.Fractals;
 using TAlex.BeautifulFractals.Properties;
 using TAlex.BeautifulFractals.Rendering;
 using TAlex.BeautifulFractals.Services;
-using TAlex.BeautifulFractals.Services.Licensing;
 using TAlex.BeautifulFractals.Services.Windows;
 using TAlex.Common.Environment;
 using TAlex.Common.Extensions;
@@ -28,7 +27,6 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         protected readonly IAppSettings AppSettings;
         protected readonly ApplicationInfo ApplicationInfo;
-        protected readonly LicenseBase AppLicense;
         protected readonly IFractalsManager FractalManager;
         protected readonly IFontChooserDialogService FontChooserDialogService;
         protected readonly BeautifulFractals.Infrastructure.ICollectionViewFactory CollectionViewFactory;
@@ -51,12 +49,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                string baseTitle = String.Format("{0} Preferences", ApplicationInfo.Title);
-
-                if (AppLicense.IsTrial)
-                    return String.Format("{0} (days left: {1})", baseTitle, AppLicense.TrialDaysLeft);
-                else
-                    return baseTitle;
+                return String.Format("{0} Preferences", ApplicationInfo.Title);
             }
         }
 
@@ -290,7 +283,6 @@ namespace TAlex.BeautifulFractals.ViewModels
         public PreferencesWindowViewModel(
             IAppSettings appSettings,
             ApplicationInfo applicationInfo,
-            LicenseBase appLicense,
             FontChooserDialogService fontChooserDialogService,
             IFractalsManager fractalManager,
             BeautifulFractals.Infrastructure.ICollectionViewFactory collectionViewFactory,
@@ -299,7 +291,6 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             AppSettings = appSettings;
             ApplicationInfo = applicationInfo;
-            AppLicense = appLicense;
             FontChooserDialogService = fontChooserDialogService;
             FractalManager = fractalManager;
             CollectionViewFactory = collectionViewFactory;

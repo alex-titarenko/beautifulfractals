@@ -15,7 +15,6 @@ namespace TAlex.BeautifulFractals.Locators.Modules
         {
             Bind<PreferencesWindowViewModel>().ToSelf();
             Bind<AboutViewModel>().ToSelf().InSingletonScope();
-            Bind<RegistrationViewModel>().ToSelf();
         }
     }
 }

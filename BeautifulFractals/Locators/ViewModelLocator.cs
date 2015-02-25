@@ -22,7 +22,6 @@ namespace TAlex.BeautifulFractals.Locators
         {
             _kernel = new StandardKernel(
                 new BaseServicesNinjectModule(),
-                new AppLicenseNinjectModule(),
                 new ViewModelNinjectModule());
         }
 
@@ -43,14 +42,6 @@ namespace TAlex.BeautifulFractals.Locators
             get
             {
                 return _kernel.Get<AboutViewModel>();
-            }
-        }
-
-        public RegistrationViewModel RegistrationViewModel
-        {
-            get
-            {
-                return _kernel.Get<RegistrationViewModel>();
             }
         }
 

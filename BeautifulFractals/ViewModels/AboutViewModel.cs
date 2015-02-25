@@ -18,8 +18,6 @@ namespace TAlex.BeautifulFractals.ViewModels
         #region Fields
 
         protected readonly ApplicationInfo ApplicationInfo;
-        protected readonly LicenseBase AppLicense;
-        protected readonly IRegistrationWindowService RegistrationWindowService;
 
         #endregion
 
@@ -93,62 +91,13 @@ namespace TAlex.BeautifulFractals.ViewModels
             }
         }
 
-
-        public virtual string LicenseName
-        {
-            get
-            {
-                return AppLicense.LicenseName;
-            }
-        }
-
-        public virtual bool LicenseInfoVisibility
-        {
-            get
-            {
-                return AppLicense.IsLicensed;
-            }
-        }
-
-        public bool UnregisteredTextVisibility
-        {
-            get
-            {
-                return !LicenseInfoVisibility;
-            }
-        }
-
-        #endregion
-
-        #region Commands
-
-        public ICommand OpenRegistrationDialogCommand { get; set; }
-
         #endregion
 
         #region Constructors
 
-        public AboutViewModel(ApplicationInfo applicationInfo, LicenseBase appLicense, IRegistrationWindowService registrationWindowService)
+        public AboutViewModel(ApplicationInfo applicationInfo)
         {
             ApplicationInfo = applicationInfo;
-            AppLicense = appLicense;
-            RegistrationWindowService = registrationWindowService;
-
-            InitCommands();
-        }
-
-        #endregion
-
-        #region Methods
-
-        private void InitCommands()
-        {
-            OpenRegistrationDialogCommand = new RelayCommand(OpenRegistrationDialogCommandExecute);
-        }
-
-        private void OpenRegistrationDialogCommandExecute()
-        {
-            RegistrationWindowService.Show();
         }
 
         #endregion

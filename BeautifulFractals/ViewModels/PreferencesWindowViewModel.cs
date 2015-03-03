@@ -14,9 +14,10 @@ using TAlex.BeautifulFractals.Services.Windows;
 using TAlex.Common.Environment;
 using TAlex.Common.Extensions;
 using TAlex.Common.Licensing;
-using TAlex.WPF.Mvvm;
-using TAlex.WPF.Mvvm.Commands;
-using TAlex.WPF.Mvvm.Services;
+using TAlex.Mvvm;
+using TAlex.Mvvm.Commands;
+using TAlex.Mvvm.Services;
+using TAlex.Mvvm.ViewModels;
 
 
 namespace TAlex.BeautifulFractals.ViewModels

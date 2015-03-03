@@ -23,9 +23,13 @@
       <Component Id="CMP_TAlexWPFControls" Guid="7B8FB84B-ED77-4A96-8C8B-69EB82881A64">
         <File Id="FILE_TAlexWPFControls" Name="TAlex.WPF.Controls.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
       </Component>
-      <!-- TAlex.WPF.Mvvm -->
-      <Component Id="CMP_TAlexWPFMvvm" Guid="36BDDA1B-FA16-4AA9-8341-01608F5C941B">
-        <File Id="FILE_TAlexWPFMvvm" Name="TAlex.WPF.Mvvm.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      <!-- TAlex.Mvvm -->
+      <Component Id="CMP_TAlexMvvm" Guid="2E3ED874-7D15-4CE5-8A38-793EFA69A12F">
+        <File Id="FILE_TAlexMvvm" Name="TAlex.Mvvm.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+      <!-- TAlex.Mvvm.WPF -->
+      <Component Id="CMP_TAlexMvvmWPF" Guid="36BDDA1B-FA16-4AA9-8341-01608F5C941B">
+        <File Id="FILE_TAlexMvvmWPF" Name="TAlex.Mvvm.WPF.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
       </Component>
       <!-- WriteableBitmapEx.Wpf -->
       <Component Id="CMP_WriteableBitmapExWpf" Guid="275A5D8F-5B6C-4DC9-BE82-A1AA2AD240D7">

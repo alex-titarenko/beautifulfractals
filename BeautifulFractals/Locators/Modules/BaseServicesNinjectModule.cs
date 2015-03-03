@@ -8,7 +8,7 @@ using TAlex.BeautifulFractals.Infrastructure;
 using TAlex.BeautifulFractals.Services;
 using TAlex.BeautifulFractals.Services.Windows;
 using TAlex.Common.Environment;
-using TAlex.WPF.Mvvm.Services;
+using TAlex.Mvvm.Services;
 
 
 namespace TAlex.BeautifulFractals.Locators.Modules

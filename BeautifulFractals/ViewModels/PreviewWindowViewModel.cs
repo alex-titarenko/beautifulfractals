@@ -10,8 +10,8 @@ using System.Windows.Media.Imaging;
 using TAlex.BeautifulFractals.Fractals;
 using TAlex.BeautifulFractals.Infrastructure;
 using TAlex.BeautifulFractals.Rendering;
-using TAlex.WPF.Mvvm;
-using TAlex.WPF.Mvvm.Commands;
+using TAlex.Mvvm.Commands;
+using TAlex.Mvvm.ViewModels;
 
 
 namespace TAlex.BeautifulFractals.ViewModels
@@ -108,6 +108,7 @@ namespace TAlex.BeautifulFractals.ViewModels
             Task.Run(() =>
             {
                 WriteableBitmap wb = BitmapFactory.New((int)PlotWidth, (int)PlotHeight);
+                
                 Fractal2D targetFractal = FractalCollection.CurrentItem as Fractal2D;
 
                 _currPlotWidth = PlotWidth;

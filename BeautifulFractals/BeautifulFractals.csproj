@@ -94,13 +94,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\TAlex.MathCore.1.4.0.0\lib\portable-net45+sl50+win+wpa81+wp80\TAlex.MathCore.dll</HintPath>
     </Reference>
+    <Reference Include="TAlex.Mvvm">
+      <HintPath>..\packages\TAlex.Mvvm.1.3.0.0\lib\portable-net45+win+wpa81+wp80\TAlex.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="TAlex.Mvvm.WPF">
+      <HintPath>..\packages\TAlex.Mvvm.WPF.1.0.0.0\lib\net45\TAlex.Mvvm.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="TAlex.WPF.Controls, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\TAlex.WPF.Controls.2.0.1.0\lib\net40\TAlex.WPF.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="TAlex.WPF.Mvvm, Version=1.0.4937.37054, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\TAlex.WPF.Mvvm.1.0.4937.37054\lib\net45\TAlex.WPF.Mvvm.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />

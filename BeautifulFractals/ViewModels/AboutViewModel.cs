@@ -7,8 +7,6 @@ using System.Windows.Input;
 using System.Windows.Markup;
 using TAlex.BeautifulFractals.Services.Windows;
 using TAlex.Common.Environment;
-using TAlex.Common.Licensing;
-using TAlex.WPF.Mvvm.Commands;
 
 
 namespace TAlex.BeautifulFractals.ViewModels

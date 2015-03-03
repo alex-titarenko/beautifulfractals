@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TAlex.BeautifulFractals.Helpers;
 using TAlex.WPF.CommonDialogs;
-using TAlex.WPF.Mvvm.Extensions;
+using TAlex.Mvvm.Extensions;
+
 
 namespace TAlex.BeautifulFractals.Services.Windows
 {

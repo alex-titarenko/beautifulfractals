@@ -9,7 +9,8 @@
         <ComponentRef Id="CMP_TAlexCommon" />
         <ComponentRef Id="CMP_TAlexMathCore" />
         <ComponentRef Id="CMP_TAlexWPFControls" />
-        <ComponentRef Id="CMP_TAlexWPFMvvm" />
+        <ComponentRef Id="CMP_TAlexMvvm" />
+        <ComponentRef Id="CMP_TAlexMvvmWPF" />
         <ComponentRef Id="CMP_WriteableBitmapExWpf" />
         <ComponentRef Id="CMP_Ninject" />
                 

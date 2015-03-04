@@ -50,6 +50,7 @@ _ReSharper*/
 ~$*
 
 #NuGet
+[Nn]u[Gg]et.exe
 packages/
 
 #ncrunch

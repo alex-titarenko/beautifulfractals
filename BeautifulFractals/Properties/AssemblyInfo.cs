@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Beautiful Fractals")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Beautiful Fractals Screensaver")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("T-Alex Software")]
 [assembly: AssemblyProduct("Beautiful Fractals")]

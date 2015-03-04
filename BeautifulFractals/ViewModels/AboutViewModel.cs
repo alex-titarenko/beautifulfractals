@@ -6,36 +6,16 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Markup;
 using TAlex.BeautifulFractals.Services.Windows;
-using TAlex.Common.Environment;
+using TAlex.Common.Models;
 
 
 namespace TAlex.BeautifulFractals.ViewModels
 {
     public class AboutViewModel
     {
-        #region Fields
-
-        protected readonly ApplicationInfo ApplicationInfo;
-
-        #endregion
-
         #region Properties
 
-        public virtual string AboutLogoTitle
-        {
-            get
-            {
-                return ApplicationInfo.Title;
-            }
-        }
-
-        public virtual Version Version
-        {
-            get
-            {
-                return ApplicationInfo.Version;
-            }
-        }
+        public virtual AssemblyInfo AssemblyInfo { get; set; }
 
         /// <summary>
         /// Gets the email support title for this product.
@@ -81,21 +61,13 @@ namespace TAlex.BeautifulFractals.ViewModels
             }
         }
 
-        public virtual string Copyright
-        {
-            get
-            {
-                return ApplicationInfo.CopyrightDisplayText;
-            }
-        }
-
         #endregion
 
         #region Constructors
 
-        public AboutViewModel(ApplicationInfo applicationInfo)
+        public AboutViewModel(AssemblyInfo applicationInfo)
         {
-            ApplicationInfo = applicationInfo;
+            AssemblyInfo = applicationInfo;
         }
 
         #endregion

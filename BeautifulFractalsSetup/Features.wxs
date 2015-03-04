@@ -7,6 +7,8 @@
         <ComponentRef Id="MainExecutable" />
         <ComponentRef Id="MainExecutableConfig" />
         <ComponentRef Id="CMP_TAlexCommon" />
+        <ComponentRef Id="CMP_TAlexCommonDiagnostics" />
+        <ComponentRef Id="CMP_TAlexCommonConfiguration" />
         <ComponentRef Id="CMP_TAlexMathCore" />
         <ComponentRef Id="CMP_TAlexWPFControls" />
         <ComponentRef Id="CMP_TAlexMvvm" />

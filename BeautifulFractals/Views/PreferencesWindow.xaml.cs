@@ -12,11 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 using TAlex.WPF.CommonDialogs;
 using TAlex.Common.Extensions;
-using TAlex.Common.Environment;
-
 using TAlex.BeautifulFractals.Helpers;
 using TAlex.BeautifulFractals.Views;
 using TAlex.BeautifulFractals.Services;

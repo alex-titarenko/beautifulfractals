@@ -12,11 +12,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net;
 using System.IO;
-
-using TAlex.Common.Environment;
 using TAlex.Common.Diagnostics.ErrorReporting;
 using System.Net.Mail;
 using System.Diagnostics;
+using TAlex.Common.Models;
 
 
 namespace TAlex.BeautifulFractals.Services
@@ -28,7 +27,7 @@ namespace TAlex.BeautifulFractals.Services
     {
         #region Fields
 
-        protected readonly ApplicationInfo ApplicationInfo;
+        protected readonly AssemblyInfo AssemblyInfo;
         protected readonly IErrorReportSender ErrorReportSender = new ErrorReportSender();
 
         public ErrorReport Report { get; set; }
@@ -42,14 +41,14 @@ namespace TAlex.BeautifulFractals.Services
             InitializeComponent();
         }
 
-        public ErrorReportingWindow(ErrorReport report, ApplicationInfo applicationInfo)
+        public ErrorReportingWindow(ErrorReport report, AssemblyInfo assemblyInfo)
             : this()
         {
-            ApplicationInfo = applicationInfo;
+            AssemblyInfo = assemblyInfo;
             Report = report;
 
-            productTitleRun.Text = ApplicationInfo.Title;
-            productTitle2Run.Text = ApplicationInfo.Title;
+            productTitleRun.Text = AssemblyInfo.Title;
+            productTitle2Run.Text = AssemblyInfo.Title;
         }
 
         #endregion
@@ -68,11 +67,11 @@ namespace TAlex.BeautifulFractals.Services
             try
             {
                 ErrorReportSender.Send(new ErrorReportModel() { Subject = Report.Subject, Report = Report.GenerateFullHtmlReport() });
-                MessageBox.Show(this, "Thank you. Your error report has been sent successfully.", ApplicationInfo.Title, MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(this, "Thank you. Your error report has been sent successfully.", AssemblyInfo.Title, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception exc)
             {
-                MessageBox.Show(this, exc.Message, ApplicationInfo.Title, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(this, exc.Message, AssemblyInfo.Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {

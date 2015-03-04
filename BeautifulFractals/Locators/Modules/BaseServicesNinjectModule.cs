@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using TAlex.BeautifulFractals.Infrastructure;
 using TAlex.BeautifulFractals.Services;
 using TAlex.BeautifulFractals.Services.Windows;
-using TAlex.Common.Environment;
 using TAlex.Mvvm.Services;
+using TAlex.Common.Models;
+using TAlex.Common.Extensions;
 
 
 namespace TAlex.BeautifulFractals.Locators.Modules
@@ -17,7 +18,7 @@ namespace TAlex.BeautifulFractals.Locators.Modules
     {
         public override void Load()
         {
-            Bind<ApplicationInfo>().ToConstant(ApplicationInfo.Current).InSingletonScope();
+            Bind<AssemblyInfo>().ToConstant(typeof(BaseServicesNinjectModule).Assembly.GetAssemblyInfo()).InSingletonScope();
 
             Bind<IMessageService>().To<MessageService>();
             Bind<IApplicationService>().To<ApplicationService>();

@@ -15,6 +15,14 @@
       <Component Id="CMP_TAlexCommon" Guid="E16370DD-C930-4080-B9D6-DCFE6A6AF1B3">
         <File Id="FILE_TAlexCommon" Name="TAlex.Common.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
       </Component>
+      <!-- TAlex.Common.Diagnostics -->
+      <Component Id="CMP_TAlexCommonDiagnostics" Guid="E9660158-395E-4BE9-B3D2-EA4067CD3580">
+        <File Id="FILE_TAlexCommonDiagnostics" Name="TAlex.Common.Diagnostics.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
+      <!-- TAlex.Common.Configuration -->
+      <Component Id="CMP_TAlexCommonConfiguration" Guid="DD56802B-E6A0-453D-A895-16716A77152B">
+        <File Id="FILE_TAlexCommonConfiguration" Name="TAlex.Common.Configuration.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
+      </Component>
       <!-- TAlex.MathCore -->
       <Component Id="CMP_TAlexMathCore" Guid="B8E74F31-B52E-46E7-BF3D-D579F97A59AB">
         <File Id="FILE_TAlexMathCore" Name="TAlex.MathCore.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />

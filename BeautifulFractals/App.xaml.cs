@@ -9,10 +9,9 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Interop;
 using System.Windows.Threading;
-
+using TAlex.Common.Extensions;
 using TAlex.Common.Diagnostics.ErrorReporting;
 using TAlex.BeautifulFractals.Helpers;
-using TAlex.Common.Environment;
 using TAlex.BeautifulFractals.Locators;
 using TAlex.BeautifulFractals.Views;
 
@@ -107,7 +106,7 @@ namespace TAlex.BeautifulFractals
             Trace.TraceError(exc.ToString());
 
             Services.ErrorReportingWindow reportWindow =
-                new Services.ErrorReportingWindow(new ErrorReport(exc), ApplicationInfo.Current);
+                new Services.ErrorReportingWindow(new ErrorReport(exc), typeof(App).Assembly.GetAssemblyInfo());
 
             Window activeWindow = null;
             foreach (Window w in Windows)

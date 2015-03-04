@@ -2,40 +2,40 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TAlex.BeautifulFractals.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="RandomOrder" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="RandomOrder" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ExitOnMouseMove" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="ExitOnMouseMove" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Delay" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.TimeSpan" Scope="User">
+    <Setting Name="Delay" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="System.TimeSpan" Scope="User">
       <Value Profile="(Default)">00:00:03</Value>
     </Setting>
-    <Setting Name="ShowFractalCaptions" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="ShowFractalCaptions" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="PrimaryBackColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
+    <Setting Name="PrimaryBackColor" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
       <Value Profile="(Default)">#ff1e90ff</Value>
     </Setting>
-    <Setting Name="SecondaryBackColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
+    <Setting Name="SecondaryBackColor" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
       <Value Profile="(Default)">#ff000000</Value>
     </Setting>
-    <Setting Name="CaptionFontFamily" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.String" Scope="User">
+    <Setting Name="CaptionFontFamily" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="System.String" Scope="User">
       <Value Profile="(Default)">Arial</Value>
     </Setting>
-    <Setting Name="CaptionFontSize" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Double" Scope="User">
+    <Setting Name="CaptionFontSize" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="System.Double" Scope="User">
       <Value Profile="(Default)">12</Value>
     </Setting>
-    <Setting Name="CaptionFontColor" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
+    <Setting Name="CaptionFontColor" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="TAlex.BeautifulFractals.Rendering.Color" Scope="User">
       <Value Profile="(Default)">#ffffffff</Value>
     </Setting>
-    <Setting Name="BackGradientType" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="TAlex.BeautifulFractals.ViewModels.BackgroundGradientType" Scope="User">
+    <Setting Name="BackGradientType" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="TAlex.BeautifulFractals.ViewModels.BackgroundGradientType" Scope="User">
       <Value Profile="(Default)">Horizontal</Value>
     </Setting>
     <Setting Name="FractalsCollectionPath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">%localappdata%/T-Alex Software/Beautiful Fractals/Fractals.xml</Value>
     </Setting>
-    <Setting Name="CallUpgrade" Provider="TAlex.Common.Configuration.XmlSettingsProvider" Type="System.Boolean" Scope="User">
+    <Setting Name="CallUpgrade" Provider="TAlex.Common.Configuration.Providers.XmlSettingsProvider" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

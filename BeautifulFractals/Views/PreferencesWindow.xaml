@@ -5,7 +5,6 @@
         xmlns:viewmodels="clr-namespace:TAlex.BeautifulFractals.ViewModels"
         xmlns:behaviours="clr-namespace:TAlex.BeautifulFractals.Behaviours"
         xmlns:talex="http://schemas.talex-soft.com/2010/xaml/presentation"
-        xmlns:env="clr-namespace:TAlex.Common.Environment;assembly=TAlex.Common"
         Height="350" Width="480" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         DataContext="{Binding Source={StaticResource viewModelLocator}, Path=PreferencesWindowViewModel, Mode=OneTime}"
         Title="{Binding Title}">
@@ -311,14 +310,13 @@
                     <Image Source="/Resources/Images/logo_bg.png" Stretch="UniformToFill" Opacity="0.06" />
 
                     <Label Margin="0,25,0,0" FontSize="36" FontWeight="600" FontFamily="Segoe UI, Arial" VerticalAlignment="Top" HorizontalContentAlignment="Center"
-                        Content="{Binding AboutLogoTitle}">
+                        Content="{Binding AssemblyInfo.Title}">
                         <Label.BitmapEffect>
                             <DropShadowBitmapEffect Color="White" Direction="270" ShadowDepth="1" Softness="0" />
                         </Label.BitmapEffect>
                     </Label>
                     <Label Margin="0,17,75,0" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="500"
-                        
-                        Content="{Binding Version}">
+                        Content="{Binding AssemblyInfo.Version}">
                         <Label.BitmapEffect>
                             <DropShadowBitmapEffect Color="Black" Direction="90" ShadowDepth="1" Softness="0" />
                         </Label.BitmapEffect>
@@ -366,7 +364,8 @@
 
                     <!-- Copyright -->
                     <Label Margin="0,0,0,12" Padding="0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                        Content="{Binding Copyright}" Effect="{StaticResource textEffect}">
+                        ContentStringFormat="{}{0}. All rights reserved."
+                        Content="{Binding AssemblyInfo.Copyright}" Effect="{StaticResource textEffect}">
                     </Label>
                 </Grid>
             </TabItem>

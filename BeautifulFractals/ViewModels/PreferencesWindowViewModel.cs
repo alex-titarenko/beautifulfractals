@@ -11,9 +11,8 @@ using TAlex.BeautifulFractals.Properties;
 using TAlex.BeautifulFractals.Rendering;
 using TAlex.BeautifulFractals.Services;
 using TAlex.BeautifulFractals.Services.Windows;
-using TAlex.Common.Environment;
 using TAlex.Common.Extensions;
-using TAlex.Common.Licensing;
+using TAlex.Common.Models;
 using TAlex.Mvvm;
 using TAlex.Mvvm.Commands;
 using TAlex.Mvvm.Services;
@@ -27,7 +26,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         #region Fields
 
         protected readonly IAppSettings AppSettings;
-        protected readonly ApplicationInfo ApplicationInfo;
+        protected readonly AssemblyInfo AssemblyInfo;
         protected readonly IFractalsManager FractalManager;
         protected readonly IFontChooserDialogService FontChooserDialogService;
         protected readonly BeautifulFractals.Infrastructure.ICollectionViewFactory CollectionViewFactory;
@@ -50,7 +49,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return String.Format("{0} Preferences", ApplicationInfo.Title);
+                return String.Format("{0} Preferences", AssemblyInfo.Title);
             }
         }
 
@@ -283,7 +282,7 @@ namespace TAlex.BeautifulFractals.ViewModels
 
         public PreferencesWindowViewModel(
             IAppSettings appSettings,
-            ApplicationInfo applicationInfo,
+            AssemblyInfo assemblyInfo,
             FontChooserDialogService fontChooserDialogService,
             IFractalsManager fractalManager,
             BeautifulFractals.Infrastructure.ICollectionViewFactory collectionViewFactory,
@@ -291,7 +290,7 @@ namespace TAlex.BeautifulFractals.ViewModels
             IMessageService messageService)
         {
             AppSettings = appSettings;
-            ApplicationInfo = applicationInfo;
+            AssemblyInfo = assemblyInfo;
             FontChooserDialogService = fontChooserDialogService;
             FractalManager = fractalManager;
             CollectionViewFactory = collectionViewFactory;

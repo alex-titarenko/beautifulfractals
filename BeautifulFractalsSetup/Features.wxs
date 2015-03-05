@@ -6,6 +6,7 @@
       <Feature Id="RequiredComponents" Title="Required components" Description="Important components" Level="1" AllowAdvertise="no" Absent="disallow" InstallDefault="local">
         <ComponentRef Id="MainExecutable" />
         <ComponentRef Id="MainExecutableConfig" />
+        <ComponentRef Id="CMP_BeautifulFractalsCore" />
         <ComponentRef Id="CMP_TAlexCommon" />
         <ComponentRef Id="CMP_TAlexCommonDiagnostics" />
         <ComponentRef Id="CMP_TAlexCommonConfiguration" />

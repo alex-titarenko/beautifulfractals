@@ -8,7 +8,6 @@ using System.Xml.Serialization;
 using System.Globalization;
 using System.ComponentModel;
 using System.Runtime.Serialization;
-using System.Security.Permissions;
 
 
 namespace TAlex.BeautifulFractals.Rendering.ColorPalettes

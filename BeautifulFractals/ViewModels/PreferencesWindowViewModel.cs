@@ -58,12 +58,12 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return AppSettings.PrimaryBackColor;
+                return Color.Parse(AppSettings.PrimaryBackColor);
             }
 
             set
             {
-                AppSettings.PrimaryBackColor = value;
+                AppSettings.PrimaryBackColor = value.ToString();
                 RaisePropertyChanged(() => PrimaryBackColor);
             }
         }
@@ -72,12 +72,12 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return AppSettings.SecondaryBackColor;
+                return Color.Parse(AppSettings.SecondaryBackColor);
             }
 
             set
             {
-                AppSettings.SecondaryBackColor = value;
+                AppSettings.SecondaryBackColor = value.ToString();
                 RaisePropertyChanged(() => SecondaryBackColor);
             }
         }
@@ -183,12 +183,12 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             get
             {
-                return AppSettings.CaptionFontColor; 
+                return Color.Parse(AppSettings.CaptionFontColor); 
             }
 
             set
             {
-                AppSettings.CaptionFontColor = value;
+                AppSettings.CaptionFontColor = value.ToString();
             }
         }
 

@@ -10,7 +10,6 @@ using System.ComponentModel;
 
 namespace TAlex.BeautifulFractals.Rendering
 {
-    [Serializable, TypeConverter(typeof(ColorConverter))]
     public struct Color : IXmlSerializable
     {
         #region Fields
@@ -329,7 +328,7 @@ namespace TAlex.BeautifulFractals.Rendering
 
         void IXmlSerializable.ReadXml(XmlReader reader)
         {
-            string str = reader.ReadElementString();
+            string str = reader.ReadElementContentAsString();
             Color c = Parse(str);
             value = c.value;
         }
@@ -340,54 +339,5 @@ namespace TAlex.BeautifulFractals.Rendering
         }
 
         #endregion
-    }
-
-    public class ColorConverter : TypeConverter
-    {
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
-        {
-            return ((sourceType == typeof(string)) || base.CanConvertFrom(context, sourceType));
-        }
-
-        public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
-        {
-            return base.CanConvertTo(context, destinationType);
-        }
-
-
-        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
-        {
-            string str = value as string;
-            if (str == null)
-            {
-                return base.ConvertFrom(context, culture, value);
-            }
-
-            return Color.Parse(str);
-        }
-
-        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
-        {
-            if (destinationType == null)
-            {
-                throw new ArgumentNullException("destinationType");
-            }
-
-            if (value is Color)
-            {
-                if (destinationType == typeof(string))
-                {
-                    Color color = (Color)value;
-                    if (color == Color.Empty)
-                    {
-                        return string.Empty;
-                    }
-
-                    return color.ToString();
-                }
-            }
-
-            return base.ConvertTo(context, culture, value, destinationType);
-        }
     }
 }

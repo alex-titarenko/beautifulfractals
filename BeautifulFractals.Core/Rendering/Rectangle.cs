@@ -6,7 +6,6 @@ using System.Xml.Serialization;
 
 namespace TAlex.BeautifulFractals.Rendering
 {
-    [Serializable]
     public struct Rectangle
     {
         public static readonly Rectangle Empty;

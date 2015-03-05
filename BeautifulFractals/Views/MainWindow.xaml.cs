@@ -100,8 +100,8 @@ namespace TAlex.BeautifulFractals
             Properties.Settings settings = Properties.Settings.Default;
 
             Rendering.LinearGradientBrush backgroundBrush = new Rendering.LinearGradientBrush();
-            backgroundBrush.FromColor = settings.PrimaryBackColor;
-            backgroundBrush.ToColor = settings.SecondaryBackColor;
+            backgroundBrush.FromColor = TAlex.BeautifulFractals.Rendering.Color.Parse(settings.PrimaryBackColor);
+            backgroundBrush.ToColor = TAlex.BeautifulFractals.Rendering.Color.Parse(settings.SecondaryBackColor);
             backgroundBrush.Angle = GetGradientAngle(settings.BackGradientType);
 
             context.Clear(backgroundBrush);
@@ -122,7 +122,7 @@ namespace TAlex.BeautifulFractals
                         context.DrawString(
                             fractal.Caption,
                             captionFont,
-                            settings.CaptionFontColor,
+                            TAlex.BeautifulFractals.Rendering.Color.Parse(settings.CaptionFontColor),
                             CalculateCaptionPosition(context, fractal.Caption, captionFont));
                     }
 

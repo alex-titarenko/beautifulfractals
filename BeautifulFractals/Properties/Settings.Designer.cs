@@ -79,9 +79,9 @@ namespace TAlex.BeautifulFractals.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(TAlex.Common.Configuration.Providers.XmlSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#ff1e90ff")]
-        public global::TAlex.BeautifulFractals.Rendering.Color PrimaryBackColor {
+        public string PrimaryBackColor {
             get {
-                return ((global::TAlex.BeautifulFractals.Rendering.Color)(this["PrimaryBackColor"]));
+                return ((string)(this["PrimaryBackColor"]));
             }
             set {
                 this["PrimaryBackColor"] = value;
@@ -92,9 +92,9 @@ namespace TAlex.BeautifulFractals.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(TAlex.Common.Configuration.Providers.XmlSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#ff000000")]
-        public global::TAlex.BeautifulFractals.Rendering.Color SecondaryBackColor {
+        public string SecondaryBackColor {
             get {
-                return ((global::TAlex.BeautifulFractals.Rendering.Color)(this["SecondaryBackColor"]));
+                return ((string)(this["SecondaryBackColor"]));
             }
             set {
                 this["SecondaryBackColor"] = value;
@@ -131,9 +131,9 @@ namespace TAlex.BeautifulFractals.Properties {
         [global::System.Configuration.SettingsProviderAttribute(typeof(TAlex.Common.Configuration.Providers.XmlSettingsProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#ffffffff")]
-        public global::TAlex.BeautifulFractals.Rendering.Color CaptionFontColor {
+        public string CaptionFontColor {
             get {
-                return ((global::TAlex.BeautifulFractals.Rendering.Color)(this["CaptionFontColor"]));
+                return ((string)(this["CaptionFontColor"]));
             }
             set {
                 this["CaptionFontColor"] = value;

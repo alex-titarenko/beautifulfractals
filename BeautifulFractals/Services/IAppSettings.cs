@@ -11,9 +11,9 @@ namespace TAlex.BeautifulFractals.Services
 {
     public interface IAppSettings
     {
-        Color PrimaryBackColor { get; set; }
+        string PrimaryBackColor { get; set; }
 
-        Color SecondaryBackColor {get; set; }
+        string SecondaryBackColor {get; set; }
 
         BackgroundGradientType BackGradientType { get; set; }
 
@@ -30,7 +30,7 @@ namespace TAlex.BeautifulFractals.Services
 
         double CaptionFontSize { get; set; }
 
-        Color CaptionFontColor { get; set; }
+        string CaptionFontColor { get; set; }
 
         string FractalsCollectionPath { get; }
 

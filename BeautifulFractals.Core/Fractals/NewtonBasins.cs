@@ -13,10 +13,6 @@ namespace TAlex.BeautifulFractals.Fractals
     /// </summary>
     public class NewtonBasins : AlgebraicFractal2D
     {
-        #region Fields
-
-        #endregion
-
         #region Properties
 
         public override string Caption

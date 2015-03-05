@@ -142,9 +142,6 @@
     <Compile Include="Locators\Modules\BaseServicesNinjectModule.cs" />
     <Compile Include="Locators\Modules\ViewModelNinjectModule.cs" />
     <Compile Include="Locators\ViewModelLocator.cs" />
-    <Compile Include="Rendering\ColorPalettes\PredefinedColorPalette.cs" />
-    <Compile Include="Rendering\Font.cs" />
-    <Compile Include="Rendering\LinearGradientBrush.cs" />
     <Compile Include="Services\IAppSettings.cs" />
     <Compile Include="Services\Windows\ApplicationService.cs" />
     <Compile Include="Services\Windows\FontChooserDialogService.cs" />
@@ -162,21 +159,7 @@
     <Compile Include="Views\PreferencesWindow.xaml.cs">
       <DependentUpon>PreferencesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Rendering\Color.cs" />
-    <Compile Include="Rendering\ColorPalettes\ColorPalette.cs" />
-    <Compile Include="Rendering\ColorPalettes\FireColorPalette.cs" />
-    <Compile Include="Rendering\ColorPalettes\IColorPalette.cs" />
-    <Compile Include="Rendering\ColorPalettes\MonochromeColorPalette.cs" />
-    <Compile Include="Rendering\ColorPalettes\MulticoloredColorPalette.cs" />
-    <Compile Include="Rendering\ColorPalettes\OrangeBlueColorPalette.cs" />
-    <Compile Include="Rendering\ColorPalettes\RainbowColorPalette.cs" />
-    <Compile Include="Rendering\ColorPalettes\TransitionColorPalette.cs" />
     <Compile Include="Rendering\GdiGraphicsContext.cs" />
-    <Compile Include="Rendering\IGraphics2DContext.cs" />
-    <Compile Include="Rendering\IGraphics3DContext.cs" />
-    <Compile Include="Rendering\Point.cs" />
-    <Compile Include="Rendering\Rectangle.cs" />
-    <Compile Include="Rendering\Size.cs" />
     <Compile Include="Helpers\Win32.cs" />
     <Compile Include="ScreensaverCommandLineArgs.cs" />
     <Compile Include="Views\PreviewWindow.xaml.cs">
@@ -190,23 +173,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Fractals\AlgebraicFractal2D.cs" />
-    <Compile Include="Fractals\ApollonianGasket.cs" />
-    <Compile Include="Fractals\CantorDust.cs" />
-    <Compile Include="Fractals\CantorSet.cs" />
-    <Compile Include="Fractals\Fractal.cs" />
-    <Compile Include="Fractals\Fractal2D.cs" />
-    <Compile Include="Fractals\Fractal3D.cs" />
-    <Compile Include="Fractals\GeometricFractal2D.cs" />
-    <Compile Include="Fractals\Hopalong.cs" />
-    <Compile Include="Fractals\IFS.cs" />
-    <Compile Include="Fractals\JuliaSet.cs" />
-    <Compile Include="Fractals\LSystem.cs" />
-    <Compile Include="Fractals\MandelbrotSet.cs" />
-    <Compile Include="Fractals\NewtonBasins.cs" />
-    <Compile Include="Fractals\PhoenixSet.cs" />
-    <Compile Include="Fractals\SierpinskiCarpet.cs" />
-    <Compile Include="Fractals\SierpinskiTriangle.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -267,6 +233,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fractals.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeautifulFractals.Core\BeautifulFractals.Core.csproj">
+      <Project>{88171280-57f3-43ae-8fc2-6d5e3861c944}</Project>
+      <Name>BeautifulFractals.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

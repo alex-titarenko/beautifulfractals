@@ -11,6 +11,10 @@
       <Component Id="MainExecutableConfig" Guid="FC9945EA-AD5A-4835-A1F6-566526CD936E">
         <File Id="MainExecutableConfigFile" Name="$(var.MainExecutableFileName).config" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />
       </Component>
+      <!-- BeautifulFractals.Core -->
+      <Component Id="CMP_BeautifulFractalsCore" Guid="56D8C641-639E-4D1F-AFA8-D08BD71AF91F">
+        <File Id="FILE_BeautifulFractalsCore" Name="BeautifulFractals.Core.dll" Source="$(var.BeautifulFractals.TargetPath)" DiskId="1" KeyPath="yes"></File>
+      </Component>
       <!-- TAlex.Common -->
       <Component Id="CMP_TAlexCommon" Guid="E16370DD-C930-4080-B9D6-DCFE6A6AF1B3">
         <File Id="FILE_TAlexCommon" Name="TAlex.Common.dll" Source="$(var.BeautifulFractals.TargetDir)" DiskId="1" KeyPath="yes" />

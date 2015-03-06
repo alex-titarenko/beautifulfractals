@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include>
   <?define ProductName = "Beautiful Fractals" ?>
-  <?define ProductVersion="2.0.1" ?>
+  <?define ProductVersion="2.1.0" ?>
   <?define Manufacturer = "T-Alex Software" ?>
   <?define UpgradeCode="ca343e21-581b-43bd-92af-c04a8cc4e692" ?>
 
@@ -9,5 +9,5 @@
   <?define SupportLink="http://www.talex-soft.com" ?>
   <?define HelpLink="http://www.talex-soft.com" ?>
   <?define UpdateInformation="http://www.talex-soft.com" ?>
-  <?define Copyright="Copyright © 2013 T-Alex Software" ?>
+  <?define Copyright="Copyright © 2015 T-Alex Software" ?>
 </Include>

@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{471C5A
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautifulFractals.Tests", "BeautifulFractals\Test\BeautifulFractals.Tests.csproj", "{6C097706-86D8-4CD2-8D23-76FFF1440C58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautifulFractals.Tests", "BeautifulFractals.Tests\BeautifulFractals.Tests.csproj", "{6C097706-86D8-4CD2-8D23-76FFF1440C58}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0CA6F509-CBEA-4B51-BF06-2609DEE02ACD}"
 EndProject

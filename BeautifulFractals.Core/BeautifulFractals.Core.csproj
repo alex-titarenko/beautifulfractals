@@ -8,7 +8,7 @@
     <ProjectGuid>{88171280-57F3-43AE-8FC2-6D5E3861C944}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BeautifulFractals.Core</RootNamespace>
+    <RootNamespace>TAlex.BeautifulFractals.Core</RootNamespace>
     <AssemblyName>BeautifulFractals.Core</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>

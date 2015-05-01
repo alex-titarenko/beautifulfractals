@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include>
   <?define ProductName = "Beautiful Fractals" ?>
-  <?define ProductVersion="2.1.0" ?>
+  <?define ProductVersion="2.1.1" ?>
   <?define Manufacturer = "T-Alex Software" ?>
   <?define UpgradeCode="ca343e21-581b-43bd-92af-c04a8cc4e692" ?>
 

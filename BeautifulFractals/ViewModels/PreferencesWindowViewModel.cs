@@ -218,6 +218,7 @@ namespace TAlex.BeautifulFractals.ViewModels
                 lock (_syncObj)
                 {
                     Set(() => FractalsSearchQuery, ref _fractalsSearchQuery, value);
+                    ClearSearchQueryCommand.RaiseCanExecuteChanged();
                     UpdateSearchPredicate();
                     _fractalsView.Refresh();
                 }

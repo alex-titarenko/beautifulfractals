@@ -80,6 +80,10 @@ namespace TAlex.BeautifulFractals.ViewModels
             }
         }
 
+        #endregion
+
+        #region Commands
+
         public ICommand ShowPrevCommand { get; set; }
 
         public ICommand ShowNextCommand { get; set; }
@@ -139,6 +143,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             FractalCollection.MoveCurrentToPrevious();
             RenderFractal();
+            RaiseCanExecuteChanged();
         }
 
         private bool ShowPrevCommandCanExecute()
@@ -150,6 +155,7 @@ namespace TAlex.BeautifulFractals.ViewModels
         {
             FractalCollection.MoveCurrentToNext();
             RenderFractal();
+            RaiseCanExecuteChanged();
         }
 
         private bool ShowNextCommandCanExecute()
@@ -164,6 +170,12 @@ namespace TAlex.BeautifulFractals.ViewModels
             {
                 RenderFractal();
             }
+        }
+
+        private void RaiseCanExecuteChanged()
+        {
+            ShowPrevCommand.RaiseCanExecuteChanged();
+            ShowNextCommand.RaiseCanExecuteChanged();
         }
 
         #endregion

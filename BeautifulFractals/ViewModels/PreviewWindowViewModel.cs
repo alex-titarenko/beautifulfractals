@@ -107,7 +107,7 @@ namespace TAlex.BeautifulFractals.ViewModels
 
             Task.Run(() =>
             {
-                WriteableBitmap wb = BitmapFactory.New((int)PlotWidth, (int)PlotHeight);
+                WriteableBitmap wb = new WriteableBitmap((int)(PlotWidth * 1.5), (int)(PlotHeight * 1.5), 96, 96, PixelFormats.Bgra32, null); //BitmapFactory.New((int)PlotWidth, (int)PlotHeight);
                 
                 Fractal2D targetFractal = FractalCollection.CurrentItem as Fractal2D;
 

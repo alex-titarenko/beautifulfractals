@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net;
 using System.IO;
-using TAlex.Common.Diagnostics.ErrorReporting;
+using TAlex.Common.Diagnostics.Reporting;
 using System.Net.Mail;
 using System.Diagnostics;
 using TAlex.Common.Models;

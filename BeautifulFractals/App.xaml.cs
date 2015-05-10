@@ -10,7 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Interop;
 using System.Windows.Threading;
 using TAlex.Common.Extensions;
-using TAlex.Common.Diagnostics.ErrorReporting;
+using TAlex.Common.Diagnostics.Reporting;
 using TAlex.BeautifulFractals.Helpers;
 using TAlex.BeautifulFractals.Locators;
 using TAlex.BeautifulFractals.Views;

@@ -1,6 +1,6 @@
 # Beautiful Fractals
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ippmfkux1bwgg2dh?svg=true)](https://ci.appveyor.com/project/T-Alex/beautifulfractals)
+[![Build status](https://ci.appveyor.com/api/projects/status/ippmfkux1bwgg2dh?svg=true)](https://ci.appveyor.com/project/alex-titarenko/beautifulfractals)
 
 Beautiful Fractals Screensaver written on C# using WPF and GDI+.
 
